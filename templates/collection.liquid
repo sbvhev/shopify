@@ -1,0 +1,66 @@
+<div class="container collections-loop">
+{% paginate collection.products by 100 %}
+
+    {% assign products_temp = collection.products | sort: 'price' %}
+    {% for product in products_temp %}
+      {% if forloop.first == true %}
+          {% assign price_min = product.price_min %}
+      {% endif %}
+      {% if forloop.last == true %}
+          {% assign price_max = product.price_max %}
+      {% endif %}
+    {% endfor %}
+    {% if price_min != price_max %}
+      {% capture collection_price %}
+        {{ price_min | money }}-{{ price_max | money_without_currency }}
+      {% endcapture %}
+    {% else %}
+      {% capture collection_price %}
+        {{ price_min | money }}
+      {% endcapture %}
+    {% endif %}
+
+    <div class="collection-header clearfix">
+    <h2 class="collection-title">{{ collection.title }}</h2>
+      
+    <div class="collection-subtitle">{% if collection.description != blank %}<span class="collection-description">{{ collection.description }}</span> | {% endif %}<span class="collection-price">{{ collection_price }}</span></div>
+
+    <select name="tag_filter" id="tag_filter">
+      <option {% unless current_tags %}selected="selected"{% endunless %} value="{% if collection.handle == "all" %}/collections/all{% else %}{{ collection.url }}{% endif %}">Shop by size</option>
+      {% for tag in collection.all_tags %}
+      {% unless tag contains 'meta-related-collection-' %}
+      <option {% if current_tags contains tag %}selected="selected"{% endif %} value="/collections/{% if collection.handle != blank %}{{ collection.handle }}{% else %}all{% endif %}/{{ tag | handleize }}">{{ tag }}</option>
+      {% endunless %}
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="products-loop">
+    {% if collection.products.size == 0 %}
+    <div class="section clearfix">
+      <p class="quote">No products found in this collection.</p>
+    </div>
+    {% else %}
+    {% assign products = collection.products %}
+    {% include 'product-loop' %}
+    {% endif %}
+  </div>  
+
+{% comment %}
+{% include 'pagination' with settings.collection_sidebar %}
+{% endcomment %}
+
+{% if paginate.next %}
+<div id="more">&darr; <a id="NextPageLinkSelector" href="{{ paginate.next.url }}">More</a></div>        
+{% endif %}
+<div id="product-list-foot"></div>
+{% endpaginate %}
+</div>
+  
+<script type="text/javascript"> 
+var google_tag_params = { 
+ecomm_prodid: '', 
+ecomm_pagetype: 'category', 
+ecomm_totalvalue: 
+}; 
+</script>

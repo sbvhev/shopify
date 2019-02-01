@@ -1,0 +1,133 @@
+{% unless settings.slideshow_enabled == blank %}
+<div class="hero flexslider">
+  <ul class="slides">
+    
+    {% unless settings.slideshow_1_enabled == blank %}
+    <li>
+      {% if settings.image_1_type == 'mp4' %}
+        <div class='embed-container'>{{ settings.image_1_video_embed }}</div>
+      {% else %}
+        <a href="{{ settings.image_1_link }}">
+          {% if settings.image_1_type == 'gif' %}
+            <img src="{{ 'slideshow_1.gif' | asset_url }}" alt="{{ settings.image_1_alt_text | escape }}" />
+          {% else %}
+            <img src="{{ 'slideshow_1.jpg' | asset_url }}" alt="{{ settings.image_1_alt_text | escape }}" />
+          {% endif %}
+        </a>
+      {% endif %}
+      {% unless settings.image_1_headline == blank and settings.image_1_subtitle == blank and settings.image_1_button_text == blank %}
+      <div class="hero-caption{% if settings.image_1_text_align == 'right' %} align-right {% elsif settings.image_1_text_align == 'center' %} align-center{% endif %}">
+        <div class="container">
+            {% unless settings.image_1_headline == blank %}<h3 class="headline" {% unless settings.image_1_headline_color == blank %}style="color:{{ settings.image_1_headline_color }}"{% endunless %}>{{ settings.image_1_headline }}</h3>{% endunless %}
+            {% unless settings.image_1_subtitle == blank %}<div class="subtitle" {% unless settings.image_1_subtitle_color == blank %}style="color:{{ settings.image_1_subtitle_color }}"{% endunless %}><p>{{ settings.image_1_subtitle }}</p></div>{% endunless %}
+            {% unless settings.image_1_button_text == blank %}<a href="{{ settings.image_1_link }}" class="action_button" {% unless settings.image_1_button_color == blank %}style="color:{{ settings.image_1_button_color }}; border-color:{{ settings.image_1_button_color }}"{% endunless %}>{{ settings.image_1_button_text }}</a>{% endunless %}
+        </div>
+      </div>
+      {% endunless %}
+    </li>
+    {% endunless %}
+    
+    {% unless settings.slideshow_2_enabled == blank %}
+    <li>
+      {% if settings.image_2_type == 'mp4' %}
+        <div class='embed-container'>{{ settings.image_2_video_embed }}</div>
+      {% else %}
+        <a href="{{ settings.image_2_link }}">
+          {% if settings.image_2_type == 'gif' %}
+            <img src="{{ 'slideshow_2.gif' | asset_url }}" alt="{{ settings.image_2_alt_text | escape }}" />
+          {% else %}
+            <img src="{{ 'slideshow_2.jpg' | asset_url }}" alt="{{ settings.image_2_alt_text | escape }}" />
+          {% endif %}
+        </a>
+      {% endif %}
+      {% unless settings.image_2_headline == blank and settings.image_2_subtitle == blank and settings.image_2_button_text == blank %}
+      <div class="hero-caption{% if settings.image_2_text_align == 'right' %} align-right {% elsif settings.image_2_text_align == 'center' %} align-center{% endif %}">
+        <div class="container">
+            {% unless settings.image_2_headline == blank %}<h3 class="headline" {% unless settings.image_2_headline_color == blank %}style="color:{{ settings.image_2_headline_color }}"{% endunless %}>{{ settings.image_2_headline }}</h3>{% endunless %}
+            {% unless settings.image_2_subtitle == blank %}<div class="subtitle" {% unless settings.image_2_subtitle_color == blank %}style="color:{{ settings.image_2_subtitle_color }}"{% endunless %}><p>{{ settings.image_2_subtitle }}</p></div>{% endunless %}
+            {% unless settings.image_2_button_text == blank %}<a href="{{ settings.image_2_link }}" class="action_button" {% unless settings.image_2_button_color == blank %}style="color:{{ settings.image_2_button_color }}; border-color:{{ settings.image_2_button_color }}"{% endunless %}>{{ settings.image_2_button_text }}</a>{% endunless %}
+        </div>
+      </div>
+      {% endunless %}
+    </li>
+    {% endunless %}
+    
+    {% unless settings.slideshow_3_enabled == blank %}
+    <li>
+      {% if settings.image_3_type == 'mp4' %}
+        <div class='embed-container'>{{ settings.image_3_video_embed }}</div>
+      {% else %}
+        <a href="{{ settings.image_3_link }}">
+          {% if settings.image_3_type == 'gif' %}
+            <img src="{{ 'slideshow_3.gif' | asset_url }}" alt="{{ settings.image_3_alt_text | escape }}" />
+          {% else %}
+            <img src="{{ 'slideshow_3.jpg' | asset_url }}" alt="{{ settings.image_3_alt_text | escape }}" />
+          {% endif %}
+        </a>
+      {% endif %}
+      
+      {% unless settings.image_3_headline == blank and settings.image_3_subtitle == blank and settings.image_3_button_text == blank %}
+      <div class="hero-caption {% if settings.image_3_text_align == 'right' %} align-right {% elsif settings.image_3_text_align == 'center' %} align-center{% endif %}">
+        <div class="container">
+            {% unless settings.image_3_headline == blank %}<h3 class="headline" {% unless settings.image_3_headline_color == blank %}style="color:{{ settings.image_3_headline_color }}"{% endunless %}>{{ settings.image_3_headline }}</h3>{% endunless %}
+            {% unless settings.image_3_subtitle == blank %}<div class="subtitle" {% unless settings.image_3_subtitle_color == blank %}style="color:{{ settings.image_3_subtitle_color }}"{% endunless %}><p>{{ settings.image_3_subtitle }}</p></div>{% endunless %}
+            {% unless settings.image_3_button_text == blank %}<a href="{{ settings.image_3_link }}" class="action_button" {% unless settings.image_3_button_color == blank %}style="color:{{ settings.image_3_button_color }}; border-color:{{ settings.image_3_button_color }}"{% endunless %}>{{ settings.image_3_button_text }}</a>{% endunless %}
+        </div>
+      </div>
+      {% endunless %}
+    </li>
+    {% endunless %}
+    
+    {% unless settings.slideshow_4_enabled == blank %}
+    <li>
+      {% if settings.image_4_type == 'mp4' %}
+        <div class='embed-container'>{{ settings.image_4_video_embed }}</div>
+      {% else %}
+        <a href="{{ settings.image_4_link }}">
+          {% if settings.image_4_type == 'gif' %}
+            <img src="{{ 'slideshow_4.gif' | asset_url }}" alt="{{ settings.image_4_alt_text | escape }}" />
+          {% else %}
+            <img src="{{ 'slideshow_4.jpg' | asset_url }}" alt="{{ settings.image_4_alt_text | escape }}" />
+          {% endif %}
+        </a>
+      {% endif %}
+      {% unless settings.image_4_headline == blank and settings.image_4_subtitle == blank and settings.image_4_button_text == blank %}
+      <div class="hero-caption {% if settings.image_4_text_align == 'right' %} align-right {% elsif settings.image_4_text_align == 'center' %} align-center{% endif %}">
+        <div class="container">
+            {% unless settings.image_4_headline == blank %}<h3 class="headline" {% unless settings.image_4_headline_color == blank %}style="color:{{ settings.image_4_headline_color }}"{% endunless %}>{{ settings.image_4_headline }}</h3>{% endunless %}
+            {% unless settings.image_4_subtitle == blank %}<div class="subtitle" {% unless settings.image_4_subtitle_color == blank %}style="color:{{ settings.image_4_subtitle_color }}"{% endunless %}><p>{{ settings.image_4_subtitle }}</p></div>{% endunless %}
+            {% unless settings.image_4_button_text == blank %}<a href="{{ settings.image_4_link }}" class="action_button" {% unless settings.image_4_button_color == blank %}style="color:{{ settings.image_4_button_color }}; border-color:{{ settings.image_4_button_color }}"{% endunless %}>{{ settings.image_4_button_text }}</a>{% endunless %}
+        </div>
+      </div>
+      {% endunless %}
+    </li>
+    {% endunless %}
+    
+    {% unless settings.slideshow_5_enabled == blank %}
+    <li>
+      {% if settings.image_5_type == 'mp4' %}
+        <div class='embed-container'>{{ settings.image_5_video_embed }}</div>
+      {% else %}
+        <a href="{{ settings.image_5_link }}">
+          {% if settings.image_5_type == 'gif' %}
+            <img src="{{ 'slideshow_5.gif' | asset_url }}" alt="{{ settings.image_5_alt_text | escape }}" />
+          {% else %}
+            <img src="{{ 'slideshow_5.jpg' | asset_url }}" alt="{{ settings.image_5_alt_text | escape }}" />
+          {% endif %}
+        </a>
+      {% endif %}
+      {% unless settings.image_5_headline == blank and settings.image_5_subtitle == blank and settings.image_5_button_text and blank %}
+      <div class="hero-caption {% if settings.image_5_text_align == 'right' %} align-right {% elsif settings.image_5_text_align == 'center' %} align-center{% endif %}">
+        <div class="container">
+            {% unless settings.image_5_headline == blank %}<h3 class="headline" {% unless settings.image_5_headline_color == blank %}style="color:{{ settings.image_5_headline_color }}"{% endunless %}>{{ settings.image_5_headline }}</h3>{% endunless %}
+            {% unless settings.image_5_subtitle == blank %}<div class="subtitle" {% unless settings.image_5_subtitle_color == blank %}style="color:{{ settings.image_5_subtitle_color }}"{% endunless %}><p>{{ settings.image_5_subtitle }}</p></div>{% endunless %}
+            {% unless settings.image_5_button_text == blank %}<a href="{{ settings.image_5_link }}" class="action_button" {% unless settings.image_5_button_color == blank %}style="color:{{ settings.image_5_button_color }}; border-color:{{ settings.image_5_button_color }}"{% endunless %}>{{ settings.image_5_button_text }}</a>{% endunless %}
+        </div>
+      </div>
+      {% endunless %}
+    </li>
+    {% endunless %}
+    
+  </ul>
+</div>
+{% endunless %}

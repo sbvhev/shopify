@@ -1,0 +1,93 @@
+<div class="hero-siki-im">
+  <img src="{{ 'siki-launch-hero.jpg' | asset_url }}">
+  <div class="caption-wrap">
+   {% if settings.siki_logo_enable %}
+    <div class="siki-logo">
+      <img src="{{ 'Siki-Im-x-Beltology-Logo.png' | asset_url }}">
+    </div>
+	{% endif %}
+    <div class="siki-caption">
+      <p>{{ settings.banner_caption_text }}</p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="section clearfix">
+    <div class="page-caption">
+      <div class="page-heading">
+        <p>Designed by Siki Im</p>
+      </div>
+      <div class="page-subheading">
+        <p>{{ settings.detail_section_title }}</p>
+      </div>
+    </div>
+    <div class="siki-new-arrvals">
+     {% assign loop_val = 1  %}
+      
+      {% assign number = 0 %}
+      
+      {% for i in (1..3) %}	
+      
+      {% capture image %}listing_image_{{ i }}.jpg{% endcapture %}
+      {% capture title %}image_caption_{{ i }}{% endcapture %}
+      {% capture link %}image_link_{{ i }}{% endcapture %}
+      
+      {% assign number = forloop.index0 %}
+     
+      	
+      <div class="row">
+        {% assign loop_divided_val = loop_val  | modulo:2 %}
+        {% assign loop_val = loop_val | plus:1 %}
+
+        {% assign start_loop_val = number | times:2 %}
+        {% assign number = number | plus:1 %}
+        
+        
+        <div class="span8 {% if loop_divided_val == 0 %}right{% endif %}">
+          <a href="{{ settings[link] }}">
+            <div class="siki-banner" style="background-image: url({{ image | asset_url }})">
+              <div class="siki-banner_caption {% if loop_divided_val == 0 %}text-right{% endif %}">
+                <p>{{ settings[title] }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+
+        <div class="span4">
+
+          {% for product in collections[settings.siki_collection].products limit:2 offset: start_loop_val %}
+
+          <div class="thumbnail">  
+            <a href="{{ product.url | within: collection }}">
+              <div class="relative">
+                <img {% if settings.align_height %}style="max-height:{{ settings.collection_height }}px"{% endif %} src="{{ product.featured_image | product_img_url: 'large' }}" srcset="{{ product.featured_image | product_img_url: 'grande' }} 2x" alt="{{ product.featured_image.alt | escape }}" />
+
+                {% for option in product.options %}
+                {% if option == 'Size' %}
+                {% assign index = forloop.index0 %}
+                <div class="size-options">
+                  {% for variant in product.variants %}
+                  {% if variant.available %}
+                  <a href="{{ variant.url }}" class="size-link">{{ variant.options[index] | slice: 0,2 }}</a>
+                  {% endif %}
+                  {% endfor %}
+                </div>
+                {% endif %}
+                {% endfor %}
+              </div>
+            </a>
+          </div>  
+
+          {% endfor %}
+
+        </div>
+        
+      </div>
+	
+      {% endfor %}
+     
+     </div>
+    
+  </div>
+</div>

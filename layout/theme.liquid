@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" class="cbp-spmenu-push">
+  <head>
+    <!-- Pinterest site tag - Pinterest Ads Account -->
+    <meta name="p:domain_verify" content="89a5461c71def59e180ad38b48714a32"/>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-126971029-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-126971029-3');
+</script>
+
+
+    <meta name="google-site-verification" content="B30rqaGacfnWF_ZQlsnzzF_TKv75Lr5xW7J78fpEW0E" />
+
+  <meta charset="utf-8">
+  <title>
+    {% if template contains "index" and page_title != 'Welcome' %}
+      {{ page_title }}
+    {% elsif template contains "index" and pages[settings.homepage].title != blank %}
+      {{ pages[settings.homepage].title }} | {{ shop.name }}
+    {% else %}
+      {{ page_title }}
+      {% if current_tags %}tagged "{{ current_tags }}"{% endif %}
+      {% if current_page != 1 %}Page {{ current_page }}{% endif %}
+      | {{ shop.name }}
+    {% endif %}
+  </title>
+
+  {% include 'page-meta' %}
+  <meta name="robots" content="index,follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  {% if collection.previous_product %}
+  <link rel="prev" href="{{ collection.previous_product }}">
+  {% endif %}
+  {% if collection.next_product %}
+  <link rel="prev" href="{{ collection.next_product }}">
+  {% endif %}
+
+  <!-- Icons -->
+  <link rel="shortcut icon" type="image/x-icon" href="{{ 'favicon.png' | asset_url }}">
+  <link rel="canonical" href="{{ canonical_url }}" />
+
+  <!-- Styles -->
+  {% comment %}{{ '//opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css' | stylesheet_tag }}{% endcomment %}
+    {{ 'font-awesome.min.css' | asset_url | stylesheet_tag }}
+    {{ 'jquery.fullPage.css' | asset_url | stylesheet_tag }}
+    
+    {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
+    {{ 'slick.css' | asset_url | stylesheet_tag }}
+    {{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+
+
+
+    <!-- Scripts -->
+    {% comment %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdn.optimizely.com/js/3401110080.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    {% endcomment %}
+
+    {{ 'jquery.min.js' | asset_url | script_tag }}
+    {{ '3401110080.js' | asset_url | script_tag }}  
+    {{ 'jquery.blockUI.js' | asset_url | script_tag }}
+    {{ 'tytabs.jquery.min.js' | asset_url | script_tag }}
+    {{ 'jquery.fullPage.js' | asset_url | script_tag }}
+    {{ 'slick.js' | asset_url | script_tag }}
+    {{ 'parallax.min.js' | asset_url | script_tag }}
+
+    <script>
+      document.addEventListener("keydown", function(event) {
+        if(event.keyCode == 40) { //Enter keycode
+          $('header').addClass('sticky');
+        }
+        if(event.keyCode == 38) { //Enter keycode
+          setTimeout(function(){
+            if($('body').hasClass('fp-viewing-0')){
+              $('header').removeClass('sticky');         
+            }
+          },500)
+        }
+        
+      });
+      $(window).on('scroll',function() {
+        if($('body').hasClass('fp-viewing-0')){
+          $('header').removeClass('sticky');         
+        }
+      });
+    </script>
+
+    {{ content_for_header }}
+
+
+    <script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0066/6124.js" async="async"></script>
+
+    <script data-cfasync="false" type="text/javascript" async src="https://cdn.judge.me/shopify.js"></script>
+
+    <!-- Hotjar Tracking Code for https://www.beltology.com -->
+    <script>
+      (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:680363,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+    
+    
+ {% comment %}   
+   <!-- Start Visual Website Optimizer Asynchronous Code -->
+<script type='text/javascript'>
+var _vwo_code=(function(){
+var account_id=336079,
+settings_tolerance=2000,
+library_tolerance=2500,
+use_existing_jquery=false,
+/* DO NOT EDIT BELOW THIS LINE */
+f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+</script>
+<!-- End Visual Website Optimizer Asynchronous Code -->
+    {% endcomment %}
+    
+<!-- Start of beltology Zendesk Widget script -->
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=979bd23f-bd71-440b-b940-5ffb07ef9a2a"> </script>
+<!-- End of beltology Zendesk Widget script -->
+    
+
+<!-- Start of LiveChat (www.livechatinc.com) code 
+<script type="text/javascript">
+window.__lc = window.__lc || {};
+window.__lc.license = 9499685;
+window.__lc.chat_between_groups = false; 
+(function() {
+  var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+  lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+})();
+</script>
+<!-- End of LiveChat code -->
+  </head>
+
+  <body class="{{ template }} landingPage {% if template contains 'index' %}indexPage{% endif %}" id="{{ page_title | handle }}">  
+    {% include 'page-header' %}
+
+    <div class="main content container"> 
+
+      {% unless settings.featured_content_page == blank or template == 'index' %}
+      <div class="top-banner">
+        {{ pages[settings.featured_content_page].content }}
+      </div>
+      {% endunless %}
+
+      {{ content_for_layout }}
+
+    </div>
+    <script async type="text/javascript" src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=haRJAg"></script>
+
+    {% include 'page-footer' %}
+
+    <!-- Scripts -->
+    {% if template contains 'customer' %}
+    {{ "shopify_common.js" | shopify_asset_url | script_tag }}
+    {{ "customer_area.js"  | shopify_asset_url | script_tag }}
+    {% endif %}
+
+    {{ 'app.js' | asset_url | script_tag }}
+
+    <script>
+      $(window).scroll(function() {
+       var win_scroll = $(window).scrollTop();
+        if(win_scroll >= 200){
+          $('header').addClass('sticky');
+        }
+      });
+    </script>
+    
+    
+    {% if settings.product_slideshow_animation == 'zoom' %}
+    {{ "cloudzoom.js" | asset_url | script_tag }}
+    {% endif %}  
+
+
+    {% include 'newsletter-popup' %}
+
+    {% include 'klaviyo-email-signup' %}  
+    {% include 'klaviyo-website-tracking' %}  
+
+
+{% comment %}
+    {% include 'taboola' %} 
+{% endcomment %}    
+    
+    {{ '//assets.pcrl.co/js/jstracker.min.js'| script_tag }}
+
+    {% comment %}
+    <!-- CRITEO START-->
+    {% include 'criteo-tracking' %}
+    <!-- CRITEO END-->
+    {% endcomment %}
+
+    {% include 'judgeme_html_miracle' %}
+
+
+    {% include 'google-remarketing-tag' %}
+    
+    
+    <script>
+      $(document).ready(function() {
+        $('#fullpage').fullpage({
+          navigation: true
+        });
+        
+      });
+      jQuery('html').bind('mousewheel DOMMouseScroll', function (e,delta) {
+        var delta = (e.originalEvent.wheelDelta || -e.originalEvent.detail);
+        if(e.originalEvent.deltaY > 0){
+         	 $('header').addClass('sticky');
+        }
+        setTimeout(function(){
+          if($('body').hasClass('fp-viewing-0') == true){
+            $('header').removeClass('sticky');
+          }
+        },500);
+        
+        
+      });
+
+    </script>
+    
+    <script>
+    $(".product_images_slider").slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows:true
+    });
+      $('.product_images_slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+        var currentElem = $(this).parents('.collection-loop-item').siblings('.collection-loop-item').find('.product_images_slider');
+        currentElem.slick('slickGoTo', 0);
+      });
+//     $('#collections-menu #sizeFilter #tag_filter li').on('click',function(){
+//       var currentTags = [];
+//       var tagName =  $(this).text();
+// 	alert(tagName);
+//       if (Shopify.queryParams.constraint) {
+//         currentTags = Shopify.queryParams.constraint.split('+');
+//       }
+//       if (tagName) {
+//         var tagPos = currentTags.indexOf(tagName); 
+//         alert(tagPos);
+//         if (tagPos >= 0) {
+//           //tag already existed, remove tag
+//           currentTags.splice(tagPos, 1);
+//         } else {
+//           //tag not existed
+//           currentTags.push(tagName);
+//         }
+//       }
+//       if (currentTags.length) {
+//         Shopify.queryParams.constraint = currentTags.join('+');
+//       } else {
+//         delete Shopify.queryParams.constraint;
+//       }
+//     });
+     
+    </script>
+        
+    <script>
+  /* Product Tag Filters - Good for any number of filters on any type of collection pages */
+  var collFilters = jQuery('.size-filter li a');
+  collFilters.click(function() {
+    var newTags = [];
+      if (jQuery(this).text()) {
+        newTags.push(jQuery(this).text());
+      }
+   
+    if (newTags.length) {
+      var query = newTags.join('+');
+      window.location.href = jQuery('{{ 'tag' | link_to_tag: 'tag' }}').attr('href').replace('/' + 'tag', '/' + query);
+    }
+    else {
+      {% if collection.handle %}
+      window.location.href = '/collections/{{ collection.handle }}';
+      {% elsif collection.products.first.type == collection.title %}
+      window.location.href = '{{ collection.title | url_for_type }}';
+      {% elsif collection.products.first.vendor == collection.title %}
+      window.location.href = '{{ collection.title | url_for_vendor }}';
+      {% endif %}
+    }
+      $(".product_images_slider").slick({
+
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows:true
+    });                               
+  });
+
+  
+</script>
+    
+  </body>
+</html>

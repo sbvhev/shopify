@@ -1,0 +1,218 @@
+{% comment %}
+<div class="container">
+<div class="section clearfix">
+    {{ page.content }}
+</div>
+</div>
+{% endcomment %}
+
+{% if section.settings.enable_top_banner %}
+<div class="top-banner">
+  <div class="container">
+    <div class="banner-img">
+      <span>{{ 'andre_collab_logo.png' | asset_url | img_tag }}</span>
+     <img src="{% if section.settings.image_banner %}{{ section.settings.image_banner | img_url:'master' }}{% else %}{{ 'top-banner.jpg' | asset_url }}{% endif %}" />
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% if section.settings.collection != '' %}
+  <div class="belt-list clearfix">
+  {% for product in collections[section.settings.collection].products limit: 5 %}
+    <div class="belt-item">
+      <a href="{{product.url}}"><img src="{{product.featured_image | img_url:'master' }}" /></a>
+      {% assign values = '' %}
+      {% for option in product.options %}
+        {% if option == 'Size' %}
+          {% assign index = forloop.index0 %}
+          {% for variant in product.variants %}
+            {% if variant.available %}
+      			<span><a href="{{ variant.url }}">{{ variant.options[index] | slice: 0,2 }}</a></span>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  {%  endfor %}
+</div>
+{% endif %}
+
+
+{% if section.settings.enable_beltology_section %}
+<div class="beltology-content">
+  <div class="container">
+    <div class="content-bkg">
+      <div class="content">
+        <p>{{section.settings.beltology-content1}}</p>
+        <p>{{section.settings.beltology-content2}}</p>
+          <a href="{{section.settings.beltology_link}}" target="_blank" class="btn-shopNow">Shop André</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+ {% if section.blocks.size > 0 %}
+<div class="andre-section">
+  <div class="container">
+    <ul>
+      {% for block in section.blocks %}
+        {% if block.settings.image != blank %}
+        <li>
+          <a href="{{block.settings.link}}"><img src="{{ block.settings.image | img_url:'master' }}" /></a>
+          
+        </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endif %}
+
+{% if section.settings.enable_promo_bottom_section %}
+<div class="promo-banner promo-banner02 promo-banner-new">
+  <div class="container clearfix">
+    <div class="promo-img">
+        <img src="{{section.settings.promo_banner11 | img_url:'master' }}" />
+       <a href="{{section.settings.promo_banner1_url}}" class="btn-shopNow">SHOP NOW</a>
+    </div>
+    <div class="promo-img">
+        <img src="{{section.settings.promo_banner22 | img_url:'master' }}" />
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% if section.settings.enable_bottom_banner_section %}
+<div class="top-banner bottom-banner">
+  <div class="container">
+    <div class="banner-img">
+       <img src="{{section.settings.bottom_banner | img_url:'master' }}" />
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% if page_title == 'About Us' %}
+	{% include 'project-runway-fashion-popup' %}
+{% endif %}
+
+
+
+{% schema %}
+  {
+    "name": "Andre",
+    "settings": [
+       {
+      "type": "checkbox",
+      "id": "enable_top_banner",
+      "label": "enable Top Banner"
+      },
+      {
+      "type": "image_picker",
+      "id": "image_banner",
+      "label": "Banner Image"
+      },
+       {
+      "type": "collection",
+      "id": "collection",
+      "label": "Please select Collection"
+      },
+       {
+      "type": "checkbox",
+      "id": "enable_promo_section",
+      "label": "enable Promo Section"
+      },
+      {
+      "type": "image_picker",
+      "id": "promo_banner1",
+      "label": "Promo Image1"
+      },
+       {
+      "type": "url",
+      "id": "promo_banner1_url",
+      "label": "Link of Shop Button"
+      },
+      {
+      "type": "image_picker",
+      "id": "promo_banner2",
+      "label": "Promo Image2"
+      },
+     {
+      "type": "checkbox",
+      "id": "enable_beltology_section",
+      "label": "enable Beltology Section"
+      },
+     {
+      "type": "text",
+      "id": "beltology-content1",
+      "label": "Beltology Content Top"
+      },
+      {
+      "type": "text",
+      "id": "beltology-content2",
+      "label": "Beltology Content bottom"
+      },
+       {
+      "type": "text",
+      "id": "beltology_link",
+      "label": "Link of Button"
+      },
+       {
+      "type": "checkbox",
+      "id": "enable_promo_bottom_section",
+      "label": "enable Promo Section"
+       },
+        {
+      "type": "image_picker",
+      "id": "promo_banner11",
+      "label": "Promo Image1"
+      },
+      {
+      "type": "url",
+      "id": "promo_banner11_url",
+      "label": "Link of Shop Button"
+      },
+      {
+      "type": "image_picker",
+      "id": "promo_banner22",
+      "label": "Promo Image2"
+      },
+       {
+      "type": "checkbox",
+      "id": "enable_bottom_banner_section",
+      "label": "enable Bottom Banner Section"
+       },
+      {
+      "type": "image_picker",
+      "id": "bottom_banner",
+      "label": "Bottom Banner"
+      }
+    ],
+     "blocks": [
+      {
+        "type": "image",
+        "name": "Block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link of page"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

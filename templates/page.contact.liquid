@@ -1,0 +1,33 @@
+{% form 'contact' %}
+  {% if form.posted_successfully? %}
+    <p class="quote">Thanks for contacting us! We'll get back to you as soon as possible.</p>
+  {% endif %}
+
+  {% if form.errors %}
+    <p class="quote">Not all the fields have been filled in correctly. Please try again.</p>
+  {% endif %}
+
+  <div class="sixteen columns page">
+    {{ page.content }}
+  </div>
+
+  <div class="six columns offset-by-five span6">
+    <div class="three columns alpha span6">
+     <label for="contact_form_name">Name <span class="red">*</span></label>
+     <input type="text" id="contact_form_name" name="contact[name]" required value="{{ contact.fields.name }}" />
+    </div>
+    <div class="three columns omega span6">
+     <label for="contact_form_email">Email <span class="red">*</span></label>
+     <input type="text" id="contact_form_email" name="contact[email]" required pattern="[^ @]*@[^ @]*" value="{{ contact.fields.email }}"/>
+    </div>
+
+   <div class="columns">
+     <label for="contact_message">Message</label>       
+     <textarea id="contact_message" name="contact[body]" required rows="5">{{ contact.fields.body }}</textarea>
+
+      <input type='submit' class="submit action_button add_to_cart" value="Send" />
+    </div>
+  </div>
+
+{% endform %}
+  

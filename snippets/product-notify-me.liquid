@@ -1,0 +1,43 @@
+{% if settings.notify_me_form %} 
+<div class="notify_form" id="notify-form-{{ product.id }}" {% if product.available %}style="display:none"{% endif %}>
+    
+<form id="product_notify" class=" klaviyo_bare_embed_aYdKhq" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+  <input type="hidden" name="g" value="aYdKhq">
+  <div class="klaviyo_field_group">
+    <label for="k_id_email">Notify me when this product is available:</label>
+    {% if customer %}
+    <input type="hidden" value="{{ customer.email }}" name="email" id="k_id_email" />
+    {% else %}
+    <input type="email" value="" name="email" id="k_id_email" placeholder="Enter your email..." style="display:inline;margin-bottom:0px;width: 230px;" />
+    {% endif %}
+  </div>
+  <div class="klaviyo_form_actions">
+    <button type="submit" class="klaviyo_submit_button">Send</button>
+  </div>
+  <div class="klaviyo_messages">
+    <div class="success_message" style="display:none;"></div>
+    <div class="error_message" style="display:none;"></div>
+    </div>
+</form>
+
+</div>
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    if (typeof KlaviyoSubscribe !== 'undefined' ) {
+      KlaviyoSubscribe.attachToForms('#product_notify', {
+        custom_success_message: true,
+        success_message: '<em>Thanks! We will notify you when this product becomes available!<br/>Check your email for a confirmation message.</em>',
+        hide_form_on_success: true,
+        extra_properties: {
+          Product: '{{ product.title | remove: '"' }}',
+          ProductURL: '{{ shop.url }}{{ product.url }}',
+          Variant: '{{variant.title | remove: '"' }}',
+          SKU: '{{ variant.sku | remove: '"' }}'
+         }
+      });
+    }
+  });
+</script>
+
+
+{% endif %}

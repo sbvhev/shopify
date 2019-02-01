@@ -1,0 +1,420 @@
+<div class="faq_tabs_wrapper">  
+  <div class="container">
+    
+    <div class="faq_tabs_head">
+      <div class="container">
+      <div class="span-one-third">
+        <div class="faq-single-tabhead">
+          <a class="faq-smooth" href="#faq">
+            <img src="{{ section.settings.imageFAQ | img_url:"small" }}">
+            <div class="tab-title">{{ section.settings.faq_title }}</div>
+          </a>
+        </div>
+      </div>
+      <div class="span-one-third">
+        <div class="faq-single-tabhead">
+          <a class="faq-smooth" href="#customer-services">
+            <img src="{{ section.settings.imageService | img_url:"small"  }}">
+            <div class="tab-title">{{ section.settings.service_title }}</div>
+          </a>
+        </div>
+      </div>
+      <div class="span-one-third">
+        <div class="faq-single-tabhead">
+          <a class="faq-smooth" href="#contact-us">
+            <img src="{{ section.settings.imageContact | img_url:"small"  }}">
+            <div class="tab-title">{{ section.settings.contact_title }}</div>
+          </a>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    <div class="tab-single-wrap">
+    <div class="tab-single-section" id="faq">
+      <div class="tab-section-title">{{ section.settings.faq_title }}</div>
+      <div class="tab-section-content">
+        <div class="accordion">
+          
+          
+
+          <div class="accordion-wrapper active">
+            <div class="accordion-title">product information
+              <div class="title-symbol"></div>
+            </div>     
+
+            <div class="accordion-content">
+              {% for block in section.blocks %}                      
+              {% if block.settings.category contains 'product information' %}
+              <div class="faq-que-wrap">
+                <div class="faq-que">{{ block.settings.title }}</div>
+                <div class="faq-ans">{{ block.settings.answer1 }}</div>
+              </div>
+              {% endif %}
+              {% endfor %}  
+            </div>
+          </div>                 
+
+          <div class="accordion-wrapper">
+            <div class="accordion-title">orders and shipping
+              <div class="title-symbol"></div>
+            </div>
+            <div class="accordion-content">
+              {% for block in section.blocks %}                      
+              {% if block.settings.category contains 'orders and shipping' %}
+              <div class="faq-que-wrap">
+                <div class="faq-que">{{ block.settings.title  }}</div>
+                <div class="faq-ans">{{ block.settings.answer1  }}</div>
+              </div>
+              {% endif %}
+              {% endfor %}  
+            </div>
+          </div>
+
+          <div class="accordion-wrapper">
+            <div class="accordion-title">returns and exchanges
+              <div class="title-symbol"></div>
+            </div>
+            <div class="accordion-content">
+              {% for block in section.blocks %}                      
+              {% if block.settings.category contains 'returns and exchanges' %}
+              <div class="faq-que-wrap">
+                <div class="faq-que">{{ block.settings.title }}</div>
+                <div class="faq-ans">{{ block.settings.answer1  }}</div>
+              </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="tab-single-section" id="customer-services">
+      <div class="tab-section-title">{{ section.settings.service_title }}</div>
+      <div class="tab-section-content">
+        <div class="service-wrapper">
+          <div class="span3">
+            <div class="custom-service">
+              <div class="service-title">{{ section.settings.service_title1 }}</div> 
+              <div class="service-content">
+                {{ section.settings.service_content1 }}
+              </div>
+              <div class="service-link">
+                <a href="{{ section.settings.service_link_url1 }}">{{ section.settings.service_link1 }}</a>
+              </div>
+            </div>
+          </div>
+          <div class="span3">
+            <div class="custom-service">
+              <div class="service-title">{{ section.settings.service_title2 }}</div> 
+              <div class="service-content">
+                {{ section.settings.service_content2 }}
+              </div>
+              <div class="service-link">
+                <a href="{{ section.settings.service_link_url2 }}">{{ section.settings.service_link2 }}</a>
+              </div>
+            </div>
+          </div>
+          <div class="span3">
+            <div class="custom-service">
+              <div class="service-title">{{ section.settings.service_title3 }}</div>
+              <div class="service-content">
+                {{ section.settings.service_content3 }}
+              </div>
+              <div class="service-link">
+                <a href="{{ section.settings.service_link_url3 }}">{{ section.settings.service_link3 }}</a>
+              </div>
+            </div>
+          </div>
+          <div class="span3">
+            <div class="custom-service">
+              <div class="service-title">{{ section.settings.service_title4 }}</div>
+              <div class="service-content">
+                {{ section.settings.service_content4 }}              
+              </div>
+              <div class="service-link">
+                <a href="{{ section.settings.service_link_url4 }}">{{ section.settings.service_link4 }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="tab-single-section" id="contact-us">
+      <div class="tab-section-title">{{ section.settings.contact_title }}</div>
+      <div class="tab-section-content">
+        <div class="contact-us-wrapper">  
+          {% form 'contact' %}
+
+          {% if form.posted_successfully? %}
+          <p class="note form-success">
+            Your mail has been successfully sent
+          </p>
+          {% endif %}
+          {{ form.errors | default_errors }}
+
+          {% assign name_attr = 'contact.form.name' | t | handle %}
+
+          <div class="span6">
+            <label for="ContactFormName">Name*</label>
+            <input type="text" id="ContactFormName" name="name" name="contact[{{ name_attr }}]" class="custom-form-input" autocapitalize="words" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+          </div>
+          <div class="span6">
+            <label for="ContactFormEmail">Email*</label>
+            <input type="email" id="ContactFormEmail" name="contact[email]" class="custom-form-input" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
+          </div>
+          <div class="span12">
+            <label for="ContactFormMessage">Message</label>
+            <textarea id="ContactFormMessage" name="contact[body]" class="custom-form-textarea">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+          </div>
+          <div class="span12">
+            <button type="submit" name="submit">SEND</button>
+          </div>
+
+          {% endform %}
+        </div>
+      </div>
+    </div>
+   </div>
+    
+  </div>  
+</div>
+
+<script>
+  
+  function Tabclick(){
+   $('.faq-single-tabhead a[href^="#"]').click(function (event) {
+      event.preventDefault();
+      var navOffset = $('header').outerHeight();
+      var navOffset1 = $('.faq_tabs_head').outerHeight();
+
+      $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top - navOffset - navOffset1
+      }, 500);
+    });
+  };
+  
+  $(document).ready(function(){
+    $('.accordion-title').click(function () {   
+      var $this = $(this);
+      $(this).parent('.accordion-wrapper').siblings('.accordion-wrapper').removeClass('active'); 
+      $(this).parent('.accordion-wrapper').siblings('.accordion-wrapper').children('.accordion-content').slideUp(); 
+      $(this).siblings('.accordion-content').slideToggle();
+      $(this).parent('.accordion-wrapper').toggleClass('active');
+      
+      setTimeout(function(){
+        var navOffset = $('header').outerHeight();
+     	 var navOffset1 = $('.faq_tabs_head').outerHeight();
+
+        var offsetAmount = $('.accordion-wrapper.active').offset().top;
+        $('html,body').animate({
+          scrollTop : offsetAmount - navOffset - navOffset1
+        },500);
+      },500);
+      
+    });
+	Tabclick();      
+  });
+  
+  $(window).resize(function(){  
+  Tabclick();
+  });  
+  
+  function onScroll(event){        
+    var navOffset1 = $('.faq_tabs_head').outerHeight();
+    var scrollPos = $(document).scrollTop();
+    $('.faq-single-tabhead a[href^="#"]').each(function () {
+        var currLink = $(this);
+        var refElement = $(currLink.attr("href"));
+        if (refElement.position().top <= scrollPos + navOffset1  && refElement.position().top + refElement.height() > scrollPos) {
+            $('.faq-single-tabhead a[href^="#"]').css('opacity','0.2');
+            currLink.css('opacity','1');
+        }
+        else{
+            currLink.css('opacity','0.2');
+        }
+    });
+}
+  
+   $(document).on("scroll", onScroll);
+
+</script>
+
+
+{% schema %}
+    {
+    "name": "FAQ",
+    "settings": [
+    {
+    "type": "header",
+    "content":"Page headings"
+    },
+    {
+    "type": "text",
+    "id":"faq_title",
+    "label":"Text for FAQ title"
+    },
+	{
+		"type": "image_picker",
+		"label":"Image for FAQ",
+		"id":"imageFAQ"
+	},
+    {
+    "type": "text",
+    "id":"service_title",
+    "label":"Text for Service title"
+    },
+	{
+		"type": "image_picker",
+		"label":"Image for Service",
+		"id":"imageService"
+	},
+    {
+    "type": "text",
+    "id":"contact_title",
+    "label":"Text for contact title"
+    },
+	{
+		"type": "image_picker",
+		"label":"Image for Contact",
+		"id":"imageContact"
+	},
+ 	{
+      "type": "header",
+      "content":"Customer service"
+  	},
+ 	{
+      "type": "text",
+      "id":"service_title1",
+      "label":"Title for service1"
+    },
+	{
+     "type" : "richtext",
+     "id" : "service_content1",
+     "label" : "Description for Service1"
+   	},
+	{
+      "type": "text",
+      "id":"service_link1",
+      "label":"Service link1"
+    },
+	{
+      "type": "url",
+      "id":"service_link_url1",
+      "label":"Service link1 URL"
+    },
+	{
+      "type": "text",
+      "id":"service_title2",
+      "label":"Title for service2"
+    },
+	{
+     "type" : "richtext",
+     "id" : "service_content2",
+     "label" : "Description for Service2"
+   	},
+	{
+      "type": "text",
+      "id":"service_link2",
+      "label":"Service link2"
+    },
+	{
+      "type": "url",
+      "id":"service_link_url2",
+      "label":"Service link2 URL"
+    },
+	{
+      "type": "text",
+      "id":"service_title3",
+      "label":"Title for service3"
+    },
+	{
+     "type" : "richtext",
+     "id" : "service_content3",
+     "label" : "Description for Service3"
+   	},
+	{
+      "type": "text",
+      "id":"service_link3",
+      "label":"Service link3"
+    },
+	{
+      "type": "url",
+      "id":"service_link_url3",
+      "label":"Service link3 URL"
+    },
+	{
+      "type": "text",
+      "id":"service_title4",
+      "label":"Title for service4"
+    },
+	{
+     "type" : "richtext",
+     "id" : "service_content4",
+     "label" : "Description for Service4"
+   	},
+	{
+      "type": "text",
+      "id":"service_link4",
+      "label":"Service link4"
+    },
+	{
+      "type": "url",
+      "id":"service_link_url4",
+      "label":"Service link4 URL"
+    }
+    ],
+"blocks" : [
+ {
+ "type" : "text",
+ "name" : "FAQ blocks",
+ "settings" : [
+   {
+     "type" : "header",
+     "content" : "Question"
+   },
+   {
+     "type" : "text",
+     "id" : "title",
+     "label" : "Question"
+  },
+  {
+    "type" : "textarea",
+    "id" : "answer1",
+    "label" : "Answer"
+  }, 
+        
+   {
+     "type":      "select",
+     "id":        "category",
+     "label":     "Select the Category",
+     "options": [
+   {    
+     "value": "product information",
+     "label": "product information"
+   },
+   {    
+     "value": "orders and shipping",
+     "label": "orders and shipping"
+   },
+   {    
+      "value": "returns and exchanges",
+      "label": "returns and exchanges"
+   }   
+  ],
+  	  "default":   "product information"    
+  }
+  ]
+  }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

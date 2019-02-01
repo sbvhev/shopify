@@ -1,0 +1,22 @@
+{{ '//www.klaviyo.com/media/js/public/klaviyo_subscribe.js'| script_tag }}
+<script type="text/javascript">
+  KlaviyoSubscribe.attachToForms('#email_signup', {
+    hide_form_on_success: true,
+    success_message: 'THANK YOU, PLEASE CHECK YOUR INBOX!',
+    extra_properties: {
+      $source: 'Website footer'
+    },
+    success: function ($form) {
+      var email = $form.find('[name="email"]').val();
+      _learnq.push(['identify', { $email: email }]);
+      _learnq.push(['track', 'Signed Up for Newsletter']);
+    }
+  });
+  KlaviyoSubscribe.attachToForms('#siki_signup', {
+    hide_form_on_success: true,
+    success: function(){
+              $('#siki-signup-txt').hide();
+            },
+    success_message: 'Thank you. You will be the first to know when this collection is available.'
+  });
+</script>

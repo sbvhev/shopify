@@ -1,0 +1,118 @@
+<footer class="section">
+  <div class="container">
+    <ul class="menu">
+      {% for link in linklists['landing-footer'].links %}
+      <li><a href="{{ link.url }}" title="{{ link.title }}" class="{% if link.active %}active{% endif %}">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+    <ul class="footer_social">
+      {% if settings.social_insta_link != blank %}
+      <li>
+        <a href="{{ settings.social_insta_link }}" target="_blank">
+          <i class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+      </li>
+      {% endif %}
+
+      <li>
+        <a href="https://www.facebook.com/Beltology/" target="_blank">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+        </a>
+      </li>
+      {% if settings.social_mail_link != blank %}
+      <li>
+        <a href="mailto:{{ settings.social_mail_link }}" target="_blank">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        </a>
+      </li>
+      {% endif %}
+      {% if settings.social_twitter_link != blank %}
+      <li>
+        <a href="{{ settings.social_twitter_link }}" target="_blank">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+      {% endif %}
+
+    </ul>
+  </div>
+</footer>
+{% comment %}
+<div class="footer">
+  <div class="container">
+    
+    <div class="span-one-third">
+      {% if settings.footer_linklist_1 != blank %}
+      <h3>{{ linklists[settings.footer_linklist_1].title }}</h3>
+      <ul class="footer_menu">
+        {% for link in linklists[settings.footer_linklist_1].links %}
+          <li><a href="{{ link.url }}" title="{{ link.title }}" target="_blank">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+
+    <div class="span-one-third">
+      <h3>{{ settings.footer_social_title }}</h3>
+      <ul class="footer_menu footer_social">
+      	{% if settings.social_insta_link != blank %}
+        	<li>
+              	<a href="{{ settings.social_insta_link }}" target="_blank">
+                  <i class="fa fa-instagram" aria-hidden="true"></i><span>@beltology</span>
+              	</a>
+        	</li>
+        {% endif %}
+        {% if settings.social_mail_link != blank %}
+        	<li>
+              	<a href="mailto:{{ settings.social_mail_link }}" target="_blank">
+        		  <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                  <span>{{ settings.social_mail_link }}</span>
+              	</a>
+        	</li>
+        {% endif %}
+        {% if settings.social_twitter_link != blank %}
+        	<li>
+              	<a href="{{ settings.social_twitter_link }}" target="_blank">
+        			<i class="fa fa-twitter" aria-hidden="true"></i>
+              	</a>
+        	</li>
+        {% endif %}
+        {% if settings.social_facebook_link != blank %}
+        	<li>
+              	<a href="{{ settings.social_facebook_link }}" target="_blank">
+        			<i class="fa fa-facebook" aria-hidden="true"></i>
+              	</a>
+        	</li>
+        {% endif %}
+      </ul>
+      
+      {% comment %}
+      {% if settings.footer_linklist_2 != blank %}
+      <h3>{{ linklists[settings.footer_linklist_2].title }}</h3>
+      <ul class="footer_menu">
+        {% for link in linklists[settings.footer_linklist_2].links %}
+          <li><a href="{{ link.url }}" target="_blank">{{ link.title }}</a></li>
+        {% endfor %}        
+      </ul>
+      {% endif %}
+      {% endcomment %}
+      
+    </div>
+
+    <div class="span-one-third">
+      {% if settings.newsletter_enabled %}
+      <h3>{{ settings.newsletter_text }}</h3>
+      {% if settings.newsletter_description != blank %}
+        <p>{{ settings.newsletter_description }}</p>
+      {% endif %}
+
+      {% include 'newsletter' %}
+      {% endif %}
+    </div>
+    
+  </div>
+</div>
+{% endcomment %}
+</div> <!-- .page-container -->
+
+<div class="cbp-blocker"></div>

@@ -1,0 +1,243 @@
+<div class="container collections-loop">
+{% paginate collection.products by 100 %}
+
+    {% assign products_temp = collection.products | sort: 'price' %}
+    {% for product in products_temp %}
+      {% if forloop.first == true %}
+          {% assign price_min = product.price_min %}
+      {% endif %}
+      {% if forloop.last == true %}
+          {% assign price_max = product.price_max %}
+      {% endif %}
+    {% endfor %}
+    {% if price_min != price_max %}
+      {% capture collection_price %}
+        {{ price_min | money }}-{{ price_max | money_without_currency }}
+      {% endcapture %}
+    {% else %}
+      {% capture collection_price %}
+        {{ price_min | money }}
+      {% endcapture %}
+    {% endif %}
+  
+  <nav id="collections-menu" class="nav collections-menu cbp-spmenu-push clearfix">
+  <ul>
+    {% for link in linklists['newyear-sale'].links %}
+      {% if link.object.products.size > 0 %}
+        
+        	<li><a href="#{{ link.title | handleize }}" id="s{{ forloop.index }}">{{ link.title }}</a></li>
+        
+      {% endif %}
+    {% endfor %}
+  </ul>
+  
+  <!-- 
+	<div id="sizeFilter" class="sizeFilter">
+    <ul name="tag_filter" id="tag_filter" class="shop_by_size size-filter">
+      <li>shop by size<span style="font-family:arial;"></span></li>
+      {% for tag in collection.all_tags %}
+      {% unless tag contains 'meta-related-collection-' %}
+      {% assign tag_hand = tag | handleize %}
+          <li {% if current_tags contains tag_hand %}class="check"{% endif %}>                                   
+            <a href="javascript:void(0)">{{ tag }}</a>
+          </li>
+      {% endunless %}
+      {% endfor %}
+    </ul>
+  </div>
+  
+  
+  {% comment %}
+  <div id="sizeFilter" class="sizeFilter">
+    <select name="tag_filter" id="tag_filter" class="shop_by_size">
+      <option {% unless current_tags %}selected="selected"{% endunless %} value="{% if collection.handle == "all" %}/collections/all{% else %}{{ collection.url }}{% endif %}">Shop by size</option>
+      {% for tag in collection.all_tags %}
+      {% unless tag contains 'meta-related-collection-' %}
+      <option {% if current_tags contains tag %}selected="selected"{% endif %} value="/collections/{% if collection.handle != blank %}{{ collection.handle }}{% else %}all{% endif %}/{{ tag | handleize }}">{{ tag }}</option>
+      {% endunless %}
+      {% endfor %}
+    </select>
+  </div>
+  {% endcomment %}
+  -->
+  
+</nav>
+  
+  <div id="collections-loop" class="container collections-loop">
+  
+{% for link in linklists['newyear-sale'].links limit:6 %}
+  {% if link.object.products.size > 0 %}
+  <div class="section collection-loop-item clearfix{% if settings.all_collection_white_1 == link.handle or settings.all_collection_white_2 == link.handle %} black-bg{% endif %}" id="{{ forloop.index }}">
+    
+    {% assign products_temp = link.object.products | sort: 'price' %}
+    {% for product in products_temp %}
+      {% if forloop.first == true %}
+          {% assign price_min = product.price_min %}
+      {% endif %}
+      {% if forloop.last == true %}
+          {% assign price_max = product.price_max %}
+      {% endif %}
+    {% endfor %}
+    
+    
+    
+    {% if price_min != price_max %}
+      {% capture collection_price %}
+        {{ price_min | money }}-{{ price_max | money_without_currency }}
+      {% endcapture %}
+    {% else %}
+      {% capture collection_price %}
+        {{ price_min | money }}
+      {% endcapture %}
+    {% endif %}
+    
+      <div class="loop-header clearfix">
+       
+        <h2 id="{{ link.title | handleize }}" class="collection-title">{{ link.object.title }}</h2>
+        <div class="collection-subtitle">{% if link.object.description != blank %}<span class="collection-description">{{ link.object.description }}</span> | {% endif %}<span class="collection-price">{{ collection_price }}</span></div>
+      </div>
+      {% assign products = link.object.products %}
+      {% include 'product-loop', collection_title: {{link.title}} %}
+  </div>
+  {% endif %}
+{% endfor %}
+  
+  <div class="section collection-loop-item clearfix">
+    {% for link in linklists['newyear-sale'].links offset:6 %}
+    
+    	{% assign products_temp = link.object.products | sort: 'price' %}
+    {% for product in products_temp %}
+      {% if forloop.first == true %}
+          {% assign price_min = product.price_min %}
+      {% endif %}
+      {% if forloop.last == true %}
+          {% assign price_max = product.price_max %}
+      {% endif %}
+    
+    {% endfor %}
+    
+    {% if price_min != price_max %}
+      {% capture collection_price %}
+        {{ price_min | money }}-{{ price_max | money_without_currency }}
+      {% endcapture %}
+    {% else %}
+      {% capture collection_price %}
+        {{ price_min | money }}
+      {% endcapture %}
+    {% endif %}
+    <div class="sub-item">
+      <div class="loop-header clearfix">
+        <h2 id="{{ link.title | handleize }}" class="collection-title">{{ link.object.title }}</h2>
+        <div class="collection-subtitle">{% if link.object.description != blank %}<span class="collection-description">{{ link.object.description }}</span> | {% endif %}{% unless link.object.title contains 'gift cards' %}<span class="collection-price">{{ collection_price }}</span>{% endunless %}</div>
+        
+      </div>
+      {% assign products = link.object.products %}
+      {% include 'product-loop', collection_title: {{link.title}} %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+  
+<script type="text/javascript"> 
+var google_tag_params = { 
+ecomm_prodid: '', 
+ecomm_pagetype: 'category', 
+ecomm_totalvalue: 
+};
+  
+</script>
+
+<script type="text/javascript"> 
+
+//   $(document).ready(function(){
+//     $('.collections-menu.nav>ul li a').click(function(){
+//       $(this).parent('li').siblings().find('a.active').removeClass('active');
+//       $(this).addClass('active');
+//     });
+//   });
+  
+  
+//Default active on home
+$('#s1').addClass("active");
+
+$('#2').waypoint(function() {
+  $(".collections-menu ul li").children().removeClass("active");
+  $("#s2").addClass("active");
+}, { offset: 180 });
+
+$('#3').waypoint(function() {
+  $(".collections-menu ul li").children().removeClass("active");
+  $("#s3").addClass("active");
+}, { offset: 180 });
+
+$('#4').waypoint(function() {
+  $(".collections-menu ul li").children().removeClass("active");
+  $("#s4").addClass("active");
+}, { offset: 180 });
+  
+$('#5').waypoint(function() {
+  $(".collections-menu ul li").children().removeClass("active");
+  $("#s5").addClass("active");
+}, { offset: 180 });
+
+$('#6').waypoint(function() {
+  $(".collections-menu ul li").children().removeClass("active");
+  $("#s6").addClass("active");
+}, { offset: 180 });
+
+$('#7').waypoint(function() {
+  $(".collections-menu ul li").children().removeClass("active");
+  $("#s7").addClass("active");
+}, { offset: 180 });
+  
+$('#8').waypoint(function() {
+  $(".collections-menu ul li").children().removeClass("active");
+  $("#s8").addClass("active");
+}, { offset: 180 });
+  
+$('#1').waypoint(function() {
+  $(".collections-menu ul li").children().removeClass("active");
+  $("#s1").addClass("active");
+}, { offset: 62 });
+
+$('#2').waypoint(function() {
+  $(".to-top").addClass("visible");
+}, { offset: 180 });
+
+$('#1').waypoint(function(event, direction) {
+  $(".to-top").removeClass("visible");
+}, { offset: 92 });
+  
+  
+ //smoothscroll
+    $('a[href^="#"]').on('click', function (e) {
+        e.preventDefault();
+        $(document).off("scroll");
+        
+        $('a').each(function () {
+            $(this).removeClass('active');
+        })
+        $(this).addClass('active');
+      
+        var target = $(this.hash);
+      var navOffset = $('#main-nav').outerHeight();
+        $target = $(target);
+        if ($target.length) {
+        $('html, body').animate({
+          scrollTop: (target.offset().top - navOffset - 130)
+        }, 800);
+        return false;
+      }
+    });
+
+  
+</script>  
+
+
+{% if paginate.next %}
+<div id="more">&darr; <a id="NextPageLinkSelector" href="{{ paginate.next.url }}">More</a></div>        
+{% endif %}
+<div id="product-list-foot"></div>
+{% endpaginate %}
+</div>
+  

@@ -1,0 +1,22 @@
+{
+  "shopify": {
+    "checkout": {
+      "general": {
+        "continue_to_shipping_method": "CONTINUE TO SHIPPING METHOD",
+        "continue_to_payment_method": "CONTINUE TO PAYMENT METHOD",
+        "complete_purchase_button_label": "COMPLETE ORDER"
+      },
+      "order_summary": {
+        "apply_discount_button_label": "APPLY",
+        "show_discount_form_link_label": "Click here to enter a gift card or discount."
+      },
+      "payment": {
+        "apply_gift_card_button_label": "APPLY",
+        "show_gift_card_form_link_label": "Click here to enter a gift card or discount."
+      },
+      "thank_you": {
+        "return_to_store_link_label": "CONTINUE SHOPPING"
+      }
+    }
+  }
+}

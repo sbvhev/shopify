@@ -1,0 +1,78 @@
+
+<style>
+  .btn_overlay{
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.60);
+  }
+  .caption-btn{
+  	position: relative;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .caption-btn h3{
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+  }
+  .caption-btn img{
+    display: block;
+    width: auto;
+    margin: 0 auto;
+  }
+</style>
+<script>
+
+  
+var iframe = document.getElementById('video');
+// $f == Froogaloop
+var player = $f(iframe);
+
+// bind events
+var playButton = document.getElementById("play-button");
+playButton.addEventListener("click", function() {
+  player.api("play");
+  $('.btn_overlay').hide();
+});
+
+
+</script>
+
+<div class="container">
+  <div class="section clearfix">
+    <div class="page-about-us">
+      <div class="hero">
+      <div class="video-container">
+          <iframe src="{{ settings.project_runway_fashion_video }}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen id="video"></iframe>
+          <div class="btn_overlay">
+            <div class="caption-btn">
+              <h3>Watch Us in the Season Finale of Project Runway: Fashion Startup</h3>
+              <img src="{{ 'play.png' | asset_url }}" id="play-button">
+            </div>
+          </div>
+      </div>
+      </div>
+
+      {% comment %}
+      <div class="hero" style="background-image: url('//cdn.shopify.com/s/files/1/0260/1447/files/Hero_0d8da487-e47d-4b7b-8a47-5e5a45c17ec2.jpg?13369405102391596644');"><img src="//cdn.shopify.com/s/files/1/0260/1447/files/Hero_0d8da487-e47d-4b7b-8a47-5e5a45c17ec2.jpg?13369405102391596644" />
+        <div class="hero-caption align-center">
+          <h3 class="headline">A Fresh Start for Belts</h3>
+          <div class="subtitle">
+            <p>Belts were overlooked. Now they’re ready for a double take.</p>
+          </div>
+        </div>
+      </div>
+      {% endcomment %}
+
+      {{ page.content }}
+    </div>
+  </div>
+</div>
+{% include 'project-runway-fashion-popup' %}
+  
+  

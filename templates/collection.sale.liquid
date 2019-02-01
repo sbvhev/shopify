@@ -1,0 +1,72 @@
+{% if settings.collection_sale_enabled %}
+<div class="collections-hero">
+  <img src="{{ 'collection_sale_banner.jpg' | asset_url }}" alt="{{ settings.collection_sale_alt_text | escape }}" />
+</div>
+{% endif %}
+{% assign sale_collection_linklist = settings.sale_linklist %}
+<nav id="collections-menu" class="nav collections-menu cbp-spmenu-push">
+  <ul>
+    {% for link in linklists[sale_collection_linklist].links %}
+      {% if link.object.products.size > 0 %}
+        <li><a href="#{{ link.title | handleize }}">{{ link.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>
+
+<div id="collections-loop" class="container collections-loop">
+  
+  <div id="sizeFilter" class="sizeFilter">
+    <select name="tag_filter" id="tag_filter" class="shop_by_size">
+      <option {% unless current_tags %}selected="selected"{% endunless %} value="{% if collection.handle == "all" %}/collections/all{% else %}{{ collection.url }}{% endif %}">Shop by size</option>
+      {% for tag in collection.all_tags %}
+      {% unless tag contains 'meta-related-collection-' %}
+      <option {% if current_tags contains tag %}selected="selected"{% endif %} value="/collections/{% if collection.handle != blank %}{{ collection.handle }}{% else %}all{% endif %}/{{ tag | handleize }}">{{ tag }}</option>
+      {% endunless %}
+      {% endfor %}
+    </select>
+  </div>
+  
+  
+{% for link in linklists[sale_collection_linklist].links %}
+  {% if link.object.products.size > 0 %}
+  <div class="section clearfix">
+    
+    {% assign products_temp = link.object.products | sort: 'price' %}
+    {% for product in products_temp %}
+      {% if forloop.first == true %}
+          {% assign price_min = product.price_min %}
+      {% endif %}
+      {% if forloop.last == true %}
+          {% assign price_max = product.price_max %}
+      {% endif %}
+    {% endfor %}
+    {% if price_min != price_max %}
+      {% capture collection_price %}
+        {{ price_min | money }}-{{ price_max | money_without_currency }}
+      {% endcapture %}
+    {% else %}
+      {% capture collection_price %}
+        {{ price_min | money }}
+      {% endcapture %}
+    {% endif %}
+    
+    <h2 id="{{ link.title | handleize }}" class="collection-title">{{ link.object.title }}</h2>
+    {% comment %}
+    <div class="collection-subtitle">{% if link.object.description != blank %}<span class="collection-description">{{ link.object.description }}</span> | {% endif %}<span class="collection-price">{{ collection_price }}</span></div>
+    {% endcomment %}
+    {% assign products = link.object.products %}
+    
+    {% include 'product-loop', collection_title: {{link.title}} %}
+  </div>
+  {% endif %}
+{% endfor %}
+</div>
+  
+<script type="text/javascript"> 
+var google_tag_params = { 
+ecomm_prodid: '', 
+ecomm_pagetype: 'category', 
+ecomm_totalvalue: 
+}; 
+</script>

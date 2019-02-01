@@ -1,0 +1,27 @@
+{% unless settings.homepage_bottom_hero_enabled == blank %}
+<div class="homepage_content clearfix">
+  <div class="hero">
+  {% if settings.homepage_bottom_hero_type == 'mp4' %}
+    <div class='embed-container'>{{ settings.homepage_bottom_hero_video_embed }}</div>
+  {% else %}
+    <a href="{{ settings.homepage_bottom_hero_link }}">
+      {% if settings.homepage_bottom_hero_type == 'gif' %}
+        <img src="{{ 'homepage_bottom_hero.gif' | asset_url }}" alt="{{ settings.homepage_bottom_hero_alt_text | escape }}" />
+      {% else %}
+        <img src="{{ 'homepage_bottom_hero.jpg' | asset_url }}" alt="{{ settings.homepage_bottom_hero_alt_text | escape }}" />
+      {% endif %}
+    </a>
+  {% endif %} 
+    
+  {% unless settings.hompeage_bottom_hero_headline == blank and settings.homepage_bottom_hero_subtitle == blank and settings.homepage_bottom_hero_button_text == blank %}
+  <div class="hero-caption {% if settings.homepage_bottom_hero_text_align == 'right' %} align-right {% elsif settings.homepage_bottom_hero_text_align == 'center' %} align-center {% endif %}">
+    <div class="container">
+        {% unless settings.homepage_bottom_hero_headline == blank %}<h3 class="headline" {% unless settings.homepage_bottom_hero_headline_color == blank %}style="color:{{ settings.homepage_bottom_hero_headline_color }}"{% endunless %}>{{ settings.homepage_bottom_hero_headline }}</h3>{% endunless %}
+        {% unless settings.homepage_bottom_hero_subtitle == blank %}<div class="subtitle" {% unless settings.homepage_bottom_hero_subtitle_color == blank %}style="color:{{ settings.homepage_bottom_hero_subtitle_color }}"{% endunless %}><p>{{ settings.homepage_bottom_hero_subtitle }}</p></div>{% endunless %}
+        {% unless settings.homepage_bottom_hero_button_text == blank %}<a href="{{ settings.homepage_bottom_hero_link }}" class="action_button" {% unless settings.homepage_bottom_hero_button_color %}style="color:{{ settings.homepage_bottom_hero_button_color }}; border-color:{{ settings.homepage_bottom_hero_button_color }}"{% endunless %}>{{ settings.homepage_bottom_hero_button_text }}</a>{% endunless %}
+    </div>
+  </div>
+  {% endunless %}
+  </div>
+</div>
+{% endunless %}

@@ -1,0 +1,121 @@
+<div class="container product-container clearfix" itemscope itemtype="http://schema.org/Product" id="product-{{ product.id }}">
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+  
+  {% assign current_variant = product.selected_or_first_available_variant %}
+  
+  <div class="span6 product-gallery">
+  {% include 'product-images' %}
+  </div>
+
+  <div class="span6 product-info">
+      <h1 class="product_name" itemprop="name">{{ product.title }}</h1>
+
+      <div class="product-description" itemprop="description">
+      {{ product.description }}
+      </div>
+
+      <div id="product-price" class="product_price" itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="delta">
+        <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+        <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+        
+        <p class="product_price">
+          {% assign variant = product.selected_or_first_available_variant %}
+          {% if product.compare_at_price > product.price %}
+          <span class="product-price on-sale current_price" itemprop="price">{{ variant.price | money }}</span>
+          <s class="product-compare-price was_price">{{ variant.compare_at_price | money }}</s>
+          {% else %}
+          <span class="product-price" itemprop="price">{{ variant.price | money }}</span>
+          {% endif %}
+        </p>
+      </div>
+
+      {% include 'product-notify-me' %}
+
+      {% if product.available %}
+        <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">  
+          {% if product.variants.size > 1 %}
+            <div class="select">
+              <select name='id' id="productSelect">
+                {% for variant in product.variants %}
+                  {% if variant.available %}
+                    <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+                  {% else %}
+                    <option disabled="disabled">{{ variant.title }} - Sold out</option>
+                  {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+          {% else %}
+            <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+          {% endif %}
+          {% include 'shipping-note' %}
+
+          <div class="purchase clearfix">
+            <input type="submit" name="add" id="AddToCart" value="{{ settings.add_to_cart_text | escape }}" class="action_button add_to_cart" />
+          </div> 
+
+        </form>
+      {% endif %}
+
+      {% include "social-buttons" with "product" %}  
+
+  </div>
+  
+  <div style='clear:both'></div>
+  <div style="padding-left: 10%; padding-right: 10%" class='span12'><div id='judgeme_product_reviews' data-product-title='{{product.title}}' data-id='{{product.id}}'>{{ shop.metafields.judgeme.settings }}{{ product.metafields.judgeme.widget }}</div></div>
+
+</div>
+
+
+{{ 'option_selection.js' | shopify_asset_url | script_tag }}
+<script>
+var selectCallback = function(variant, selector) {
+  if (variant) {
+    if (variant.available) {
+      $('#AddToCart')
+      	.removeClass('disabled')
+      	.removeAttr('disabled')
+      	.val('Add to Cart')
+      	.fadeTo(200,1);
+    } else {
+      $('#AddToCart')
+      	.val('Sold Out')
+      	.addClass('disabled')
+      	.attr('disabled', 'disabled')
+      	.fadeTo(200,0.5);
+    }
+    
+    if ( variant.compare_at_price > variant.price ) {
+      jQuery('#product-price').html('<span class="product-price on-sale current_price">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") +'</span>'+'&nbsp;<s class="product-compare-price was_price">'+Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}")+ '</s>');
+    } else {
+      jQuery('#product-price').html('<span class="product-price current_price">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") + '</span>' );
+    }
+                                                                                        
+  } else {
+    $('#AddToCart')
+      .val('Unavailable')
+      .addClass('disabled')
+      .attr('disabled', 'disabled')
+      .fadeTo(200,0.5);
+  }
+}
+
+jQuery(function() {
+  new Shopify.OptionSelectors("productSelect", {
+    product: {{ product | json }},
+    onVariantSelected: selectCallback
+  });
+});
+  
+Shopify.Image.preload({{ product.images | json }}, 'grande');
+Shopify.Image.preload({{ product.images | json }}, '1024x1024');
+</script>
+
+<script type="text/javascript">
+var google_tag_params = {
+ecomm_prodid: 'shopify_US_{{product.id}}_{{product.variants.first.id}}',
+ecomm_pagetype: 'product',
+ecomm_totalvalue: {{ product.price | money_without_currency }}
+};
+</script>

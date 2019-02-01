@@ -1,0 +1,54 @@
+<div class="section clearfix">
+  
+  {% unless settings.campaign_hero_enabled == blank %}
+  <div class="hero">
+    {% if settings.campaign_hero_type == 'mp4' %}
+      <div class='embed-container'>{{ settings.campaign_hero_video_embed }}</div>
+    {% else %}
+      <a href="{{ settings.campaign_hero_link }}">
+        {% if settings.campaign_hero_type == 'gif' %}
+          <img src="{{ 'campaign_hero.gif' | asset_url }}" alt="{{ settings.campaign_hero_alt_text | escape }}" />
+        {% else %}
+          <img src="{{ 'campaign_hero.jpg' | asset_url }}" alt="{{ settings.campaign_hero_alt_text | escape }}" />
+        {% endif %}
+      </a>
+    {% endif %}
+    
+    {% unless settings.campaign_hero_headline == blank and settings.campaign_hero_subtitle == blank and settings.campaign_hero_button_text == blank %}
+    <div class="hero-caption{% if settings.campaign_hero_text_align == 'right' %} align-right {% elsif settings.campaign_hero_text_align == 'center' %} align-center {% endif %}">
+      <div class="container">
+          {% unless settings.campaign_hero_headline == blank %}<h3 class="headline" {% unless settings.campaign_hero_headline_color == blank %}style="color:{{ settings.campaign_hero_headline_color }}"{% endunless %}>{{ settings.campaign_hero_headline }}</h3>{% endunless %}
+          {% unless settings.campaign_hero_subtitle == blank %}<div class="subtitle" {% unless settings.campaign_hero_subtitle_color == blank %}style="color:{{ settings.campaign_hero_subtitle_color }}"{% endunless %}><p>{{ settings.campaign_hero_subtitle }}</p></div>{% endunless %}
+          {% unless settings.campaign_hero_button_text == blank %}<a href="{{ settings.campaign_hero_link }}" class="action_button" {% unless settings.campaign_hero_button_color == blank %}style="color:{{ settings.campaign_hero_button_color }}; border-color:{{ settings.campaign_hero_button_color }}"{% endunless %}>{{ settings.campaign_hero_button_text }}</a>{% endunless %}
+      </div>
+    </div>
+    {% endunless %}
+    
+  </div>
+  {% endunless %}
+
+  <div class="container">
+
+    <div class="page-caption">
+        {{ page.content }}
+    </div>
+
+    {% unless settings.campaign_collection == blank %}
+    <div id="products" class="campaign-products featured_links">
+      <div class="container">
+        {% assign collection = '' %}
+        {% assign products = collections[settings.campaign_collection].products %}
+        {% include 'product-loop-campaign' %}
+      </div>
+    </div>
+    {% endunless %}
+
+
+    {% unless settings.campaign-extra == blank %}
+        {{ pages[settings.campaign-extra].content }}
+    {% endunless %}
+
+  </div><!-- .container -->
+
+</div><!-- .section -->
+

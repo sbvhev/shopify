@@ -1,0 +1,30 @@
+<div class="flexslider {% if product-images == blank %}product_slider{% endif %}" id="product-{{ product.id }}-gallery">
+  <ul class="slides">
+    {% for image in product.images %}
+      <li data-thumb="{{ image | product_img_url: 'grande' }}" data-title="{% if image.alt contains 'youtube' or image.alt contains 'vimeo' %}{{ product.title }}{% else %}{{ image.alt | escape }}{% endif %}">
+        {% if image.alt contains 'youtube' or image.alt contains 'vimeo' %}
+          {% assign src = image.alt | split: 'src="' %}
+          {% assign src = src[1] | split: '"' | first %}
+
+          {% if src contains '?' %}
+            {% assign src = src | append: '&amp;autoplay=1' %}
+          {% else %}
+            {% assign src = src | append: '?autoplay=1' %}
+          {% endif %}
+
+          <div class="video-container {% if image.alt contains 'vimeo' %}vimeo{% else %}youtube{% endif %}">
+            <div>
+              <a href="{{ src }}" class="fancybox fancybox.iframe" data-fancybox-group="{{ product.id }}" title="{{ product.title | escape }}">
+                {{ image.alt }}
+              </a>
+            </div>
+          </div>
+        {% else %}
+          <a href="{{ image | product_img_url: 'master' }}" class="fancybox" data-fancybox-group="{{ product.id }}" title="{{ image.alt | escape }}">
+            <img src="{{ image | product_img_url: 'grande' }}" srcset="{{ image | product_img_url: '1024x1024' }} 2x" alt="{{ image.alt | escape }}" {% if product-images == blank %}itemprop="image"{% endif %} data-cloudzoom="zoomImage: '{{ image | product_img_url: 'master' }}', tintColor: '{{ settings.shop_bg_color }}', zoomPosition: 'inside', zoomOffsetX: 0, hoverIntentDelay: 100" class="cloudzoom" />
+          </a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

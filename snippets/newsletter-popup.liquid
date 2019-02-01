@@ -1,0 +1,62 @@
+{% if settings.newsletter_popup %}   
+   <div id="newsletter-popup" style="display:none;">
+      <div class="span6"><img src="{{ 'newsletter_popup.jpg' | asset_url }}" alt="{{ settings.newsletter_popup_alt_text | escape }}" /></div>
+      <div class="span6">
+        <div class="popup-container">
+          {% if settings.newsletter_popup_headline %}<h3>{{ settings.newsletter_popup_headline }}</h3>{% endif %}
+          {% if settings.newsletter_popup_text %}<p>{{ settings.newsletter_popup_text }}</p>{% endif %}
+          {% if settings.newsletter_popup_form %}
+          <form id="newsletter_signup" class="contact-form klaviyo_bare_embed_eVysPg" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+            <input type="hidden" name="g" value="eVysPg">
+			<input type="hidden" name="$fields" value="Source" />
+			<input type="hidden" name="Source" value="Website popup" />
+            <div class="klaviyo_field_group">
+              <input type="email" value="" name="email" id="k_id_email" class="required email" placeholder="{% if settings.newsletter_popup_input_text %}{{ settings.newsletter_popup_input_text }}{% else %}Enter your email...{% endif %}">
+            </div>
+            <div class="klaviyo_form_actions">
+              <button type="submit" class="klaviyo_submit_button action_button sign_up">{% if settings.newsletter_popup_button_text %}{{ settings.newsletter_popup_button_text }}{% else %}Sign Up{% endif %}</button>
+            </div>
+            <div class="klaviyo_messages message">
+              <div class="success_message" style="display:none;"></div>
+              <div class="error_message" style="display:none;"></div>
+            </div>
+          </form>
+          {% endif %}
+        </div>
+      </div>
+    </div>  
+
+  <script>
+  jQuery(document).ready(function($) {
+    var cookie_enabled = {% if settings.newsletter_popup_days != blank and settings.newsletter_popup_days != "0" %}true{% else %}false{% endif %}
+	var cookie_present = $.cookie('newsletter-popup') === 'activated';
+    console.log(cookie_enabled, cookie_present);
+    
+    if (cookie_enabled) {
+      if (!cookie_present) {
+        $.cookie('newsletter-popup', 'activated', { expires: {{ settings.newsletter_popup_days }} })
+  
+        var $popup = $('#newsletter-popup')
+        setTimeout( function() {
+        $.fancybox($popup, {padding: 5/*, maxWidth: {% if settings.newsletter_popup_max_width != blank %}{{ settings.newsletter_popup_max_width }}{% else %}600{% endif %}*/})
+        {% if settings.newsletter_popup_form %}
+          KlaviyoSubscribe.attachToForms('#newsletter_signup', {
+            hide_form_on_success: true,
+            success: function(){
+              setTimeout( function(){
+                $.fancybox.close()
+              }, 4000)
+            },
+            success_message: 'THANK YOU, PLEASE CHECK YOUR INBOX!',
+			extra_properties: {
+		    	$source: 'Website popup'
+			}
+          })
+          {% endif %}
+        }, {% if settings.newsletter_popup_seconds %}{{ settings.newsletter_popup_seconds }}{% else %}2{% endif %}*1000)
+      }
+    } 
+  })
+  </script>
+{% endif %}
+

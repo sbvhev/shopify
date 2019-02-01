@@ -1,0 +1,68 @@
+<div class="thumbnail  span-one-fifth {% cycle 'alpha', '', '', '', 'omega' %} {% cycle 'even', 'odd' %}">
+{% if current_tag %}
+  {% for option in product.options %}
+        {% if option == 'Size' %}
+          {% assign index = forloop.index0 %}
+          
+          {% for variant in product.variants %}
+            {% if variant.available and variant.title contains  current_tag %}
+              <a href="{{ variant.url }} ">
+            {% endif %}
+          {% endfor %}
+         
+        {% endif %}
+      {% endfor %}
+  
+    {% else %}
+    <a href="{{ product.url | within: collection }}">
+    {% endif %}
+    <div class="relative">
+      <section class="product_images_slider">
+      {% for image in product.images %}
+       	<div>
+          <img {% if settings.align_height %}style="max-height:{{ settings.collection_height }}px"{% endif %} src="{{ image | img_url: 'medium' }}" srcset="{{ image | img_url: 'large' }} 2x" alt="{{ image.alt | escape }}" />
+        </div>
+   	  {% endfor %}
+      </section>
+      
+      <div class="product-desc">
+        <p>{{ product.title }}</p>
+        {% for option in product.options %}
+        {% if option == 'Size' %}
+        {% assign index = forloop.index0 %}
+        <div class="size-options">
+          {% for variant in product.variants %}
+          {% if variant.available %}
+          <a href="{{ variant.url }}" class="size-link {% if variant.title contains  current_tag %}active {% endif %}">{{ variant.options[index] | slice: 0,2 }}</a>
+          {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+      
+      <p class="product_price">
+        {% assign variant = product.selected_or_first_available_variant %}
+        {% if product.compare_at_price > product.price %}
+        <span class="product-price on-sale current_price" itemprop="price">{{ variant.price | money }}</span>
+        <s class="product-compare-price was_price">{{ variant.compare_at_price | money }}</s>
+        {% else %}
+        <span class="product-price" itemprop="price">{{ variant.price | money }}</span>
+        {% endif %}
+      </p>
+      
+   </div>
+  </a>
+  </a>
+</div>
+<script>
+  $('body').on('click','.thumbnail .slick-next',function(e){
+    //$(this).closest('a').attr('href','javascript:void(0);');
+    e.preventDefault();
+  });
+  $('body').on('click','.thumbnail .slick-prev',function(e){
+//     $(this).closest('a').attr('href','javascript:void(0);');
+    e.preventDefault();
+  });
+  
+</script>

@@ -1,0 +1,1003 @@
+{
+  "current": {
+    "search_enabled": true,
+    "search_option": "products",
+    "banner_enabled": true,
+    "banner_text": "free shipping on orders over $95",
+    "banner_top_link": "https:\/\/www.beltology.com",
+    "top_banner_background_color": "#1d3c56",
+    "top_banner_text_color": "#1d3c56",
+    "homepage": "homepage-content-1",
+    "featured_products": false,
+    "featured_links": true,
+    "feature1_type": "jpg",
+    "feature1_video_embed": "",
+    "feature1_link": "https:\/\/www.beltology.com\/pages\/top-sellers",
+    "feature1_heading": "Top Sellers",
+    "feature1_text": "",
+    "feature2_type": "jpg",
+    "feature2_video_embed": "",
+    "feature2_link": "https:\/\/www.beltology.com\/collections\/featured-1\/products\/valent",
+    "feature2_heading": "Featured Product",
+    "feature2_text": "",
+    "homepage_bottom_hero_enabled": true,
+    "homepage_bottom_hero_type": "jpg",
+    "homepage_bottom_hero_video_embed": "",
+    "homepage_bottom_hero_alt_text": "Our DNA",
+    "homepage_bottom_hero_headline": "We love the details",
+    "homepage_bottom_hero_subtitle": "",
+    "homepage_bottom_hero_text_align": "left",
+    "homepage_bottom_hero_button_text": "Our DNA",
+    "homepage_bottom_hero_link": "http:\/\/www.beltology.com\/pages\/our-story-2016-july",
+    "homepage_bottom_hero_headline_color": "#030303",
+    "homepage_bottom_hero_subtitle_color": "#030303",
+    "homepage_bottom_hero_button_color": "#030303",
+    "slideshow_enabled": true,
+    "slideshow_1_enabled": false,
+    "image_1_type": "gif",
+    "image_1_video_embed": "",
+    "image_1_alt_text": "",
+    "image_1_headline": "",
+    "image_1_subtitle": "",
+    "image_1_text_align": "left",
+    "image_1_button_text": "",
+    "image_1_link": "",
+    "image_1_headline_color": "#fdfdfd",
+    "image_1_subtitle_color": "#ffffff",
+    "image_1_button_color": "#ffffff",
+    "slideshow_2_enabled": true,
+    "image_2_type": "jpg",
+    "image_2_video_embed": "",
+    "image_2_alt_text": "",
+    "image_2_headline": "Belts Made to Move",
+    "image_2_subtitle": "Serving a purpose, with style",
+    "image_2_text_align": "left",
+    "image_2_button_text": "Shop Now",
+    "image_2_link": "https:\/\/www.beltology.com\/collections\/all-collections",
+    "image_2_headline_color": "#003855",
+    "image_2_subtitle_color": "#003855",
+    "image_2_button_color": "#002855",
+    "slideshow_3_enabled": false,
+    "image_3_type": "jpg",
+    "image_3_video_embed": "",
+    "image_3_alt_text": "",
+    "image_3_headline": "Belts Made to Move",
+    "image_3_subtitle": "Serving a purpose, with style",
+    "image_3_text_align": "left",
+    "image_3_button_text": "Shop Now",
+    "image_3_link": "https:\/\/www.beltology.com\/collections\/all-collections",
+    "image_3_headline_color": "#ffffff",
+    "image_3_subtitle_color": "#ffffff",
+    "image_3_button_color": "#ffffff",
+    "slideshow_4_enabled": false,
+    "image_4_type": "jpg",
+    "image_4_video_embed": "",
+    "image_4_alt_text": "",
+    "image_4_headline": "Our Latest Collaboration",
+    "image_4_subtitle": "Designed by Siki Im.",
+    "image_4_text_align": "left",
+    "image_4_button_text": "Shop All",
+    "image_4_link": "https:\/\/www.beltology.com\/pages\/siki-im",
+    "image_4_headline_color": "#ffffff",
+    "image_4_subtitle_color": "#ffffff",
+    "image_4_button_color": "#ffffff",
+    "slideshow_5_enabled": false,
+    "image_5_type": "jpg",
+    "image_5_video_embed": "",
+    "image_5_alt_text": "",
+    "image_5_headline": "Our Latest Collaboration",
+    "image_5_subtitle": "Designed by Siki Im.",
+    "image_5_text_align": "right",
+    "image_5_button_text": "Shop Now",
+    "image_5_link": "https:\/\/www.beltology.com\/pages\/siki-im",
+    "image_5_headline_color": "#ffffff",
+    "image_5_subtitle_color": "#ffffff",
+    "image_5_button_color": "#ffffff",
+    "campaign_hero_enabled": true,
+    "campaign_hero_type": "mp4",
+    "campaign_hero_video_embed": "<iframe width=\"1280\" height=\"720\" src=\"https:\/\/www.youtube-nocookie.com\/embed\/Z4L4IF-55EE?rel=0&controls=0&showinfo=0\" frameborder=\"0\"><\/iframe>",
+    "campaign_hero_alt_text": "",
+    "campaign_hero_headline": "",
+    "campaign_hero_subtitle": "",
+    "campaign_hero_text_align": "left",
+    "campaign_hero_button_text": "",
+    "campaign_hero_link": "",
+    "campaign_hero_headline_color": "#ffffff",
+    "campaign_hero_subtitle_color": "#ffffff",
+    "campaign_hero_button_color": "rgba(0,0,0,0)",
+    "campaign_collection": "",
+    "campaign-extra": "campaign-nyc-factory",
+    "campaign_alt_hero_enabled": false,
+    "campaign_alt_hero_type": "jpg",
+    "campaign_alt_hero_video_embed": "",
+    "campaign_alt_hero_alt_text": "",
+    "campaign_alt_hero_headline": "The Summer Collection",
+    "campaign_alt_hero_subtitle": "Four belts that will keep up with all of your summer adventures.",
+    "campaign_alt_hero_text_align": "center",
+    "campaign_alt_hero_button_text": "SCROLL DOWN",
+    "campaign_alt_hero_link": "",
+    "campaign_alt_hero_headline_color": "#16191e",
+    "campaign_alt_hero_subtitle_color": "#16191e",
+    "campaign_alt_hero_button_color": "#16191e",
+    "campaign_alt_collection": "",
+    "campaign-alt-extra": "top-sellers-gallery",
+    "shipping_note": "shipping to US only. standard rate is $5.<br>\nfree shipping on orders over $95.",
+    "collection_hero_enabled": false,
+    "collection_hero_alt_text": "Beltology Collections",
+    "collection_sale_enabled": false,
+    "collection_sale_alt_text": "Sale Collections",
+    "sale_linklist": "sale-collections",
+    "all_collection_white_1": "",
+    "all_collection_white_2": "",
+    "tax_included": false,
+    "display_special_instructions": false,
+    "display_additional_checkout": true,
+    "show_shipping_calculator": false,
+    "shipping_calculator_heading": "shipping rates calculator",
+    "shipping_calculator_default_country": "United States",
+    "shipping_calculator_submit_button_label": "calculate shipping rates",
+    "shipping_calculator_submit_button_label_disabled": "calculating...",
+    "siki_logo_enable": true,
+    "banner_caption_text": "A limited collection from the mind of designer Siki Im.",
+    "detail_section_title": "Six limited edition styles",
+    "siki_collection": "",
+    "image_caption_1": "We have partnered with Siki Im, one of the most innovative minds in contemporary menswear, to design a limited edition collection of belts. An extra-long 150cm leather belt, available in black and brown, demonstrates Siki Im’s attention to detail and balance of form and function.",
+    "image_link_1": "\/products\/siki-im-brown-long-leather",
+    "image_caption_2": "This collection includes six limited edition styles. Each belt features premium materials and thoughtful details: a classic stretch woven strap, leather trimming, and a custom buckle — all meticulously hatched in collaboration with Siki Im himself.",
+    "image_link_2": "\/products\/siki-im-grey",
+    "image_caption_3": "Designed and produced entirely in New York City, the Siki Im x Beltology Collection draws inspiration from minimalist architectural ideals, which are captured in the simple designs and industrial color palette.",
+    "image_link_3": "\/products\/siki-im-black-striped",
+    "newsletter_enabled": true,
+    "newsletter_text": "New to Beltology?",
+    "newsletter_description": "Enter your email to get 15% off your first order.",
+    "footer_linklist_1": "connect",
+    "footer_content_page": "contact",
+    "footer_social_title": "Connect",
+    "social_insta_link": "https:\/\/instagram.com\/beltology\/",
+    "social_mail_link": "intheloop@beltology.com",
+    "social_twitter_link": "https:\/\/twitter.com\/Beltology",
+    "social_facebook_link": "",
+    "project_runway_fashion_video": "https:\/\/player.vimeo.com\/video\/192150035?api=1",
+    "project_runway_fashion_popup": false,
+    "newsletter_popup": false,
+    "newsletter_popup_seconds": "1",
+    "newsletter_popup_days": "10",
+    "newsletter_popup_max_width": "800",
+    "newsletter_popup_alt_text": "New to Beltology? Here's 15% off.",
+    "newsletter_popup_headline": "New to Beltology? Here's 15% off.",
+    "newsletter_popup_text": "Enter your email to get your welcome code.",
+    "newsletter_popup_form": true,
+    "newsletter_popup_input_text": "Enter your email",
+    "newsletter_popup_button_text": "Join Now",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/Screen_Shot_2018-06-01_at_9.31.28_AM.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#0078bf",
+    "checkout_button_color": "#f1b828",
+    "checkout_error_color": "#e74436",
+    "shipping_note2": "Shipping US only. Standard rate is $5. <br\/>Free shipping on orders of $75 or more.",
+    "shipping_none": "Shipping US only. Standard rate is $5.<br\/>\r\nFree shipping on orders of $75 or more.",
+    "checkout_use_header_image": true,
+    "checkout_logo": "checkout_logo.png",
+    "checkout_use_body_background_image": false,
+    "checkout_use_sidebar_background_image": false,
+    "footer_linklist_2": "footer",
+    "featured_content_page": "",
+    "newsletter_popup_page": "newsletter-popup",
+    "homepage2": "homepage-content-2",
+    "collab_title": "",
+    "display_tags": false,
+    "display_type": false,
+    "display_vendor": false,
+    "display_collections": false,
+    "display_social_buttons": true,
+    "product_images_position": "left",
+    "product_slideshow_animation": "zoom",
+    "product_description_position": "bottom",
+    "display_related_products": false,
+    "add_to_cart_text": "Add to Cart",
+    "sold_out_text": "Sold Out",
+    "related_products_title": "Related Items",
+    "cart_return": "checkout",
+    "notify_me_form": true,
+    "display_product_quantity": false,
+    "display_inventory_left": false,
+    "inventory_left_text": "items left",
+    "option_to_match": "",
+    "image_1_text_color": false,
+    "image_2_text_color": true,
+    "image_3_text_color": true,
+    "image_4_text_color": false,
+    "image_5_text_color": false,
+    "image_6_text_color": false,
+    "collection_tags": true,
+    "display_collection_title": false,
+    "sale_banner_enabled": true,
+    "use_logo": true,
+    "use_logo_home": false,
+    "main_linklist": "main-menu",
+    "logo_top_padding": "0",
+    "menu_top_padding": "0",
+    "content_top_padding": "85",
+    "social_icons_enabled": true,
+    "twitter_link": "",
+    "facebook_link": "http:\/\/facebook.com\/beltology",
+    "google_link": "",
+    "youtube_link": "",
+    "vimeo_link": "",
+    "pinterest_link": "",
+    "tumblr_link": "",
+    "instagram_link": "http:\/\/instagram.com\/beltology",
+    "linkedin_link": "",
+    "flickr_link": "",
+    "email_link": "",
+    "link_color": "#1c3b57",
+    "link_hover_color": "#0100fc",
+    "sidebar_nav_color": "#1c3b57",
+    "sidebar_nav_color_hover": "#0100fc",
+    "featured_text": "#1c3b57",
+    "btn_color": "#0100fc",
+    "btn_hover_color": "#000000",
+    "btn_text_color": "#ffffff",
+    "cart_button_background": "#1c3b57",
+    "sale_color": "#000000",
+    "sale_banner_color": "#ffffff",
+    "new_banner_color": "#ffffff",
+    "was_price_color": "#000000",
+    "border_color": "#ffffff",
+    "tab_background_color": "#ffffff",
+    "table_styles_enabled": true,
+    "shop_bg_color": "#ffffff",
+    "modal_background_color": "#ffffff",
+    "header_bg_color": "#ffffff",
+    "mobile_header_bg_color": "#ffffff",
+    "mobile_menu_color": "white",
+    "shop_use_content_bg_color": true,
+    "shop_content_bg_color": "#ffffff",
+    "shop_use_home_page_content_bg_color": true,
+    "shop_home_page_content_bg_color": "#ffffff",
+    "use_custom_bg_image": false,
+    "repeat_bg": "repeat",
+    "bg_fixed": false,
+    "bg_stretched": false,
+    "footer_link_color": "#d9d9d9",
+    "footer_link_color_hover": "#ffffff",
+    "sub_footer_border_color": "#f2f2f2",
+    "sub_footer_color": "#ffffff",
+    "footer_color": "#ffffff",
+    "logo_typeface_method": "websafe",
+    "logo_google_webfont_font": "Lato",
+    "logo_websafe_font": "Helvetica, Arial, sans-serif",
+    "logo_weight": "lighter",
+    "logo_font_style": "none",
+    "logo_font_size": "26",
+    "logo_color": "#353743",
+    "logo_color_home": "#353743",
+    "headline_typeface_method": "websafe",
+    "headline_google_webfont_font": "Lato",
+    "headline_websafe_font": "'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+    "headline_weight": "normal",
+    "headline_font_style": "none",
+    "headline_font_size": "26",
+    "headline_color": "#353743",
+    "headline_footer_text_color": "#353743",
+    "headline_letter_spacing": "1",
+    "nav_color": "#334569",
+    "nav_color_home": "#334569",
+    "nav_color_hover": "#0100fc",
+    "nav_active_color": "#0100fc",
+    "nav_letter_spacing": "0",
+    "regular_font_size": "14",
+    "regular_color": "#353743",
+    "button_weight": "bold",
+    "button_font_style": "uppercase",
+    "button_font_size": "16",
+    "footer_font_size": "13",
+    "footer_text_color": "#353743",
+    "featproduct1_link": "\/\/www.beltology.com\/collections\/all-belts\/products\/silver-spoon",
+    "featproduct2_link": "\/\/www.beltology.com\/collections\/all-belts\/products\/wastelands",
+    "featproduct3_link": "",
+    "featproduct4_link": "\/\/www.beltology.com\/collections\/all-belts\/products\/sharp-cat",
+    "featproduct5_link": "\/\/www.beltology.com\/collections\/all-belts\/products\/james-d",
+    "feature3_link": "http:\/\/www.beltology.com\/collections\/all-belts",
+    "feature3_heading": "Made in NYC",
+    "feature3_text": "Handmade in the Big Apple.",
+    "products_per_row": "4",
+    "mobile_products_per_row": "1",
+    "pagination_limit": "48",
+    "align_height": false,
+    "collection_height": "250",
+    "quick_shop_enabled": true,
+    "description_words": "30",
+    "quick_shop_text": "Quick View",
+    "homepage_sidebar": false,
+    "collection_sidebar": false,
+    "product_sidebar": false,
+    "collection_top_sidebar_page": "",
+    "collection_sidebar_linklist": "",
+    "collection_sidebar_linklist2": "",
+    "filter_by_category": false,
+    "filter_by_tag": true,
+    "collection_sidebar_products": false,
+    "collection_sidebar_vendors": false,
+    "collection_sidebar_vendor_text": "Vendors",
+    "tags_text": "Filter",
+    "collection_sidebar_page": "",
+    "contact_address": "",
+    "zoom_level": "12",
+    "display_recent_articles": true,
+    "display_social_buttons_blog": true,
+    "blog_tags": false,
+    "blog_author": false,
+    "blog_content_page": "",
+    "disqus_enabled": false,
+    "disqus_shortname": "",
+    "newsletter_system": "mailchimp",
+    "mailchimp_link": "\/\/beltology.us7.list-manage.com\/subscribe\/post?u=907dfe943e87472f3d5bd0804&amp;id=2544670bfb",
+    "nav_typeface_method": "google_webfonts",
+    "nav_google_webfont_font": "PT+Sans+Narrow",
+    "nav_websafe_font": "'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Lucida, Helvetica, Arial, sans-serif",
+    "nav_weight": "bold",
+    "nav_font_style": "uppercase",
+    "nav_font_size": "19",
+    "nav_shadow": false,
+    "regular_typeface_method": "google_webfonts",
+    "regular_google_webfont_font": "Lato",
+    "regular_websafe_font": "'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+    "regular_weight": "normal",
+    "regular_font_style": "none",
+    "video_embed": "",
+    "video_width": "max",
+    "video_width_px": "300",
+    "video_position": "1",
+    "social_icons_footer": false,
+    "display_designed_by": false,
+    "use_paypal": false,
+    "use_bitcoin": false,
+    "use_visa": false,
+    "use_visaelectron": false,
+    "use_mastercard": false,
+    "use_amex": false,
+    "use_cirrus": false,
+    "use_delta": false,
+    "use_discover": false,
+    "use_western_union": false,
+    "show_multiple_currencies": false,
+    "currency_format": "money_format",
+    "supported_currencies": "USD CAD",
+    "default_currency": "USD",
+    "frontpage_linklist": "featured-collections",
+    "frontpage_collections_per_row": "3",
+    "frontpage_collection": "our-picks-for-spring",
+    "frontpage_collection2": "",
+    "frontpage_products_per_row": "4",
+    "blog_widget": true,
+    "blog_widget_select": "the-beltologist",
+    "home_page_articles": "1",
+    "twitter_widget": true,
+    "twitter_username": "Beltology",
+    "tweet_count": "4",
+    "instagram_widget": true,
+    "instagram_client_id": "http:\/\/instagram.com\/beltology",
+    "instagram_title": "Instagram",
+    "instagram_tag_name": "",
+    "instagram_count": "10",
+    "checkout_banner_background_color": "#ffffff",
+    "checkout_headline": "Never Miss A Loop",
+    "checkout_call_to_action_color": "#b5038d",
+    "customer_layout": "theme",
+    "sections": {
+      "styleFinder": {
+        "type": "styleFinder",
+        "settings": {
+          "tumblerImgLimit": "",
+          "tumblrUserName": "mybeltology",
+          "tumblurApiKey": "uBGc2bFzYDONzoJJagN1PvjyDS4fJxTsR2erOVre2bHqWa8VCA",
+          "tab_img_1": "shopify:\/\/shop_images\/businesscasual_80xx.png",
+          "tab_title_1": "Casual",
+          "tab_tag_1": "casual",
+          "tab_img_2": "shopify:\/\/shop_images\/businesscasual.png",
+          "tab_title_2": "Business Casual",
+          "tab_tag_2": "businesscasual",
+          "tab_img_3": "shopify:\/\/shop_images\/formal.png",
+          "tab_title_3": "Formal",
+          "tab_tag_3": "formal"
+        }
+      },
+      "landing-page": {
+        "type": "landing-page",
+        "settings": {
+          "enable_mainImg": true,
+          "image": "shopify:\/\/shop_images\/test4.gif",
+          "main_heading": "",
+          "main_img_content": "",
+          "btn_text": "<span style=\"font-size: .9em;\"><strong>Shop For Him<\/strong><\/span>",
+          "link_main": "https:\/\/www.beltology.com\/collections\/all-products",
+          "btn_text_1": "<span style=\"font-size: .9em;\"><strong>Shop For Her<\/strong><\/span>",
+          "link_main_1": "https:\/\/www.beltology.com\/collections\/womens",
+          "btn_text_2": "",
+          "link_main_2": "",
+          "enable_section_2": true,
+          "image_section_2": "shopify:\/\/shop_images\/shopforhertest1.gif",
+          "heading_section_2": "",
+          "content_sectoin_2": "",
+          "btn_text_section_2": "<span style=\"color: #EEE8AA;\"><strong>Shop Now<\/strong><\/span>",
+          "link_section_2": "https:\/\/www.beltology.com\/pages\/carlotta-x-beltology-1",
+          "enable_section_3": false,
+          "image_section_3": "shopify:\/\/shop_images\/unspecified.jpeg",
+          "heading_section_3": "<a href=\"https:\/\/www.beltology.com\/pages\/andre-1\" style=\"text-tranform:none;\"><span style=\" font-size:=\" .9em=\"\">We've teamed up with artist André Saraiva to create a colorful, carefree collection of five belts thoughtfully produced in NYC.<\/span><\/a>",
+          "image_section_31": "shopify:\/\/shop_images\/Animated_GIF-downsized_large-4.gif",
+          "btn_text_section_3": "View the Collection",
+          "link_section_3": "https:\/\/www.beltology.com\/collections\/andre-x-beltology",
+          "enable_section_4": false,
+          "image_section_4": "shopify:\/\/shop_images\/4-Quote-Left-Pulse-Navy.jpg",
+          "image_section_41": "shopify:\/\/shop_images\/5-Quote-Right-Creme.jpg",
+          "heading_section_4": "<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0260\/1447\/files\/Be-Icon_0.15_blue_74af393d-3eca-4c71-95da-776811ab122a.png?11801043575213186612\" style=\"height: 22px; padding-bottom: 35px; \"> <br> At Beltology we believe a simple accessory can have the power to transform how we look and feel!",
+          "enable_section_5": true,
+          "image_section_5": "shopify:\/\/shop_images\/promo-img03.png",
+          "heading_section_5": "",
+          "image_section_51": "shopify:\/\/shop_images\/Andre_Collab_Logo_fb76bb1a-e94d-4876-bcd9-666c32d0df02.png",
+          "btn_text_section_5": "<strong>Shop Andre<\/strong>",
+          "link_section_5": "https:\/\/www.beltology.com\/collections\/andre-x-beltology",
+          "enable_section_6": true,
+          "product_1": "women-litmus-burgundy",
+          "product_2": "andre-x-beltology-rwb",
+          "product_3": "thermal-belt-heather-grey"
+        }
+      },
+      "page-about": {
+        "type": "page-about",
+        "blocks": {
+          "1530005298230": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/vogue_grey_sharp_big_3df0dc95-2d4e-4151-b23d-0064c4079687.png",
+              "asseen_text": "\"Saraiva has contributed a gorgeous palette for André x Beltology, including Kelly green, pink and blue, and a red, blue, and white trilogy...because who doesn’t want to perk up a pink belt and pop over your pants?\""
+            }
+          },
+          "1530005341253": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/wwd_grey_sharp_big_e347a8b1-6cad-4640-92bc-97c02739ff5c.png",
+              "asseen_text": "\"Start-up accessory brand Beltology is taking things up a notch as they launch their first collaboration with graffiti artist and sometimes restaurateur and nightlife impresario, André Saraiva.\""
+            }
+          },
+          "1530005364613": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/logo-thewindow-1_29a26b09-c163-444a-af84-332f71ca27e5.png",
+              "asseen_text": "\"Beltology is an innovative brand that manages to take the belt—a timeless yet often tired wardrobe staple—and make it both buzzy and irreverent.\""
+            }
+          },
+          "1502170204034": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/vintageLogo001.png",
+              "asseen_text": "\"Cool enough for street kids, the right side<br> of jaunty for men in suits, and a rainbow of colors<br> for preppy golfers.\""
+            }
+          },
+          "1502170258690": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/vintageLogo002.png",
+              "asseen_text": "\"Beltology, an online-only brand devoted to giving the least-noticed,<br> least-talked about and least-fetishized accessory in menswear its<br> proper place of worship.\""
+            }
+          },
+          "1502170276410": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/vintageLogo003.png",
+              "asseen_text": "\"Enter Beltology, a company bringing<br> the colorful Italian woven stretch belt to the world <br>for an affordable price.\""
+            }
+          },
+          "1502170293426": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/vintageLogo004.png",
+              "asseen_text": "“Beltology's collection of simple, stylish belts are made of a<br> woven material that stretches and helps avoid sizing issues<br> by eliminating the need for holes.\""
+            }
+          },
+          "1502170307307": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/vintageLogo005.png",
+              "asseen_text": "\"Beltology is a part of a new mens market that focuses <br>on loyalty and expertise in one category and creating a brand that <br>customers can come back to and trust.\""
+            }
+          },
+          "1502170323234": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/vintageLogo006.png",
+              "asseen_text": "\"The belt is an often forgotten and overlooked<br> accessory that plays a crucial role in daily wear and<br> Beltology hopes to change that.\""
+            }
+          }
+        },
+        "block_order": [
+          "1530005298230",
+          "1530005341253",
+          "1530005364613",
+          "1502170204034",
+          "1502170258690",
+          "1502170276410",
+          "1502170293426",
+          "1502170307307",
+          "1502170323234"
+        ],
+        "settings": {
+          "enable_mainImg": true,
+          "image_main": "shopify:\/\/shop_images\/Beltology-Woven-Belts_Blue.jpg",
+          "main_heading": "our story",
+          "main_img_content": "The belt is back. For years it had been overlooked: churned out in drab colors, cheap materials, and awkward fits. After trying (and failing) to punch a new hole in an old worn out belt, we'd had enough, and so in 2014 Beltology was founded. Over the next year we devoted ourselves to studying every element of the belt. We tested hundreds of designs, trying to find the sweet spot where colors and patterns, and fit and function meet. After many months we finally settled on our signature design:",
+          "main_subHeading": "<span style=\"font-size:1.8em; color: #e74536;\">art & science, woven together<\/span>",
+          "main_img_sub_content": "A departure from ordinary woven styles which stretch and lose their fit over time, each one of our belts are hand crafted in the USA with a resilient flex that adjusts to fit perfectly to your waist no matter what you're doing. Moreover, our unique design gives us the flexibility to combine premium materials and colors that both pay homage to classic styles while also creating entirely new ones. Whether you're headed from the office to the golf course, or from your apartment to a night on the town our belts will move with you.",
+          "image_2": "shopify:\/\/shop_images\/unspecified.jpeg",
+          "image_text": "",
+          "image_3": "shopify:\/\/shop_images\/belt-fan-gif_v2.gif",
+          "subContent_text": "",
+          "parallax_img": "",
+          "enable_ourBelts": false,
+          "ourBelts_heading": "art & science, woven together",
+          "ourBelts_content": "Our design philosophy is simple<span style=\"font-family :arial;\">:<\/span> create the highest quality hand-finished woven belts with refreshing accents of color and timeless patterns. \nA departure from ordinary styles that stretch over time, each one of our belts is woven with a resilient design that allows for a customized fit that stays true with age. For too long, belts have been a forgettable necessity. Beltology is here to make them noteworthy essentials.",
+          "ourBelts_image_1": "",
+          "ourBelts_image_text_1": "",
+          "ourBelts_image_2": "",
+          "ourBelts_image_text_2": "",
+          "ourBelts_image_3": "",
+          "ourBelts_image_text_3": "",
+          "enable_as_seen_in": true,
+          "as_seen_in_heading": "as seen in"
+        }
+      },
+      "page__sizing__guide": {
+        "type": "page__sizing__guide",
+        "blocks": {
+          "1539634059239": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/womens_size_small_925ea832-1cbe-454e-81cf-9054eb41ab2e.png",
+              "title": "women's small",
+              "sub__title": "95 cm in length",
+              "link": "https:\/\/www.beltology.com\/collections\/womens"
+            }
+          },
+          "1539634067111": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/womens_size_medium_2db20ed1-1938-498f-835a-ccd388b85304.png",
+              "title": "women's medium",
+              "sub__title": "100 cm in length",
+              "link": "https:\/\/www.beltology.com\/collections\/womens"
+            }
+          },
+          "1539634072469": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/womens_size_large_4936481f-1a87-4612-afb8-7fa8d6e9934c.png",
+              "title": "women's large",
+              "sub__title": "105 cm in length",
+              "link": "https:\/\/www.beltology.com\/collections\/womens"
+            }
+          },
+          "1505217030899": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/catalyst-belt-size30_2048x_2.png",
+              "title": "men's 30",
+              "sub__title": "95 cm in length",
+              "link": ""
+            }
+          },
+          "1505217065353": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/catalyst-belt-size32_2048x_2.png",
+              "title": "men's 32",
+              "sub__title": "100 cm in length",
+              "link": "https:\/\/www.beltology.com\/collections\/all-products"
+            }
+          },
+          "1505217080779": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/catalyst-belt-size34_2048x_2.png",
+              "title": "men's 34",
+              "sub__title": "105 cm in length",
+              "link": "https:\/\/www.beltology.com\/collections\/all-products"
+            }
+          },
+          "1505217099866": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/catalyst-belt-size36_2048x_2.png",
+              "title": "men's 36",
+              "sub__title": "110 cm in length",
+              "link": "https:\/\/www.beltology.com\/collections\/all-products"
+            }
+          },
+          "1505217125418": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/catalyst-belt-size38_2048x_2.png",
+              "title": "men's 38",
+              "sub__title": "115 cm in length",
+              "link": "https:\/\/www.beltology.com\/collections\/all-products"
+            }
+          },
+          "1505217152763": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/catalyst-belt-size40_2048x_2.png",
+              "title": "men's 40",
+              "sub__title": "120 cm in length",
+              "link": "https:\/\/www.beltology.com\/collections\/all-products"
+            }
+          }
+        },
+        "block_order": [
+          "1539634059239",
+          "1539634067111",
+          "1539634072469",
+          "1505217030899",
+          "1505217065353",
+          "1505217080779",
+          "1505217099866",
+          "1505217125418",
+          "1505217152763"
+        ],
+        "settings": {
+          "enable_mainImg": true,
+          "main_heading": "a better fitting belt",
+          "main_img_content": "<br>Our belts come in both Men's and Women's sizes, with both designed to match your regular belt size. So if you're a 32 in pants then chances are you're a good fit for a 34 belt!<br><br>\nHowever if you are unsure, or are caught between sizes, no worries! All of our belts here at Beltology are designed with a signature flex weave which gives them roughly 15% give! <br>",
+          "image_main": "",
+          "main_subHeading": "",
+          "main_img_sub_content": ""
+        }
+      },
+      "page-buy-our-belt": {
+        "type": "page-buy-our-belt",
+        "blocks": {
+          "1519640531727": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/1.jpg",
+              "title": "1. They’re rethinking men’s accessories.",
+              "content": "Take it from the Wall Street Journal: Beltology is “devoted to giving the least-noticed, least-talked about and least-fetishized accessory in menswear its proper place of worship.” Dedicated to restoring belts to their rightful place in the world — and your outfit — Beltology has a singular focus, to build a refreshing new take on an age-old accessory, with unassailable style and unmatched quality at the core of everything they do."
+            }
+          },
+          "1519640563086": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/2_8ed44626-6946-434f-bb35-bfb1ca96f579.jpg",
+              "title": "2. Stretch makes them ‘extremely comfortable,' according to countless customers.",
+              "content": "Beltology belts are made to move. Every style includes cutting-edge flex that maximizes comfort and resilience. Whether you’re biking to the office, hitting the links or lounging all day, they’re guaranteed to stay comfortable in any context."
+            }
+          },
+          "1519640577358": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/buy3.jpg",
+              "title": "3. No holes, no restrictions.",
+              "content": "Beltology belts don’t have holes, meaning the prong goes straight through extra resilient webbing. No holes mean the perfect fit every time."
+            }
+          },
+          "1519640596125": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/4.jpg",
+              "title": "4. Your satisfaction is guaranteed.",
+              "content": "Your happiness is guaranteed. With 100 day returns and free exchanges, the brand’s customer service tactic is simple: they’re not happy unless you’re thrilled. They’ll stand behind their product 100%. After years of work perfecting the belt, they guarantee you’ll love every style."
+            }
+          },
+          "1519640916501": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/5.jpg",
+              "title": "5. Beltology offers access premium quality at an affordable luxury price.",
+              "content": "They use the same premium materials as luxury brands, but a direct-to-consumer model slashes overhead business expenses. This translates directly into savings for every customer. Their competitors’ styles, using identical manufacturing and often lesser materials, start at double the cost."
+            }
+          },
+          "1519640948037": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/6.jpg",
+              "title": "6. There are so many to choose from.",
+              "content": "Beltology has a core offering of stylish, comfortable and versatile belts, but one awesome advantage of the brand is the sheer number of styles. With a dedicated design team, fresh seasonal offerings and bi-weekly product launches, Beltology offers an endless assortment for every season and every occasion. After all, belts have an important job to do, sure, but that doesn’t mean they can’t be expressive."
+            }
+          },
+          "1519640969269": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/buy7.jpg",
+              "title": "7. Made in America.",
+              "content": "Using top notch materials, Beltology manufactures in New York, at the oldest family-run belt factory in the city."
+            }
+          }
+        },
+        "block_order": [
+          "1519640531727",
+          "1519640563086",
+          "1519640577358",
+          "1519640596125",
+          "1519640916501",
+          "1519640948037",
+          "1519640969269"
+        ],
+        "settings": {
+          "enable_mainImg": true,
+          "image_main": "shopify:\/\/shop_images\/Hero_fd7f9d19-d102-4e2c-8d45-ff36a1864722.jpg",
+          "main_heading": "7 Reasons Your Belt Should Be Beltology",
+          "main_img_content": "The New York-based startup set out to reinvent the tired, boring belt and has mastered the art of it by creating the perfect product: a ridiculously comfortable belt that makes luxury accessible to all.",
+          "case_rtitle": "In case you’re already convinced...",
+          "button_label_1": "Shop top sellers",
+          "button_link_1": "shopify:\/\/collections\/top-sellers",
+          "button_label_2": "Shop All",
+          "button_link_2": "shopify:\/\/collections\/all",
+          "design_title": "Beltology designs belts with two things in mind: freedom of expression — that’s style — and freedom of movement — that’s functionality.",
+          "button_label": "Shop beltology",
+          "button_link": "shopify:\/\/collections\/all"
+        }
+      },
+      "page_faq": {
+        "type": "page_faq",
+        "blocks": {
+          "1524669875974": {
+            "type": "text",
+            "settings": {
+              "title": "What's my Beltology belt size<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "No math to do here — your regular waist size should do the trick. If you're a Men's size 32 pant, then our 32 belt will fit you perfectly. Similarly if you're a Medium sized women's pant, then our Medium will fit you just as well. If you like your belts to have some excess length, go a full size up from your true Beltology size.",
+              "category": "product information"
+            }
+          },
+          "1524207768102": {
+            "type": "text",
+            "settings": {
+              "title": "What’s my Beltology belt size<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "No math to do here — your regular waist size should do the trick. If you’re a 32 in most pants, you’re a 32 in Beltology. If you’re normally in between two sizes, go with the larger one. If you like your belts to have some excess length, go a full size up from your true Beltology size. View <a href=\"\/pages\/sizing-guide-1\">Sizing Guide<\/a>.",
+              "category": "product-information"
+            }
+          },
+          "1524207817677": {
+            "type": "text",
+            "settings": {
+              "title": "What makes Beltology belts better<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "In a nutshell, better style and more functionality. We think belts have been the forgotten accessory for too long, so we design our styles to be expressive and memorable. Additionally all of our belts are made with an innovative stretch weave for a constantly adapting but always perfect fit.",
+              "category": "product information"
+            }
+          },
+          "1524207856896": {
+            "type": "text",
+            "settings": {
+              "title": "The style I want is out of stock. Is it coming back<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "We replenish popular styles on a regular basis, so there’s a chance. Join our mailing list and we’ll let you know as soon as in-demand styles are back in stock.",
+              "category": "product information"
+            }
+          },
+          "1524496363598": {
+            "type": "text",
+            "settings": {
+              "title": "Do you carry women's belts<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "Yes we do! We are very excited about our Women's line, which launched in 2018. Many of our customers – as well as over half our team – are women. You can view our current collections from our homepage, under 'Womens.'  If you have any questions, chat us now or send us a note at <a href=\"mailto:intheloop@beltology.com\">intheloop@beltology.com<\/a>",
+              "category": "product information"
+            }
+          },
+          "1524497699263": {
+            "type": "text",
+            "settings": {
+              "title": "Have a question that isn’t covered here<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "Get in touch by emailing <a href=\"mailto:intheloop@beltology.com\">intheloop@beltology.com<\/a>",
+              "category": "product information"
+            }
+          },
+          "1524208026480": {
+            "type": "text",
+            "settings": {
+              "title": "Do you offer a military discount<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "We proudly offer a discount for active-duty and veteran members of our United States Armed Forces, as well as their families.  Please email <a href=\"mailto:intheloop@beltology.com\">intheloop@beltology.com<\/a> for your exclusive code.",
+              "category": "orders and shipping"
+            }
+          },
+          "1524497476045": {
+            "type": "text",
+            "settings": {
+              "title": "When will my order ship<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "It’ll be ready to go in 1 - 2 business days. Shopping on the weekend<span style=\"font-family:arial;\">?<\/span> We’ll have your order ready the next business day.",
+              "category": "orders and shipping"
+            }
+          },
+          "1524497508921": {
+            "type": "text",
+            "settings": {
+              "title": "When will my order arrive<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "All orders ship via USPS First Class and USPS Priority and should get to your shipping address within 3 - 7 business days of departing our shipping center in New York. As soon as your order ships, you’ll receive tracking information so you can keep an eye on it.",
+              "category": "orders and shipping"
+            }
+          },
+          "1524497528768": {
+            "type": "text",
+            "settings": {
+              "title": "I need my order fast. Can I expedite shipping<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "When you need a belt, you need a belt. We offer two expedited shipping options at checkout: UPS Standard Overnight and UPS 2-Day (prices calculated at checkout).\n\nNote: UPS orders are picked up at our shipping center at 12:00pm EST, so any orders placed after that won’t begin their journey until the next business day.",
+              "category": "orders and shipping"
+            }
+          },
+          "1524497559155": {
+            "type": "text",
+            "settings": {
+              "title": "I need to modify or cancel my order. What do I do<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "Our orders process in minutes, so we can’t modify an order after it’s been placed. If you decide to cancel or change your order within one hour of placing it email us at <a href=\"mailto:intheloop@beltology.com\">intheloop@beltology.com<\/a> and we’ll see what we can do.",
+              "category": "orders and shipping"
+            }
+          },
+          "1524497618984": {
+            "type": "text",
+            "settings": {
+              "title": "Do you ship outside of the United States<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "Not yet, but we’re working on taking our belts around the world. Sign up for our newsletter to get an update as soon as we start shipping to new destinations.",
+              "category": "orders and shipping"
+            }
+          },
+          "1524497632464": {
+            "type": "text",
+            "settings": {
+              "title": "I haven’t received my order yet. Where is it<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "Check the tracking info in your shipping confirmation. If that doesn’t help or you haven’t received a shipping confirmation after a couple of business days, email <a href=\"mailto:intheloop@beltology.com\">intheloop@beltology.com<\/a> and we’ll get to the bottom of it.",
+              "category": "orders and shipping"
+            }
+          },
+          "1524497714422": {
+            "type": "text",
+            "settings": {
+              "title": "Have a question that isn’t covered here<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "Get in touch by emailing <a href=\"mailto:intheloop@beltology.com\">intheloop@beltology.com<\/a>",
+              "category": "orders and shipping"
+            }
+          },
+          "1524497784140": {
+            "type": "text",
+            "settings": {
+              "title": "What's your return policy<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "We stand by our products and want you to be totally satisfied with anything you receive from Beltology, so you’ve got 100 days from the day you receive your order to return or exchange it. To get a return or exchange started, visit our Returns Center or click Returns and Exchanges in the footer of this page. \n\nPlease note that all returned products must be in new condition with all packaging to be eligible for a refund or exchange. If you refund to site credit, your return is 100% free. If you opt to refund to your payment method, a $6 return shipping fee will be deducted. Shipping fees are non-refundable.",
+              "category": "returns and exchanges"
+            }
+          },
+          "1524497804415": {
+            "type": "text",
+            "settings": {
+              "title": "How do I return a gift I received<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "You can return the gift for store credit that you can use to find a style that works better. Email <a href=\"mailto:intheloop@beltology.com\">intheloop@beltology.com<\/a> and we’ll set you up with a return label and a gift card so you can get to shopping.",
+              "category": "returns and exchanges"
+            }
+          },
+          "1524497841554": {
+            "type": "text",
+            "settings": {
+              "title": "When will I receive my refund \/ exchange<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "Once your returned item(s) make it back to our shipping center, we’ll process a refund or your exchange order within 3 business days. Note: It might take 2 - 5 additional business days for a credit card refund to show up on your statement, depending on your bank.",
+              "category": "returns and exchanges"
+            }
+          },
+          "1524497866233": {
+            "type": "text",
+            "settings": {
+              "title": "I received a damaged \/ incorrect item. What happens now<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "We’re so sorry about that. Email <a href=\"mailto:intheloop@beltology.com\">intheloop@beltology.com<\/a> with a photo of the item and your order number. We’ll get you squared away ASAP.",
+              "category": "returns and exchanges"
+            }
+          },
+          "1524497729204": {
+            "type": "text",
+            "settings": {
+              "title": "Have a question that isn’t covered here<span style=\"font-family:arial;\">?<\/span>",
+              "answer1": "Get in touch by emailing <a href=\"mailto:intheloop@beltology.com\">intheloop@beltology.com<\/a>",
+              "category": "returns and exchanges"
+            }
+          }
+        },
+        "block_order": [
+          "1524669875974",
+          "1524207768102",
+          "1524207817677",
+          "1524207856896",
+          "1524496363598",
+          "1524497699263",
+          "1524208026480",
+          "1524497476045",
+          "1524497508921",
+          "1524497528768",
+          "1524497559155",
+          "1524497618984",
+          "1524497632464",
+          "1524497714422",
+          "1524497784140",
+          "1524497804415",
+          "1524497841554",
+          "1524497866233",
+          "1524497729204"
+        ],
+        "settings": {
+          "faq_title": "faq",
+          "imageFAQ": "shopify:\/\/shop_images\/Artboard_1_0.5x_2.png",
+          "service_title": "in touch",
+          "imageService": "shopify:\/\/shop_images\/Artboard_1_0.5x.png",
+          "contact_title": "customer service",
+          "imageContact": "shopify:\/\/shop_images\/Artboard_1_0.5x_1.png",
+          "service_title1": "customer service",
+          "service_content1": "<p>for any questions please write us below or email us at the following address:<\/p>",
+          "service_link1": "intheloop@beltology.com",
+          "service_link_url1": "mailto:intheloop@beltology.com",
+          "service_title2": "brand collaborations",
+          "service_content2": "<p>for&nbsp;brand collaborations and creative projects please contact Alexander Adam:<\/p>\n<p><\/p>",
+          "service_link2": "alexander@beltology.com",
+          "service_link_url2": "",
+          "service_title3": "distribution and partnerships",
+          "service_content3": "<p>for sales, distribution and partnerships, contact Frans Sjo:<\/p>",
+          "service_link3": "frans@beltology.com",
+          "service_link_url3": "mailto:frans@beltology.com",
+          "service_title4": "media and marketing",
+          "service_content4": "<p>for media, press, and digital marketing queries, please contact Alexander Adam:<\/p>",
+          "service_link4": "<a href=\"mailto:alexander@beltology.com\">alexander@beltology.com<\/a>",
+          "service_link_url4": ""
+        }
+      },
+      "page-andre": {
+        "type": "page-andre",
+        "blocks": {
+          "1528345836619": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/green.png",
+              "url": "#"
+            }
+          },
+          "1528345883312": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/pink.png",
+              "url": "#"
+            }
+          },
+          "1528345890753": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/blue.png",
+              "url": "#"
+            }
+          }
+        },
+        "block_order": [
+          "1528345836619",
+          "1528345883312",
+          "1528345890753"
+        ],
+        "settings": {
+          "enable_top_banner": true,
+          "image_banner": "shopify:\/\/shop_images\/Beltology1.jpg",
+          "collection": "andre-x-beltology",
+          "enable_promo_section": true,
+          "promo_banner1": "shopify:\/\/shop_images\/promo-img01.jpg",
+          "promo_banner1_url": "shopify:\/\/collections\/andre-x-beltology",
+          "promo_banner2": "shopify:\/\/shop_images\/promo-img02_a7d98225-ab82-46a2-bc0f-b4dfae94ea22.jpg",
+          "enable_beltology_section": true,
+          "beltology-content1": "<span style=\"font-size:42px;\">André x Beltology<\/span>",
+          "beltology-content2": "<span style=\"font-size:32px;\">André Saraiva’s limited edition unisex collection features five vibrant styles with collectible pins inspired by his iconic artistic sense.<\/span>",
+          "beltology_link": "https:\/\/www.beltology.com\/collections\/andre-x-beltology",
+          "enable_promo_bottom_section": true,
+          "promo_banner11": "shopify:\/\/shop_images\/promo-img03.png",
+          "promo_banner11_url": "shopify:\/\/collections\/andre-x-beltology",
+          "promo_banner22": "shopify:\/\/shop_images\/promo-img04.png",
+          "enable_bottom_banner_section": true,
+          "bottom_banner": "shopify:\/\/shop_images\/Paris.jpg"
+        }
+      }
+    },
+    "content_for_index": []
+  }
+}

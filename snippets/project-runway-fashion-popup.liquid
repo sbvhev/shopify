@@ -1,0 +1,29 @@
+
+{% if settings.project_runway_fashion_popup %}
+<div id="newsletter-popup1" class="newsletter_layer" style="display:none;">
+    <div class="close_popup"></div>
+    <div class="span12"><img src="{{ 'projectRunwayFashion.jpg' | asset_url }}" alt="{{ settings.newsletter_popup_alt_text | escape }}" /></div>
+      
+    </div>  
+  
+  
+  <script type="text/javascript">
+    $(document).ready(function() {
+        // check cookie
+        var visited = $.cookie("visited")
+
+        if (visited == null) {
+            $('.newsletter_layer').show();                   
+        }
+
+        // set cookie
+      	$('.newsletter_layer .close_popup').click(function(e) {
+          $.cookie('visited', 'yes', { expires: 31 });
+          $(".newsletter_layer").hide();          
+       });
+                  
+      
+        $.cookie('visited', 'yes', { expires: 1, path: '/' });
+    });
+</script>
+{% endif %}

@@ -1,0 +1,31 @@
+{% capture current_url %}{% if social-buttons == 'article' %}{{ shop.url }}{{ article.url }}{% else %}{{ canonical_url }}{% endif %}{% endcapture %}  
+
+{% capture buttons %}
+<span class="social_buttons">
+  Share: 
+
+  <a href="https://twitter.com/intent/tweet?text=Check out the {% if social-buttons == 'article' %}{{ article.title | escape }}{% else %}{{ product.title | escape }}{% endif %} from {% if settings.twitter_username != '' %}@{{ settings.twitter_username }}{% else %}{{ shop.name | escape }}{% endif %}: {{ current_url }}" target="_blank" class="icon-twitter" title="Share this on Twitter"></a>
+
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ current_url }}" target="_blank" class="icon-facebook" title="Share this on Facebook"></a>
+
+    {% if social-buttons != 'article' %}
+      <a href="//pinterest.com/pin/create/button/?url={{ current_url }}&amp;media={{ product.featured_image | product_img_url: 'master' | replace: '//cdn', 'http://cdn' | replace: 'http:http://', 'http://' | remove: 'https:' }}&amp;description={{ product.title | escape }} from {{ shop.name | escape }}" target="_blank" class="icon-pinterest" title="Share this on Pinterest"></a>&nbsp;
+    {% endif %}
+
+    <a href="mailto:?subject=Thought you might like {% if social-buttons != 'article' %}{{ product.title | escape }}{% else %}this article{% endif %}&amp;body=Hey, I was browsing {{ shop.name | escape }}{% if social-buttons != 'article' %} and found {{ product.title | escape }}{% endif %}. I wanted to share it with you.%0D%0A%0D%0A{{ current_url }}" target="_blank" class="icon-mail" title="Email this to a friend"></a>
+</span>
+
+{% endcapture %}
+
+{% if social-buttons == 'article' and settings.display_social_buttons_blog  %}
+  <div class="social_buttons">
+    {{ buttons }}
+  </div>
+{% elsif social-buttons == 'global' and settings.header_share_button %}  
+  <div class="social_buttons right">
+    {{ buttons }}
+  </div>
+{% elsif social-buttons == 'product' and settings.display_social_buttons %}
+  <hr />
+  {{ buttons }}
+{% endif %}

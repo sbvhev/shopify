@@ -1,0 +1,45 @@
+<div class="thumbnail span3 {% cycle 'alpha', '', '', '', 'omega' %} {% cycle 'even', 'odd' %}">
+
+  <a href="{{ product.url | within: collection }}">
+    <div class="relative">
+      <img {% if settings.align_height %}style="max-height:{{ settings.collection_height }}px"{% endif %} src="{{ product.featured_image | product_img_url: 'large' }}" srcset="{{ product.featured_image | product_img_url: 'grande' }} 2x" alt="{{ product.featured_image.alt | escape }}" />
+    </div>
+
+    <div class="info">
+      {% for option in product.options %}
+        {% if option == 'Color' %}
+          {% assign index = forloop.index0 %}
+          {% assign color = '' %}
+          {% for variant in product.variants %}
+            {% capture color %}
+              {{ variant.options[index] }}
+            {% endcapture %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+      <span class="color">{{ color }}</span>
+      <span class="title">{{ product.title }}</span>
+      <span class="price {% if product.compare_at_price_max > product.price %}sale{% endif %}">
+        {% if product.available %}
+          {% if product.price_varies %}
+            <small><em>from</em></small>
+          {% endif %}
+          {{ product.price_min | money }}
+        {% else %}
+          <span class="sold_out">{{ settings.sold_out_text }} - </span>{{ product.price_min | money }}
+        {% endif %}
+        {% if product.compare_at_price_max > product.price %}
+          <span class="was_price">{{ product.compare_at_price_max | money }}</span>
+        {% endif %}
+      </span>
+    </div>
+    {% if settings.sale_banner_enabled and product.compare_at_price_max > product.price %}
+      <div class="sale_banner">Sale</div>
+    {% endif %}
+    {% for col in product.collections %}
+      {% if col.handle == 'new' %}
+        <div class="new_banner">New</div>
+      {% endif %}
+    {% endfor %}
+  </a>
+</div>

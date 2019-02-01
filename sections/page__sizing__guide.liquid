@@ -1,0 +1,256 @@
+<div class="fitting-belt-wrapper">
+  <div class="container">
+    {% if section.settings.enable_mainImg %}
+    <div id="section_one">
+      <div class="fitting-belt">
+        {% if section.settings.main_heading != blank %}<h2>{{ section.settings.main_heading }}</h2>{% endif %}
+        {% if section.settings.main_img_content != blank %}<p>{{ section.settings.main_img_content }}</p>{% endif %}
+      </div>    
+      <div class="belt-img-section">
+        <div class="double-img clearfix"> 
+          {% if section.settings.image_main %}
+          <div class="{% if section.settings.main_subHeading != blank %}belt-img{% else %}belt-imgFull{% endif %}">
+            <div class="bannerImgSection">
+              <img src="{{ section.settings.image_main | img_url:'2048x' }}" class="img-responsive subBannerImg">
+            </div>
+          </div>
+          {% endif %}
+          {% if section.settings.main_subHeading != blank %}
+          <div class="img-quote">
+            <div class="bannerImgDiv">  
+              <div class="quote-caption">
+                <p>{{ section.settings.main_subHeading }}</p>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    <div id="section_two">
+      <div class="belt-description">
+        <p>{{ section.settings.main_img_sub_content }}</p>
+      </div>
+      <div class="belt-size-variant">
+        {% if section.blocks.size > 0 %}
+          {% for block in section.blocks %}
+            {% if block.settings.image != blank %}
+				
+              <div class="size-30 img__width{{ block.settings.title | handleize }}">
+                <h2>{{ block.settings.title }}</h2>
+                <p>{{ block.settings.sub__title }}</p>
+                <div class="belt30">
+                  <img src="{{ block.settings.image | img_url: '2048x' }}"  alt=""/>
+                </div>
+                <a href="{{ block.settings.link }}" class="btn__colLink">Shop {{ block.settings.title }}</a>
+              </div>
+					
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        {% comment %}
+        <div class="size-30">
+          <h2>Size 32</h2>
+          <p>100 cm in length</p>
+          <div class="belt32">
+          	<img src="{{ 'belt-size32.png' | asset_url }}">
+          </div>
+        </div>
+        <div class="size-30">
+          <h2>Size 34</h2>
+          <p>105 cm in length</p>
+          <div class="belt34">
+          	<img src="{{ 'belt-size34.png' | asset_url }}">
+          </div>
+        </div>
+        <div class="size-30">
+          <h2>Size 36</h2>
+          <p>110 cm in length</p>
+          <div class="belt36">
+          	<img src="{{ 'belt-size36.png' | asset_url }}">
+          </div>
+        </div>
+        <div class="size-30">
+          <h2>Size 38</h2>
+          <p>115 cm in length</p>
+          <div class="belt38">
+          	<img src="{{ 'belt-size38.png' | asset_url }}">
+          </div>
+        </div>
+        <div class="size-30">
+          <h2>Size 40</h2>
+          <p>120 cm in length</p>
+          <div class="belt40">
+          	<img src="{{ 'belt-size40.png' | asset_url }}">
+          </div>
+        </div>
+        {% endcomment %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="section">
+  <div class="container">
+    <ul class="menu">
+      {% for link in linklists['landing-footer'].links %}
+      <li><a href="{{ link.url }}" title="{{ link.title }}" class="{% if link.active %}active{% endif %}">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+    <ul class="footer_social">
+      {% if settings.social_insta_link != blank %}
+      <li>
+        <a href="{{ settings.social_insta_link }}" target="_blank">
+          <i class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+      </li>
+      {% endif %}
+
+      <li>
+        <a href="https://www.facebook.com/Beltology/" target="_blank">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+        </a>
+      </li>
+      {% if settings.social_mail_link != blank %}
+      <li>
+        <a href="mailto:{{ settings.social_mail_link }}" target="_blank">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        </a>
+      </li>
+      {% endif %}
+      {% if settings.social_twitter_link != blank %}
+      <li>
+        <a href="{{ settings.social_twitter_link }}" target="_blank">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+      {% endif %}
+
+    </ul>
+  </div>
+</footer>
+
+<ul class="navIcon">
+  <li><a data-scroll-nav="0" href="#section_one" class="active"><span></span></a></li>
+  <li><a data-scroll-nav="1" href="#section_two"><span></span></a></li>
+</ul>
+
+
+{% schema %}
+  {
+    "name": "Size Guide",
+    "settings": [
+		{
+            "type": "header",
+            "content": "A better fitting belt"
+        },
+		{
+            "type": "checkbox",
+            "id": "enable_mainImg",
+            "label": "Enable?"
+        },
+		{
+            "type": "text",
+            "id": "main_heading",
+            "label": "Heading"
+        },
+		{
+            "type": "textarea",
+            "id": "main_img_content",
+            "label": "Content"
+        },
+		{
+            "type": "image_picker",
+            "id": "image_main",
+            "label": "Image"
+        },
+		{
+            "type": "textarea",
+            "id": "main_subHeading",
+            "label": "Image Text"
+        },
+		{
+            "type": "header",
+            "content": "Size Belt"
+        },
+		{
+            "type": "textarea",
+            "id": "main_img_sub_content",
+            "label": "Sub Content"
+        }
+	],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+		  {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "textarea",
+            "id": "sub__title",
+            "label": "Sub Title"
+          },
+		  {
+            "type": "url",
+            "id": "link",
+            "label": "link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+<script>
+  
+  $(document).ready(function(){
+    function closeClass(){
+      $('.navIcon li a').removeClass('active');
+    }
+  	$('.navIcon li a').bind('click', function (event) {
+      var sectionID = $(this).attr('href');
+      
+      var $anchor = $(this);
+      if(jQuery(event.target).is('.active')) {
+        closeClass();
+      }else {
+        closeClass();
+        $(this).addClass('active'); 
+      }
+      event.preventDefault();
+    });
+    var secTop1 = $('#section_one').offset().top;
+    var secTop2 = $('#section_two').offset().top;
+    
+    $(window).scroll(function(){
+      var scollTopCUstom = $(window).scrollTop() + 50;
+      if (scollTopCUstom > secTop1 && scollTopCUstom < secTop2) {
+          var dataSec = $('#section_one').data('scroll-index');
+          $('.navIcon li a').removeClass('active');
+          $('.navIcon li').first().find('a').addClass('active');
+        	
+      }else if(scollTopCUstom > secTop2){
+        var dataSec = $('#section_two').data('scroll-index');
+        $('.navIcon li a').removeClass('active');
+        $('.navIcon li:nth-child(2)').find('a').addClass('active');
+      }
+    });
+  });
+</script>
+

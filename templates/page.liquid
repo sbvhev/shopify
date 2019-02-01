@@ -1,0 +1,9 @@
+<div class="container">
+<div class="section clearfix">
+    {{ page.content }}
+</div>
+</div>
+
+{% if page_title == 'About Us' %}
+	{% include 'project-runway-fashion-popup' %}
+{% endif %}

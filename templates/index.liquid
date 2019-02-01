@@ -1,0 +1,99 @@
+{% section 'landing-page' %}
+
+
+
+       
+
+
+{% comment %}
+{% include 'homepage-hero' %}
+
+{% if settings.homepage != blank %}
+<div class="container">
+  <div class="page-caption">
+      {{ pages[settings.homepage].content }}
+  </div>
+</div>
+{% endif %}
+
+
+{% if settings.featured_products %}
+<div class="featured-products featured_links mobile_hidden">
+  <div class="container">
+  {% if settings.frontpage_collection != blank %}
+    {% assign collection = '' %}
+    {% assign products = collections[settings.frontpage_collection].products %}
+    {% include 'product-loop-featured' %}
+  {% endif %}
+  </div>
+</div>
+{% endif %}
+
+
+{% if settings.featured_links %}
+<div class="featured_links clearfix">
+  <div class="container">
+    <div class="span6">
+      <a href="{{ settings.feature1_link }}">
+        <div class="image_container">
+          {% if settings.feature1_type == 'mp4' %}
+            {{ settings.feature1_video_embed }}
+          {% elsif settings.feature1_type == 'gif' %}
+            <img src="{{ 'feature1.gif' | asset_url }}" alt="{{ settings.feature1_text | escape }}" />
+          {% else %}
+            <img src="{{ 'feature1.jpg' | asset_url }}" alt="{{ settings.feature1_text | escape }}" />
+          {% endif %}
+        </div>
+        {% if settings.feature1_heading != blank %}<h3 class="feature-heading">{{ settings.feature1_heading }}</h3>{% endif %}
+        {% if settings.feature1_text != blank %}<div class="feature-text">{{ settings.feature1_text }}</div>{% endif %}
+      </a>
+    </div>
+    <div class="span6">
+      <a href="{{ settings.feature2_link }}">
+        <div class="image_container">
+          {% if settings.feature2_type == 'mp4' %}
+            {{ settings.feature2_video_embed }}
+          {% elsif settings.feature2_type == 'gif' %}
+            <img src="{{ 'feature2.gif' | asset_url }}" alt="{{ settings.feature2_text | escape }}" />
+          {% else %}
+            <img src="{{ 'feature2.jpg' | asset_url }}" alt="{{ settings.feature2_text | escape }}" />
+          {% endif %}
+        </div>
+        {% if settings.feature2_heading != blank %}<h3 class="feature-heading">{{ settings.feature2_heading }}</h3>{% endif %}
+        {% if settings.feature2_text != blank %}<div class="feature-text">{{ settings.feature2_text }}</div>{% endif %}
+      </a>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
+{% if settings.homepage_bottom_hero_enabled %}
+<div class="homepage_content clearfix">
+  <div class="hero">
+  <a href="{{ settings.homepage_bottom_hero_link }}"><img src="{{ 'homepage_bottom_hero.jpg' | asset_url }}" alt="{{ settings.homepage_bottom_hero_alt_text | escape }}" /></a>
+  {% if settings.hompeage_bottom_hero_headline != blank or settings.homepage_bottom_hero_subtitle != blank or settings.homepage_bottom_hero_button_text != blank %}
+  <div class="hero-caption {% if settings.homepage_bottom_hero_text_align == 'right' %} align-right {% endif %}{% if settings.homepage_bottom_hero_text_align == 'center' %} align-center {% endif %}">
+    <div class="container">
+        <h3 class="headline" {% if settings.homepage_bottom_hero_headline_color %}style="color:{{ settings.homepage_bottom_hero_headline_color }}"{% endif %}>{{ settings.homepage_bottom_hero_headline }}</h3>
+        <div class="subtitle" {% if settings.homepage_bottom_hero_subtitle_color %}style="color:{{ settings.homepage_bottom_hero_subtitle_color }}"{% endif %}><p>{{ settings.homepage_bottom_hero_subtitle }}</p></div>
+        {% if settings.homepage_bottom_hero_button_text %}
+        <a href="{{ settings.homepage_bottom_hero_link }}" class="action_button" {% if settings.homepage_bottom_hero_button_color %}style="color:{{ settings.homepage_bottom_hero_button_color }}; border-color:{{ settings.homepage_bottom_hero_button_color }}"{% endif %}>{{ settings.homepage_bottom_hero_button_text }}</a>
+        {% endif %}
+    </div>
+  </div>
+  {% endif %}
+  </div>
+</div>
+{% endif %}
+
+{% include 'project-runway-fashion-popup' %}    
+<script type="text/javascript"> 
+var google_tag_params = { 
+ecomm_prodid: '', 
+ecomm_pagetype: 'home', 
+ecomm_totalvalue: 
+}; 
+</script>
+
+{% endcomment %}

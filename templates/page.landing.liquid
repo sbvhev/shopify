@@ -1,0 +1,156 @@
+{% layout 'theme.landing' %}
+<div id="nav" class="cbp-spmenu cbp-spmenu-left">
+  
+  <ul>
+    {% for link in linklists['landing'].links %}
+      {% if linklists[link.handle] == empty %}
+        <li class="{% if link.active %}Selected {% endif %}{% if link.title contains 'OFF' or link.title contains 'sale' %}sale{% endif %}"><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+      {% else %}
+        <li class="{% if link.active %}Selected {% endif %}{% if link.title contains 'OFF' or link.title contains 'sale' %}sale{% endif %}"><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+          <ul class="sub-menu">
+            {% for link in linklists[link.handle].links %}
+              {% if linklists[link.handle] == empty %}
+                <li {% if link.active %}class="Selected"{% endif %}><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+              {% else %}
+              <li {% if link.active %}class="Selected"{% endif %}><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a> 
+                <ul class="sub-menu">
+                  {% for link in linklists[link.handle].links %}                        
+                    <li {% if link.active %}class="Selected"{% endif %}><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+      {% endif %}
+    {% endfor %}
+    
+
+  </ul>
+</div> 
+<div id="cart" class="cbp-spmenu cbp-spmenu-right">
+  <ul>
+    <li class="continue-item"><a class="continue" href="#cart">Continue Shopping</a></li>
+
+    {% if cart.item_count == 0 %}
+      <li class="Label">Your Cart is Empty</li>
+    {% else %}
+      {% for item in cart.items %}
+        <li class="cart_item">
+          <a href="{{ item.product.url }}">
+            {% assign found = false %}
+            {% for img in item.product.images %}
+              {% if found == false and item.variant.title contains img.alt %}
+                <div class="cart_image">
+                  <img src="{{ img | product_img_url: 'medium' }}" alt="{{ item.product.title | escape }}" />
+                </div>
+                {% assign found = true %}
+               {% endif %}
+            {% endfor %}
+            {% if found == false %}
+              <div class="cart_image">
+                <img src="{{ item.product.featured_image | product_img_url: 'medium' }}" alt="{{ item.product.title | escape }}" />
+              </div>
+            {% endif %} 
+
+            <div><strong>{{ item.quantity }} x</strong> {{ item.title }}</div>
+            <strong class="price">{{ item.price | money }}</strong>
+          </a>
+        </li>
+      {% endfor %}
+      <li class="subtotal-item">
+        <a href="/cart">
+          <span class="subtotal">Subtotal</span> <span class="counter">{{ cart.total_price | money_with_currency }}</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/checkout" class="action_button right">Checkout</a>
+        <a href="/cart" class="action_button edit_cart left">Edit Cart</a>
+      </li>
+    {% endif %}
+  </ul>
+</div>
+
+<header>
+  <div class="logo">
+    <a href="{{ shop.url }}" title="{{ shop.name }}">
+      {% if settings.use_logo %}
+      <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}"/>
+      {% else %}
+      {{ shop.name }}
+      {% endif %}
+    </a>
+  </div>
+  <a href="#nav" class="icon-menu menu-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </a>
+  <ul class="menu">
+    {% for link in linklists['landing'].links %}
+    {% if linklists[link.handle] == empty %}
+    <li><a href="{{ link.url }}" title="{{ link.title }}" class="top-link {% if link.active %}active{% endif %} {% if link.title contains 'OFF' or link.title contains 'sale' %}sale{% endif %}">{{ link.title }}</a></li>
+    {% else %}
+
+    {% comment %}
+    Find out how many sub-links there are total in order to determine if the drop down should be split.
+    {% endcomment %}
+    {% assign count = 0 %}
+    {% for link in linklists[link.handle].links %}
+    {% capture count %}{{ count }}*{% endcapture %}
+    {% if linklists[link.handle] != empty %}
+    {% for link in linklists[link.handle].links %}
+    {% capture count %}{{ count }}*{% endcapture %}
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+    {% assign half_count = count | divided_by: 2 %}
+    {% assign column_threshold = 10 %}
+
+    <li class="{% if count.size > 0 %} site--hasDropdown {% endif %}"><a href="{{ link.url }}" title="{{ link.title }}" class="sub-menu {% if link.active %}active{% endif %} {% for link in linklists[link.handle].links %}{% for l in linklists[link.handle].links %} {% if l.active %}active{% endif %}{% endfor %}{% if link.active %}active{% endif %}{% endfor %}">{{ link.title }}                     
+      <span class="arrow">▾</span></a> 
+      <div class="dropdown {% if count.size > column_threshold %}dropdown-wide{% endif %}">
+        <ul>
+          {% assign count = 0 %}
+          {% assign split = false %}
+          {% for link in linklists[link.handle].links %}
+          {% capture count %}{{ count }}*{% endcapture %}
+          <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+          {% if linklists[link.handle] != empty %}
+          {% for link in linklists[link.handle].links %}
+          {% capture count %}{{ count }}*{% endcapture %}
+          <li>
+            <a class="sub-link" href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+          </li>
+          {% endfor %}
+          {% endif %}
+
+          {% if count.size > column_threshold and count.size >= half_count and split == false %}
+          {% assign split = true %}
+        </ul>
+        <ul>
+          {% endif %}
+          {% endfor %}
+
+        </ul>
+      </div>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+  <div class="cart_header">
+    {% if settings.banner_enabled and settings.banner_text != blank %}
+    <div class="tagLine">
+      <a href="{{ settings.banner_top_link }}">{{ settings.banner_text }}</a>
+    </div>
+    {% endif %}
+
+    <div class="cartIcon">
+      <a href="/cart" class="cart-button"><img src="{{ 'cartIcon.png' | asset_url }}" class="img-responsive" alt=""></a>
+    </div>
+  </div>
+
+</header>
+{% section 'landing-page' %}

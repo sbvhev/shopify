@@ -1,0 +1,24 @@
+<div class="sixteen columns clearfix collection_nav">
+  <h1 class="collection_title">Search</h1>
+</div>
+
+<div class="sixteen columns">
+  <div class="section clearfix">
+    <p class="quote">
+        We're sorry, but the page you're looking for could not be found.
+    </p>
+  </div>
+</div>
+
+<div class="section clearfix search_page">  
+  <div class="sixteen columns center">
+    <p class="extra_padding">
+      <a href="#" onclick="window.history.back();return false;">Go back</a> or try searching &rarr;
+    </p>
+  </div>    
+  <div class="six columns offset-by-five">
+    <form class="search" action="/search">
+      <input type="text" name="q" class="search_box" placeholder="Search..." value="{{ search.terms }}" />
+    </form>
+  </div>
+</div>

@@ -1,0 +1,384 @@
+
+{% if section.settings.enable_mainImg %}
+<section id="section_one" class="fp-auto-height main_imgSection section">
+  <div class="container">
+    {% if section.settings.main_heading %}<h2>{{ section.settings.main_heading }}</h2>{% endif %}
+    {% if section.settings.main_img_content %}<div class="mainContent">{{ section.settings.main_img_content }}</div>{% endif %}
+    <img src="{{ section.settings.image_main | img_url: '2048x' }}" class="img-responsive mainBannerImg" alt="main banner"/>
+  </div>
+</section>
+{% else %}
+<section id="section_one"></section>
+{% endif %}
+
+<section id="section_two" class="fp-auto-height main_imgSection section">
+  <div class="container">
+    {% if section.settings.main_subHeading %}<h3>{{ section.settings.main_subHeading }}</h3>{% endif %}
+    {% if section.settings.main_img_sub_content %}<div class="mainContent">{{ section.settings.main_img_sub_content }}</div>{% endif %}
+    <div class="grid_img clearfix">
+      <div class="span5">
+        <div class="bannerImg">
+          {% if section.settings.image_2 %}
+          <img src="{{ section.settings.image_2 | img_url: '2048x' }}" class="img-responsive subBannerImg" alt="sub banner"/>
+          {% endif %}
+          {% if section.settings.image_text %}
+          <div class="caption">
+            <p>{{ section.settings.image_text }}</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="span7">
+        <div class="bannerImg2">
+          {% if section.settings.image_3 %}
+          <img src="{{ section.settings.image_3 | img_url: '2048x' }}" class="img-responsive subBannerImg" alt="sub banner"/>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% if section.settings.subContent_text %}<div class="mainContent mab60col">{{ section.settings.subContent_text }}</div>{% endif %}
+
+  </div>
+  {% if section.settings.parallax_img %}
+  <div class="parallax-window" data-parallax="scroll" data-image-src="{{ section.settings.parallax_img | img_url: '2048x' }}"></div>
+  {% endif %}
+</section>  
+{% if section.settings.parallax_img %}
+<script>
+  $('.parallax-window').parallax({imageSrc: '{{ section.settings.parallax_img | img_url: '2048x' }}'});
+</script>
+{% endif %}
+
+{% if section.settings.enable_ourBelts %}
+<section id="section_three" class="ourBeltscol section">
+  <div class="container">
+	{% if section.settings.ourBelts_heading %}<h2>{{ section.settings.ourBelts_heading }}</h2>{% endif %}
+    {% if section.settings.ourBelts_content %}<div class="mainContent">{{ section.settings.ourBelts_content }}</div>{% endif %}
+    
+    <div class="grid_img clearfix">
+      <div class="span7">
+        <div class="bannerImg clearfix">
+          {% if section.settings.ourBelts_image_1 %}
+          <img src="{{ section.settings.ourBelts_image_1 | img_url: '2048x' }}" class="img-responsive subBannerImg" alt="sub banner"/>
+          {% endif %}
+          {% if section.settings.ourBelts_image_text_1 %}
+          <div class="caption">
+            <p>{{ section.settings.ourBelts_image_text_1 }}</p>
+          </div>
+          {% endif %}
+        </div>
+        <div class="bannerImg clearfix">
+          
+          {% if section.settings.ourBelts_image_3 %}
+          <img src="{{ section.settings.ourBelts_image_3 | img_url: '2048x' }}" class="img-responsive subBannerImg" alt="sub banner"/>
+          {% endif %}
+          {% if section.settings.ourBelts_image_text_3 %}
+          <div class="caption">
+            <p>{{ section.settings.ourBelts_image_text_3 }}</p>
+          </div>
+          {% else %}
+            {% for product in collections['all'].products limit:1 %}
+              <img src="{{ product.featured_image | img_url: '2048x' }}" class="img-responsive subBannerImg" alt="sub banner"/>
+            {% endfor %}
+          {% endif %}
+          
+
+          
+        </div>
+      </div>
+      <div class="span5">
+        <div class="bannerImg clearfix">
+          {% if section.settings.ourBelts_image_2 %}
+          <img src="{{ section.settings.ourBelts_image_2 | img_url: '2048x' }}" class="img-responsive subBannerImg" alt="sub banner"/>
+          {% endif %}
+          {% if section.settings.ourBelts_image_text_2 %}
+          <div class="caption">
+            <p>{{ section.settings.ourBelts_image_text_2 }}</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+{% else %}
+<section id="section_three"></section>
+{% endif %}
+
+
+{% if section.settings.enable_as_seen_in %}
+<section id="section_four" class="asSeenIn section">
+  <div class="container">
+	{% if section.settings.as_seen_in_heading %}<h2>{{ section.settings.as_seen_in_heading }}</h2>{% endif %}
+    
+  </div>
+  {% if section.blocks.size > 0 %}
+  	{% for block in section.blocks %}
+      {% if block.settings.image != blank %}
+  		<div class="span4">
+          <div class="blockSection">
+            <div class="img_section">
+            	<img src="{{ block.settings.image | img_url:'350x' }}" class="img-responsive">
+            </div>
+            <div class="caption">
+              <p>{{ block.settings.asseen_text }}</p>
+            </div>
+          </div>
+  		</div>
+      {% endif %}
+    {% endfor %} 
+  {% endif %}
+</section>
+{% else %}
+<section id="section_four"></section>
+{% endif %}
+<footer class="section">
+  <div class="container">
+    <ul class="menu">
+      {% for link in linklists['landing-footer'].links %}
+      <li><a href="{{ link.url }}" title="{{ link.title }}" class="{% if link.active %}active{% endif %}">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+    <ul class="footer_social">
+      {% if settings.social_insta_link != blank %}
+      <li>
+        <a href="{{ settings.social_insta_link }}" target="_blank">
+          <i class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+      </li>
+      {% endif %}
+
+      <li>
+        <a href="https://www.facebook.com/Beltology/" target="_blank">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+        </a>
+      </li>
+      {% if settings.social_mail_link != blank %}
+      <li>
+        <a href="mailto:{{ settings.social_mail_link }}" target="_blank">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        </a>
+      </li>
+      {% endif %}
+      {% if settings.social_twitter_link != blank %}
+      <li>
+        <a href="{{ settings.social_twitter_link }}" target="_blank">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+      {% endif %}
+
+    </ul>
+  </div>
+</footer>
+
+<ul class="navIcon">
+  <li><a data-scroll-nav="0" href="#section_one" class="active"><span></span></a></li>
+  <li><a data-scroll-nav="1" href="#section_two"><span></span></a></li>
+  <li><a data-scroll-nav="2" href="#section_three"><span></span></a></li>
+  <li><a data-scroll-nav="3" href="#section_four"><span></span></a></li>
+</ul>
+
+<script>
+  
+  $(document).ready(function(){
+    function closeClass(){
+      $('.navIcon li a').removeClass('active');
+    }
+  	$('.navIcon li a').bind('click', function (event) {
+      var sectionID = $(this).attr('href');
+      
+      var $anchor = $(this);
+      if(jQuery(event.target).is('.active')) {
+        closeClass();
+      }else {
+        closeClass();
+        $(this).addClass('active'); 
+      }
+      event.preventDefault();
+    });
+    var secTop1 = $('#section_one').offset().top;
+    var secTop2 = $('#section_two').offset().top;
+    var secTop3 = $('#section_three').offset().top;
+    var secTop4 = $('#section_four').offset().top;
+    
+    
+    $(window).scroll(function(){
+      var scollTopCUstom = $(window).scrollTop() + $(window).height()/2;
+      if (scollTopCUstom > secTop1 && scollTopCUstom < secTop2) {
+          var dataSec = $('#section_one').data('scroll-index');
+          $('.navIcon li a').removeClass('active');
+          $('.navIcon li').first().find('a').addClass('active');
+
+      }else if(scollTopCUstom > secTop2 && scollTopCUstom < secTop3){
+        var dataSec = $('#section_two').data('scroll-index');
+        $('.navIcon li a').removeClass('active');
+        $('.navIcon li:nth-child(2)').find('a').addClass('active');
+      }else if(scollTopCUstom > secTop3 && scollTopCUstom < secTop4){
+        var dataSec = $('#section_three').data('scroll-index');
+      	$('.navIcon li a').removeClass('active');
+        $('.navIcon li:nth-child(3)').find('a').addClass('active');
+      }else if(scollTopCUstom > secTop4){
+        var dataSec = $('#section_four').data('scroll-index');
+      	$('.navIcon li a').removeClass('active');
+        $('.navIcon li:nth-child(4)').find('a').addClass('active');
+      }
+    });
+  });
+</script>
+{% schema %}
+  {
+    "name": "About Page",
+	"max_blocks": 9,
+    "settings": [
+        {
+            "type": "header",
+            "content": "Our Story"
+        },
+		{
+            "type": "checkbox",
+            "id": "enable_mainImg",
+            "label": "Enable?"
+        },
+		{
+            "type": "image_picker",
+            "id": "image_main",
+            "label": "Image"
+        },
+		{
+            "type": "text",
+            "id": "main_heading",
+            "label": "Heading"
+        },
+		{
+            "type": "textarea",
+            "id": "main_img_content",
+            "label": "Content"
+        },
+		{
+            "type": "text",
+            "id": "main_subHeading",
+            "label": "Sub Heading"
+        },
+		{
+            "type": "textarea",
+            "id": "main_img_sub_content",
+            "label": "Sub Content"
+        },
+		{
+            "type": "image_picker",
+            "id": "image_2",
+            "label": "Image"
+        },
+		{
+            "type": "textarea",
+            "id": "image_text",
+            "label": "text"
+        },
+		{
+            "type": "image_picker",
+            "id": "image_3",
+            "label": "Image"
+        },
+		{
+            "type": "textarea",
+            "id": "subContent_text",
+            "label": "text"
+        },
+		{
+            "type": "image_picker",
+            "id": "parallax_img",
+            "label": "Parallax Image"
+        },
+		{
+            "type": "header",
+            "content": "Our Belts"
+        },
+		{
+            "type": "checkbox",
+            "id": "enable_ourBelts",
+            "label": "Enable?"
+        },
+		{
+            "type": "text",
+            "id": "ourBelts_heading",
+            "label": "Heading"
+        },
+		{
+            "type": "textarea",
+            "id": "ourBelts_content",
+            "label": "Content"
+        },
+		{
+            "type": "image_picker",
+            "id": "ourBelts_image_1",
+            "label": "Image"
+        },
+		{
+            "type": "textarea",
+            "id": "ourBelts_image_text_1",
+            "label": "text"
+        },
+		{
+            "type": "image_picker",
+            "id": "ourBelts_image_2",
+            "label": "Image"
+        },
+		{
+            "type": "textarea",
+            "id": "ourBelts_image_text_2",
+            "label": "text"
+        },
+		{
+            "type": "image_picker",
+            "id": "ourBelts_image_3",
+            "label": "Image"
+        },
+		{
+            "type": "textarea",
+            "id": "ourBelts_image_text_3",
+            "label": "text"
+        },
+		{
+            "type": "header",
+            "content": "As seen in"
+        },
+		{
+            "type": "checkbox",
+            "id": "enable_as_seen_in",
+            "label": "Enable?"
+        },
+		{
+            "type": "text",
+            "id": "as_seen_in_heading",
+            "label": "Heading"
+        }
+	],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "textarea",
+            "id": "asseen_text",
+            "label": "Text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

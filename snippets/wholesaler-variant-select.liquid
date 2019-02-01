@@ -1,0 +1,70 @@
+{% if template == "product" %}
+<script>
+  /*
+   * Constants
+   */
+  var customerLevel = {{ customer.metafields.Wholesaler.level | default: "0" | plus: 0 }};
+  var showLowerVariants = false;
+  var showRetailVariants = false;
+
+  /*
+   * Builds metafield_map, a map accessed by the variant id with values
+   * standing for objects with "level" and "parent" (parent variant) as attributes
+   */
+  var metafieldMap = {};
+  {% for variant in product.variants %}
+  {% assign default_level = "0:" | append: variant.id %}
+  {% assign variant_level = variant.metafields.Wholesaler.level | default: default_level %}
+  metafieldMap["{{variant.id}}"] = {level: {{ variant_level | split: ":" | first }}, parent: {{ variant_level | split: ":" | last }} };
+  {% endfor %}
+
+  /*
+   * Returns whether a variant should be removed or not
+   */
+  var removeVariant = function(variantLevel, customerLevel)
+  {
+
+    if (variantLevel == customerLevel)
+      return false;
+
+    if (variantLevel == 0 && showRetailVariants)
+      return false;
+
+    if (variantLevel < customerLevel && showLowerVariants)
+      return false;
+
+
+  	return true;
+  }
+
+  /*
+   * Returns object with the valid variants (according to user level) only,
+   * with ws_level and ws_parent attributes added
+   */
+  var filterVariants = function(product)
+  {
+	var variants = product.variants;
+    var newVariants = [];
+
+    jQuery(variants).each(
+      function(i, variant)
+      {
+        var variantLevel = metafieldMap[variant.id].level;
+
+  		// Removes the variant from the variants array
+        if (!removeVariant(variantLevel, customerLevel)) {
+
+          // Add level and parent variant
+  		  variant.metafields = {Wholesaler: metafieldMap[variant.id]};
+
+          newVariants.push(variant);
+        }
+      }
+    );
+
+  	product.variants = newVariants;
+
+    return product;
+  }
+</script>
+{% endif %}

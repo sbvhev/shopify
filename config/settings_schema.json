@@ -1,0 +1,1530 @@
+[
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Favicon"
+      },
+      {
+        "type": "image",
+        "id": "favicon.png",
+        "label": "Favicon (maximum 32x32)",
+        "max-width": 32,
+        "max-height": 32
+      },
+      {
+        "type": "header",
+        "content": "Search"
+      },
+      {
+        "type": "checkbox",
+        "id": "search_enabled",
+        "label": "Search Enabled?",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "search_option",
+        "label": "Search Results",
+        "options": [
+          {
+            "value": "products",
+            "label": "Products"
+          },
+          {
+            "value": "everything",
+            "label": "Everything"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Top Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "banner_enabled",
+        "label": "Top Banner Enabled?",
+        "default": false
+      },
+      {
+        "type": "textarea",
+        "id": "banner_text",
+        "label": "Top Banner Text"
+      },
+      {
+        "type": "text",
+        "id": "banner_top_link",
+        "label": "Link URL:"
+      },
+      {
+        "type": "color",
+        "id": "top_banner_background_color",
+        "label": "Background Color",
+        "default": "#f1f1f3"
+      },
+      {
+        "type": "color",
+        "id": "top_banner_text_color",
+        "label": "Text Color",
+        "default": "#16191e"
+      }
+    ]
+  },
+  {
+    "name": "Home Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content Under Slideshow"
+      },
+      {
+        "type": "page",
+        "id": "homepage",
+        "label": "Page with content"
+      },
+      {
+        "type": "header",
+        "content": "Featured Products"
+      },
+      {
+        "type": "checkbox",
+        "id": "featured_products",
+        "label": "Featured Products Enabled"
+      },
+      {
+        "type": "header",
+        "content": "Featured Links\/Content"
+      },
+      {
+        "type": "checkbox",
+        "id": "featured_links",
+        "label": "Featured Blocks Enabled"
+      },
+      {
+        "type": "select",
+        "id": "feature1_type",
+        "label": "Feature 1 File type",
+        "options": [
+          {
+            "value": "jpg",
+            "label": "JPEG"
+          },
+          {
+            "value": "gif",
+            "label": "GIF"
+          },
+          {
+            "value": "mp4",
+            "label": "Video"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "id": "feature1.jpg",
+        "label": "JPEG Image",
+        "max-width": 760,
+        "max-height": 760
+      },
+      {
+        "type": "image",
+        "id": "feature1.gif",
+        "label": "GIF Image",
+        "max-width": 760,
+        "max-height": 760
+      },
+      {
+        "type": "textarea",
+        "id": "feature1_video_embed",
+        "label": "Video Embed Code:"
+      },
+      {
+        "type": "text",
+        "id": "feature1_link",
+        "label": "Featured Link URL 1:"
+      },
+      {
+        "type": "text",
+        "id": "feature1_heading",
+        "label": "Featured Link Heading 1 (optional):"
+      },
+      {
+        "type": "textarea",
+        "id": "feature1_text",
+        "label": "Featured Link Text 1 (optional):"
+      },
+      {
+        "type": "select",
+        "id": "feature2_type",
+        "label": "File type",
+        "options": [
+          {
+            "value": "jpg",
+            "label": "JPEG"
+          },
+          {
+            "value": "gif",
+            "label": "GIF"
+          },
+          {
+            "value": "mp4",
+            "label": "Video"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "id": "feature2.jpg",
+        "label": "JPEG Image",
+        "max-width": 760,
+        "max-height": 760
+      },
+      {
+        "type": "image",
+        "id": "feature2.gif",
+        "label": "GIF Image",
+        "max-width": 760,
+        "max-height": 760
+      },
+      {
+        "type": "textarea",
+        "id": "feature2_video_embed",
+        "label": "Video Embed Code:"
+      },
+      {
+        "type": "text",
+        "id": "feature2_link",
+        "label": "Featured Link URL 2:"
+      },
+      {
+        "type": "text",
+        "id": "feature2_heading",
+        "label": "Featured Link Heading 2 (optional):"
+      },
+      {
+        "type": "textarea",
+        "id": "feature2_text",
+        "label": "Featured Link Text 2 (optional):"
+      },
+      {
+        "type": "header",
+        "content": "Bottom Hero"
+      },
+      {
+        "type": "checkbox",
+        "id": "homepage_bottom_hero_enabled",
+        "label": "Bottom Hero Enabled"
+      },
+      {
+        "type": "select",
+        "id": "homepage_bottom_hero_type",
+        "label": "File type",
+        "options": [
+          {
+            "value": "jpg",
+            "label": "JPEG"
+          },
+          {
+            "value": "gif",
+            "label": "GIF"
+          },
+          {
+            "value": "mp4",
+            "label": "Video"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "id": "homepage_bottom_hero.jpg",
+        "label": "JPEG Image",
+        "max-width": 1600,
+        "max-height": 800
+      },
+      {
+        "type": "image",
+        "id": "homepage_bottom_hero.gif",
+        "label": "GIF Image",
+        "max-width": 1600,
+        "max-height": 800
+      },
+      {
+        "type": "textarea",
+        "id": "homepage_bottom_hero_video_embed",
+        "label": "Video Embed Code:"
+      },
+      {
+        "type": "text",
+        "id": "homepage_bottom_hero_alt_text",
+        "label": "Image Alt Text:"
+      },
+      {
+        "type": "text",
+        "id": "homepage_bottom_hero_headline",
+        "label": "Headline:"
+      },
+      {
+        "type": "text",
+        "id": "homepage_bottom_hero_subtitle",
+        "label": "Subtitle:"
+      },
+      {
+        "type": "select",
+        "id": "homepage_bottom_hero_text_align",
+        "label": "Caption Position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "homepage_bottom_hero_button_text",
+        "label": "Button Text:"
+      },
+      {
+        "type": "text",
+        "id": "homepage_bottom_hero_link",
+        "label": "Link URL:"
+      },
+      {
+        "type": "color",
+        "id": "homepage_bottom_hero_headline_color",
+        "label": "Headline Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "color",
+        "id": "homepage_bottom_hero_subtitle_color",
+        "label": "Subtitle Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "color",
+        "id": "homepage_bottom_hero_button_color",
+        "label": "Button Color",
+        "default": "#16191e"
+      }
+    ]
+  },
+  {
+    "name": "Home Page Hero Slideshow",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Slideshow Images (1600x800 maximum)"
+      },
+      {
+        "type": "checkbox",
+        "id": "slideshow_enabled",
+        "label": "Slideshow Enabled"
+      },
+      {
+        "type": "header",
+        "content": "Slide #1"
+      },
+      {
+        "type": "checkbox",
+        "id": "slideshow_1_enabled",
+        "label": "Slide #1 Enabled"
+      },
+      {
+        "type": "select",
+        "id": "image_1_type",
+        "label": "File type",
+        "options": [
+          {
+            "value": "jpg",
+            "label": "JPEG"
+          },
+          {
+            "value": "gif",
+            "label": "GIF"
+          },
+          {
+            "value": "mp4",
+            "label": "Video"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "id": "slideshow_1.jpg",
+        "label": "JPEG Image",
+        "max-width": 1600,
+        "max-height": 800
+      },
+      {
+        "type": "image",
+        "id": "slideshow_1.gif",
+        "label": "GIF Image",
+        "max-width": 1600,
+        "max-height": 800
+      },
+      {
+        "type": "textarea",
+        "id": "image_1_video_embed",
+        "label": "Video Embed Code:"
+      },
+      {
+        "type": "text",
+        "id": "image_1_alt_text",
+        "label": "Image Alt Text:"
+      },
+      {
+        "type": "text",
+        "id": "image_1_headline",
+        "label": "Headline:"
+      },
+      {
+        "type": "text",
+        "id": "image_1_subtitle",
+        "label": "Subtitle:"
+      },
+      {
+        "type": "select",
+        "id": "image_1_text_align",
+        "label": "Caption Position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "image_1_button_text",
+        "label": "Button Text:"
+      },
+      {
+        "type": "text",
+        "id": "image_1_link",
+        "label": "Link URL:"
+      },
+      {
+        "type": "color",
+        "id": "image_1_headline_color",
+        "label": "Headline Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "color",
+        "id": "image_1_subtitle_color",
+        "label": "Subtitle Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "color",
+        "id": "image_1_button_color",
+        "label": "Button Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "header",
+        "content": "Slide #2"
+      },
+      {
+        "type": "checkbox",
+        "id": "slideshow_2_enabled",
+        "label": "Slide #2 Enabled"
+      },
+      {
+        "type": "select",
+        "id": "image_2_type",
+        "label": "File type",
+        "options": [
+          {
+            "value": "jpg",
+            "label": "JPEG"
+          },
+          {
+            "value": "gif",
+            "label": "GIF"
+          },
+          {
+            "value": "mp4",
+            "label": "Video"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "id": "slideshow_2.jpg",
+        "label": "JPEG Image",
+        "max-width": 1600,
+        "max-height": 800
+      },
+      {
+        "type": "image",
+        "id": "slideshow_2.gif",
+        "label": "GIF Image",
+        "max-width": 1600,
+        "max-height": 800
+      },
+      {
+        "type": "textarea",
+        "id": "image_2_video_embed",
+        "label": "Video Embed Code:"
+      },
+      {
+        "type": "text",
+        "id": "image_2_alt_text",
+        "label": "Image Alt Text:"
+      },
+      {
+        "type": "text",
+        "id": "image_2_headline",
+        "label": "Headline:"
+      },
+      {
+        "type": "text",
+        "id": "image_2_subtitle",
+        "label": "Subtitle:"
+      },
+      {
+        "type": "select",
+        "id": "image_2_text_align",
+        "label": "Caption Position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "image_2_button_text",
+        "label": "Button Text:"
+      },
+      {
+        "type": "text",
+        "id": "image_2_link",
+        "label": "Link URL:"
+      },
+      {
+        "type": "color",
+        "id": "image_2_headline_color",
+        "label": "Headline Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "color",
+        "id": "image_2_subtitle_color",
+        "label": "Subtitle Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "color",
+        "id": "image_2_button_color",
+        "label": "Button Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "header",
+        "content": "Slide #3"
+      },
+      {
+        "type": "checkbox",
+        "id": "slideshow_3_enabled",
+        "label": "Slide #3 Enabled"
+      },
+      {
+        "type": "select",
+        "id": "image_3_type",
+        "label": "File type",
+        "options": [
+          {
+            "value": "jpg",
+            "label": "JPEG"
+          },
+          {
+            "value": "gif",
+            "label": "GIF"
+          },
+          {
+            "value": "mp4",
+            "label": "Video"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "id": "slideshow_3.jpg",
+        "label": "JPEG Image",
+        "max-width": 1600,
+        "max-height": 800
+      },
+      {
+        "type": "image",
+        "id": "slideshow_3.gif",
+        "label": "GIF Image",
+        "max-width": 1600,
+        "max-height": 800
+      },
+      {
+        "type": "textarea",
+        "id": "image_3_video_embed",
+        "label": "Video Embed Code:"
+      },
+      {
+        "type": "text",
+        "id": "image_3_alt_text",
+        "label": "Image Alt Text:"
+      },
+      {
+        "type": "text",
+        "id": "image_3_headline",
+        "label": "Headline:"
+      },
+      {
+        "type": "text",
+        "id": "image_3_subtitle",
+        "label": "Subtitle:"
+      },
+      {
+        "type": "select",
+        "id": "image_3_text_align",
+        "label": "Caption Position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "image_3_button_text",
+        "label": "Button Text:"
+      },
+      {
+        "type": "text",
+        "id": "image_3_link",
+        "label": "Link URL:"
+      },
+      {
+        "type": "color",
+        "id": "image_3_headline_color",
+        "label": "Headline Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "color",
+        "id": "image_3_subtitle_color",
+        "label": "Subtitle Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "color",
+        "id": "image_3_button_color",
+        "label": "Button Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "header",
+        "content": "Slide #4"
+      },
+      {
+        "type": "checkbox",
+        "id": "slideshow_4_enabled",
+        "label": "Slide #4 Enabled"
+      },
+      {
+        "type": "select",
+        "id": "image_4_type",
+        "label": "File type",
+        "options": [
+          {
+            "value": "jpg",
+            "label": "JPEG"
+          },
+          {
+            "value": "gif",
+            "label": "GIF"
+          },
+          {
+            "value": "mp4",
+            "label": "Video"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "id": "slideshow_4.jpg",
+        "label": "JPEG Image",
+        "max-width": 1600,
+        "max-height": 800
+      },
+      {
+        "type": "image",
+        "id": "slideshow_4.gif",
+        "label": "GIF Image",
+        "max-width": 1600,
+        "max-height": 800
+      },
+      {
+        "type": "textarea",
+        "id": "image_4_video_embed",
+        "label": "Video Embed Code:"
+      },
+      {
+        "type": "text",
+        "id": "image_4_alt_text",
+        "label": "Image Alt Text:"
+      },
+      {
+        "type": "text",
+        "id": "image_4_headline",
+        "label": "Headline:"
+      },
+      {
+        "type": "text",
+        "id": "image_4_subtitle",
+        "label": "Subtitle:"
+      },
+      {
+        "type": "select",
+        "id": "image_4_text_align",
+        "label": "Caption Position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "image_4_button_text",
+        "label": "Button Text:"
+      },
+      {
+        "type": "text",
+        "id": "image_4_link",
+        "label": "Link URL:"
+      },
+      {
+        "type": "color",
+        "id": "image_4_headline_color",
+        "label": "Headline Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "color",
+        "id": "image_4_subtitle_color",
+        "label": "Subtitle Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "color",
+        "id": "image_4_button_color",
+        "label": "Button Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "header",
+        "content": "Slide #5"
+      },
+      {
+        "type": "checkbox",
+        "id": "slideshow_5_enabled",
+        "label": "Slide #5 Enabled"
+      },
+      {
+        "type": "select",
+        "id": "image_5_type",
+        "label": "File type",
+        "options": [
+          {
+            "value": "jpg",
+            "label": "JPEG"
+          },
+          {
+            "value": "gif",
+            "label": "GIF"
+          },
+          {
+            "value": "mp4",
+            "label": "Video"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "id": "slideshow_5.jpg",
+        "label": "JPEG Image",
+        "max-width": 1600,
+        "max-height": 800
+      },
+      {
+        "type": "image",
+        "id": "slideshow_5.gif",
+        "label": "GIF Image",
+        "max-width": 1600,
+        "max-height": 800
+      },
+      {
+        "type": "textarea",
+        "id": "image_5_video_embed",
+        "label": "Video Embed Code:"
+      },
+      {
+        "type": "text",
+        "id": "image_5_alt_text",
+        "label": "Image Alt Text:"
+      },
+      {
+        "type": "text",
+        "id": "image_5_headline",
+        "label": "Headline:"
+      },
+      {
+        "type": "text",
+        "id": "image_5_subtitle",
+        "label": "Subtitle:"
+      },
+      {
+        "type": "select",
+        "id": "image_5_text_align",
+        "label": "Caption Position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "image_5_button_text",
+        "label": "Button Text:"
+      },
+      {
+        "type": "text",
+        "id": "image_5_link",
+        "label": "Link URL:"
+      },
+      {
+        "type": "color",
+        "id": "image_5_headline_color",
+        "label": "Headline Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "color",
+        "id": "image_5_subtitle_color",
+        "label": "Subtitle Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "color",
+        "id": "image_5_button_color",
+        "label": "Button Color",
+        "default": "#16191e"
+      }
+    ]
+  },
+  {
+    "name": "Campaign Page",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Settings will be applied to page with \"campaign\" template"
+      },
+      {
+        "type": "header",
+        "content": "Campaign Hero"
+      },
+      {
+        "type": "checkbox",
+        "id": "campaign_hero_enabled",
+        "label": "Campaign Hero Enabled"
+      },
+      {
+        "type": "select",
+        "id": "campaign_hero_type",
+        "label": "File type",
+        "options": [
+          {
+            "value": "jpg",
+            "label": "JPEG"
+          },
+          {
+            "value": "gif",
+            "label": "GIF"
+          },
+          {
+            "value": "mp4",
+            "label": "Video"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "id": "campaign_hero.jpg",
+        "label": "JPEG Image",
+        "max-width": 1600,
+        "max-height": 800
+      },
+      {
+        "type": "image",
+        "id": "campaign_hero.gif",
+        "label": "GIF Image",
+        "max-width": 1600,
+        "max-height": 800
+      },
+      {
+        "type": "textarea",
+        "id": "campaign_hero_video_embed",
+        "label": "Video Embed Code:"
+      },
+      {
+        "type": "text",
+        "id": "campaign_hero_alt_text",
+        "label": "Image Alt Text:"
+      },
+      {
+        "type": "text",
+        "id": "campaign_hero_headline",
+        "label": "Headline:"
+      },
+      {
+        "type": "text",
+        "id": "campaign_hero_subtitle",
+        "label": "Subtitle:"
+      },
+      {
+        "type": "select",
+        "id": "campaign_hero_text_align",
+        "label": "Caption Position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "campaign_hero_button_text",
+        "label": "Button Text:"
+      },
+      {
+        "type": "text",
+        "id": "campaign_hero_link",
+        "label": "Link URL:"
+      },
+      {
+        "type": "color",
+        "id": "campaign_hero_headline_color",
+        "label": "Headline Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "color",
+        "id": "campaign_hero_subtitle_color",
+        "label": "Subtitle Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "color",
+        "id": "campaign_hero_button_color",
+        "label": "Button Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "collection",
+        "id": "campaign_collection",
+        "label": "Featured Collection"
+      },
+      {
+        "type": "page",
+        "id": "campaign-extra",
+        "label": "Content Below Products"
+      }
+    ]
+  },
+  {
+    "name": "Campaign Page (alternative)",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Settings will be applied to page with \"campaign-alt\" template"
+      },
+      {
+        "type": "header",
+        "content": "Campaign Hero"
+      },
+      {
+        "type": "checkbox",
+        "id": "campaign_alt_hero_enabled",
+        "label": "Campaign Hero Enabled"
+      },
+      {
+        "type": "select",
+        "id": "campaign_alt_hero_type",
+        "label": "File type",
+        "options": [
+          {
+            "value": "jpg",
+            "label": "JPEG"
+          },
+          {
+            "value": "gif",
+            "label": "GIF"
+          },
+          {
+            "value": "mp4",
+            "label": "Video"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "id": "campaign_alt_hero.jpg",
+        "label": "JPEG Image",
+        "max-width": 1600,
+        "max-height": 800
+      },
+      {
+        "type": "image",
+        "id": "campaign_alt_hero.gif",
+        "label": "GIF Image",
+        "max-width": 1600,
+        "max-height": 800
+      },
+      {
+        "type": "textarea",
+        "id": "campaign_alt_hero_video_embed",
+        "label": "Video Embed Code:"
+      },
+      {
+        "type": "text",
+        "id": "campaign_alt_hero_alt_text",
+        "label": "Image Alt Text:"
+      },
+      {
+        "type": "text",
+        "id": "campaign_alt_hero_headline",
+        "label": "Headline:"
+      },
+      {
+        "type": "text",
+        "id": "campaign_alt_hero_subtitle",
+        "label": "Subtitle:"
+      },
+      {
+        "type": "select",
+        "id": "campaign_alt_hero_text_align",
+        "label": "Caption Position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "campaign_alt_hero_button_text",
+        "label": "Button Text:"
+      },
+      {
+        "type": "text",
+        "id": "campaign_alt_hero_link",
+        "label": "Link URL:"
+      },
+      {
+        "type": "color",
+        "id": "campaign_alt_hero_headline_color",
+        "label": "Headline Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "color",
+        "id": "campaign_alt_hero_subtitle_color",
+        "label": "Subtitle Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "color",
+        "id": "campaign_alt_hero_button_color",
+        "label": "Button Color",
+        "default": "#16191e"
+      },
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "collection",
+        "id": "campaign_alt_collection",
+        "label": "Featured Collection"
+      },
+      {
+        "type": "page",
+        "id": "campaign-alt-extra",
+        "label": "Content Below Products"
+      }
+    ]
+  },
+  {
+    "name": "Product Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Shipping Note"
+      },
+      {
+        "type": "textarea",
+        "id": "shipping_note",
+        "label": "Content",
+        "info": "Use <br\/> for line break"
+      }
+    ]
+  },
+  {
+    "name": "Collection Page",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "collection_hero_enabled",
+        "label": "Collections Hero Enabled"
+      },
+      {
+        "type": "image",
+        "id": "collection_hero.jpg",
+        "label": "Collections Hero Image",
+        "max-width": 1600,
+        "max-height": 800
+      },
+      {
+        "type": "text",
+        "id": "collection_hero_alt_text",
+        "label": "Collections Hero Alt Text"
+      },
+      {
+        "type": "paragraph",
+        "content": "List of included collections and their order are edited in \"Collections\" navigation menu"
+      },
+      {
+        "type": "header",
+        "content": "Sale Collections"
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_sale_enabled",
+        "label": "Show"
+      },
+      {
+        "type": "image",
+        "id": "collection_sale_banner.jpg",
+        "label": "Banner Image",
+        "max-width": 1600,
+        "max-height": 800
+      },
+      {
+        "type": "text",
+        "id": "collection_sale_alt_text",
+        "label": "Alt Text"
+      },
+      {
+        "type": "link_list",
+        "id": "sale_linklist",
+        "label": "Choose Navigation"
+      },
+      {
+        "type": "header",
+        "content": "Choose collection for white price popup"
+      },
+      {
+        "type": "collection",
+        "id": "all_collection_white_1",
+        "label": "Collection 1"
+      },
+      {
+        "type": "collection",
+        "id": "all_collection_white_2",
+        "label": "Collection 2"
+      }
+    ]
+  },
+  {
+    "name": "Cart Page",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "tax_included",
+        "label": "Prices Include Tax"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_special_instructions",
+        "label": "Include \"Note\" Text Box"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_additional_checkout",
+        "label": "Display Additional Checkout Buttons (i.e. PayPal)"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_shipping_calculator",
+        "label": "Display shipping rates calculator"
+      },
+      {
+        "type": "text",
+        "id": "shipping_calculator_heading",
+        "label": "Shipping Rates Calculator Heading",
+        "default": "Shipping rates calculator"
+      },
+      {
+        "type": "text",
+        "id": "shipping_calculator_default_country",
+        "label": "Shipping Rates Calculator default country selection",
+        "default": "United States"
+      },
+      {
+        "type": "paragraph",
+        "content": "If your customer is logged-in, the country in his default shipping address will be selected. If you are not sure about the spelling to use above, refer to your first checkout page."
+      },
+      {
+        "type": "text",
+        "id": "shipping_calculator_submit_button_label",
+        "label": "Shipping rates calculator submit button label",
+        "default": "Calculate shipping rates"
+      },
+      {
+        "type": "text",
+        "id": "shipping_calculator_submit_button_label_disabled",
+        "label": "Shipping rates calculator submit button label when calculating",
+        "default": "Calculating..."
+      }
+    ]
+  },
+  {
+    "name": "Siki I'm Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "siki_logo_enable",
+        "label": "Show Logo"
+      },
+      {
+        "type": "image",
+        "id": "siki-launch-hero.jpg",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "banner_caption_text",
+        "label": "Caption"
+      },
+      {
+        "type": "header",
+        "content": "Detail Section"
+      },
+      {
+        "type": "text",
+        "id": "detail_section_title",
+        "label": "Title Name"
+      },
+      {
+        "type": "header",
+        "content": "Listing Images"
+      },
+      {
+        "type": "collection",
+        "id": "siki_collection",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "image",
+        "id": "listing_image_1.jpg",
+        "label": "Image"
+      },
+      {
+        "type": "textarea",
+        "id": "image_caption_1",
+        "label": "Caption Detail"
+      },
+      {
+        "type": "text",
+        "id": "image_link_1",
+        "label": "Redirect Link URL"
+      },
+      {
+        "type": "image",
+        "id": "listing_image_2.jpg",
+        "label": "Image"
+      },
+      {
+        "type": "textarea",
+        "id": "image_caption_2",
+        "label": "Caption Detail"
+      },
+      {
+        "type": "text",
+        "id": "image_link_2",
+        "label": "Redirect Link URL"
+      },
+      {
+        "type": "image",
+        "id": "listing_image_3.jpg",
+        "label": "Image"
+      },
+      {
+        "type": "textarea",
+        "id": "image_caption_3",
+        "label": "Caption Detail"
+      },
+      {
+        "type": "text",
+        "id": "image_link_3",
+        "label": "Redirect Link URL"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "newsletter_enabled",
+        "label": "Newsletter Sign Up Form"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_text",
+        "label": "Newsletter Title Text",
+        "default": "Newsletter"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_description",
+        "label": "Newsletter Description Text"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_1",
+        "label": "Menu 1"
+      },
+      {
+        "type": "page",
+        "id": "footer_content_page",
+        "label": "Footer Content Page"
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "footer_social_title",
+        "label": "Title"
+      },
+      {
+        "type": "paragraph",
+        "content": "Instruction: Please leave blank field if you dont want to display social button in front-end."
+      },
+      {
+        "type": "text",
+        "id": "social_insta_link",
+        "label": "Instagram",
+        "info": "https:\/\/instagram.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_mail_link",
+        "label": "Mail",
+        "info": "xyz@xyz.x"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter",
+        "info": "https:\/\/twitter.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook",
+        "info": "https:\/\/www.facebook.com\/shopify"
+      }
+    ]
+  },
+  {
+    "name": "Project Runway Fashion",
+    "settings": [
+      {
+        "type": "text",
+        "id": "project_runway_fashion_video",
+        "label": "Video link"
+      },
+      {
+        "type": "header",
+        "content": "Popup"
+      },
+      {
+        "type": "checkbox",
+        "id": "project_runway_fashion_popup",
+        "label": "Show"
+      }
+    ]
+  },
+  {
+    "name": "Newsletter Popup",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "To test this feature, set the number of days until the popup is displayed again to 0."
+      },
+      {
+        "type": "checkbox",
+        "id": "newsletter_popup",
+        "label": "Popup Enabled?"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_popup_seconds",
+        "label": "Seconds until Popup is Displayed",
+        "default": "2",
+        "info": "seconds"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_popup_days",
+        "label": "Days until Popup is Displayed Again",
+        "default": "30",
+        "info": "days"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_popup_max_width",
+        "label": "Popup Maximum Width",
+        "default": "600"
+      },
+      {
+        "type": "header",
+        "content": "Popup Content"
+      },
+      {
+        "type": "image",
+        "id": "newsletter_popup.jpg",
+        "label": "Image",
+        "max-width": 800,
+        "max-height": 800
+      },
+      {
+        "type": "text",
+        "id": "newsletter_popup_alt_text",
+        "label": "Image Alt Text"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_popup_headline",
+        "label": "Headline"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_popup_text",
+        "label": "Text Message"
+      },
+      {
+        "type": "checkbox",
+        "id": "newsletter_popup_form",
+        "label": "Display Newsletter Form?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "newsletter_popup_input_text",
+        "label": "Input Placeholder Text"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_popup_button_text",
+        "label": "Button Text"
+      }
+    ]
+  }
+]

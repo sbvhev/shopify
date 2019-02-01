@@ -1,0 +1,248 @@
+{% if section.settings.enable_mainImg %}
+<div class="main-imgSec" id="buy_1">
+  <div class="container">
+    <h2>{{ section.settings.main_heading }}</h2>
+    <div class="main-desc">{{ section.settings.main_img_content }}</div>
+    <img src="{{ section.settings.image_main | img_url:'1920x' }}" class="main-secImg" alt="main banner">
+  </div>
+</div>
+{% endif %}
+{% assign i = 1 | plus:0 %}
+{% if section.blocks.size > 0 %}
+  	{% for block in section.blocks limit:3 %}
+	{% assign i = i | plus:1 %}
+    <div id="buy_{{i}}" class="padSec {% cycle 'whiteSec', 'blueSec','whiteSec' %}">
+      <div class="container">
+        <div class="sub-imgSec">
+          <div class="sec-img"><img src="{{ block.settings.image | img_url:'500x' }}" class="sub-img" alt=""></div>
+          <div class="sec-desc">
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.content }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+{% endif %}
+<div class="blueSec padSec">
+  <div class="container">
+    <div class="text-sec">
+      <div class="text"><h3>{{ section.settings.case_rtitle }}</h3></div>
+      <div class="but-sec">
+        <a href="{{ section.settings.button_link_1 }}" class="btn-shopNow">{{ section.settings.button_label_1 }}</a>
+        <a href="{{ section.settings.button_link_2 }}" class="btn-shopNow">{{ section.settings.button_label_2 }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% if section.blocks.size > 0 %}
+  	{% for block in section.blocks offset:3 %}
+	{% assign i = i | plus:1 %}
+    <div id="buy_{{i}}" class="padSec {% cycle 'whiteSec', 'blueSec','whiteSec', 'blueSec' %}">
+      <div class="container">
+        <div class="sub-imgSec">
+          <div class="sec-img"><img src="{{ block.settings.image | img_url:'500x' }}" class="sub-img" alt=""></div>
+          <div class="sec-desc">
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.content }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+{% endif %}
+
+<div class="whiteSec padSec">
+  <div class="container">
+    <div class="text-sec">
+      <h3>{{ section.settings.design_title }}</h3>
+      <a href="{{ section.settings.button_link }}" class="btn-shopNow">{{ section.settings.button_label }}</a>
+    </div>
+  </div>
+</div>
+{% comment %}
+{% assign j = 1 | plus:0 %}
+<ul class="navIcon">
+  <li><a data-scroll-nav="1" href="#buy_1" class="active"><span></span></a></li>
+  {% for block in section.blocks %}
+  {% assign j = j | plus:1 %}
+  <li><a data-scroll-nav="{{j}}" href="#buy_{{j}}"><span></span></a></li>
+  {% endfor %}
+</ul>
+{% endcomment %}
+<script>
+  
+  $(document).ready(function(){
+    function closeClass(){
+      $('.navIcon li a').removeClass('active');
+    }
+  	$('.navIcon li a').bind('click', function (event) {
+      var sectionID = $(this).attr('href');
+      
+      var $anchor = $(this);
+      if(jQuery(event.target).is('.active')) {
+        closeClass();
+      }else {
+        closeClass();
+        $(this).addClass('active'); 
+      }
+      event.preventDefault();
+    });
+    var secTop1 = $('#buy_1').offset().top;
+    var secTop2 = $('#buy_2').offset().top;
+    var secTop3 = $('#buy_3').offset().top;
+    var secTop4 = $('#buy_4').offset().top;
+    var secTop5 = $('#buy_5').offset().top;
+    var secTop6 = $('#buy_6').offset().top;
+    var secTop7 = $('#buy_7').offset().top;
+    var secTop8 = $('#buy_8').offset().top;
+    
+    
+    $(window).scroll(function(){
+      var scollTopCUstom = $(window).scrollTop() + $(window).height()/2;
+      if (scollTopCUstom > secTop1 && scollTopCUstom < secTop2) {
+          var dataSec = $('#buy_1').data('scroll-index');
+          $('.navIcon li a').removeClass('active');
+          $('.navIcon li').first().find('a').addClass('active');
+
+      }else if(scollTopCUstom > secTop2 && scollTopCUstom < secTop3){
+        var dataSec = $('#buy_2').data('scroll-index');
+        $('.navIcon li a').removeClass('active');
+        $('.navIcon li:nth-child(2)').find('a').addClass('active');
+      }else if(scollTopCUstom > secTop3 && scollTopCUstom < secTop4){
+        var dataSec = $('#buy_3').data('scroll-index');
+      	$('.navIcon li a').removeClass('active');
+        $('.navIcon li:nth-child(3)').find('a').addClass('active');
+      }else if(scollTopCUstom > secTop4 && scollTopCUstom < secTop5){
+        var dataSec = $('#buy_4').data('scroll-index');
+      	$('.navIcon li a').removeClass('active');
+        $('.navIcon li:nth-child(4)').find('a').addClass('active');
+      }else if(scollTopCUstom > secTop5 && scollTopCUstom < secTop6){
+        var dataSec = $('#buy_5').data('scroll-index');
+      	$('.navIcon li a').removeClass('active');
+        $('.navIcon li:nth-child(5)').find('a').addClass('active');
+      }else if(scollTopCUstom > secTop6 && scollTopCUstom < secTop7){
+        var dataSec = $('#buy_6').data('scroll-index');
+      	$('.navIcon li a').removeClass('active');
+        $('.navIcon li:nth-child(6)').find('a').addClass('active');
+      }else if(scollTopCUstom > secTop7 && scollTopCUstom < secTop8){
+        var dataSec = $('#buy_7').data('scroll-index');
+      	$('.navIcon li a').removeClass('active');
+        $('.navIcon li:nth-child(7)').find('a').addClass('active');
+      }else if(scollTopCUstom > secTop8){
+        var dataSec = $('#buy_8').data('scroll-index');
+      	$('.navIcon li a').removeClass('active');
+        $('.navIcon li:nth-child(8)').find('a').addClass('active');
+      }
+    });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Buy our Belt",
+    "settings": [
+		{
+            "type": "header",
+            "content": "7 Reasons to buy our belt"
+        },
+		{
+            "type": "checkbox",
+            "id": "enable_mainImg",
+            "label": "Enable?"
+        },
+		{
+            "type": "image_picker",
+            "id": "image_main",
+            "label": "Image"
+        },
+		{
+            "type": "text",
+            "id": "main_heading",
+            "label": "Heading"
+        },
+		{
+            "type": "textarea",
+            "id": "main_img_content",
+            "label": "Content"
+        },
+		{
+            "type": "header",
+            "content": "In case you’re already convinced."
+        },
+		{
+            "type": "text",
+            "id": "case_rtitle",
+            "label": "Heading"
+        },
+		{
+            "type": "text",
+            "id": "button_label_1",
+            "label": "Button Label"
+        },
+		{
+            "type": "url",
+            "id": "button_link_1",
+            "label": "Button Url"
+        },
+		{
+            "type": "text",
+            "id": "button_label_2",
+            "label": "Button Label"
+        },
+		{
+            "type": "url",
+            "id": "button_link_2",
+            "label": "Button Url"
+        },
+		{
+            "type": "header",
+            "content": "We design our belts"
+        },
+		{
+            "type": "text",
+            "id": "design_title",
+            "label": "Title"
+        },
+		{
+            "type": "text",
+            "id": "button_label",
+            "label": "Button Label"
+        },
+		{
+            "type": "url",
+            "id": "button_link",
+            "label": "Button Url"
+        }
+	],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+              "type": "text",
+              "id": "title",
+              "label": "Heading"
+          },
+          {
+            "type": "textarea",
+            "id": "content",
+            "label": "Content"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

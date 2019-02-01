@@ -1,0 +1,36 @@
+{% unless settings.featured_links == blank %}
+<div class="featured_links clearfix">
+  <div class="container">
+    <div class="span6">
+      <a href="{{ settings.feature1_link }}">
+        <div class="image_container">
+          {% if settings.feature1_type == 'mp4' %}
+            {{ settings.feature1_video_embed }}
+          {% elsif settings.feature1_type == 'gif' %}
+            <img src="{{ 'feature1.gif' | asset_url }}" alt="{{ settings.feature1_text | escape }}" />
+          {% else %}
+            <img src="{{ 'feature1.jpg' | asset_url }}" alt="{{ settings.feature1_text | escape }}" />
+          {% endif %}
+        </div>
+        {% unless settings.feature1_heading == blank %}<h3 class="feature-heading">{{ settings.feature1_heading }}</h3>{% endunless %}
+        {% unless settings.feature1_text == blank %}<div class="feature-text">{{ settings.feature1_text }}</div>{% endunless %}
+      </a>
+    </div>
+    <div class="span6">
+      <a href="{{ settings.feature2_link }}">
+        <div class="image_container">
+          {% if settings.feature2_type == 'mp4' %}
+            {{ settings.feature2_video_embed }}
+          {% elsif settings.feature2_type == 'gif' %}
+            <img src="{{ 'feature2.gif' | asset_url }}" alt="{{ settings.feature2_text | escape }}" />
+          {% else %}
+            <img src="{{ 'feature2.jpg' | asset_url }}" alt="{{ settings.feature2_text | escape }}" />
+          {% endif %}
+        </div>
+        {% unless settings.feature2_heading == blank %}<h3 class="feature-heading">{{ settings.feature2_heading }}</h3>{% endunless %}
+        {% unless settings.feature2_text == blank %}<div class="feature-text">{{ settings.feature2_text }}</div>{% endunless %}
+      </a>
+    </div>
+  </div>
+</div>
+{% endunless %}

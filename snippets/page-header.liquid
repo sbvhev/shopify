@@ -1,0 +1,455 @@
+<div id="nav" class="cbp-spmenu cbp-spmenu-left">
+  
+  <ul>
+    {% for link in linklists['landing'].links %}
+      {% if linklists[link.handle] == empty %}
+        <li class="{% if link.active %}Selected {% endif %}{% if link.title contains 'OFF' or link.title contains 'sale' %}sale{% endif %}"><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+      {% else %}
+        <li class="{% if link.active %}Selected {% endif %}{% if link.title contains 'OFF' or link.title contains 'sale' %}sale{% endif %}"><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+          <ul class="sub-menu">
+            {% for link in linklists[link.handle].links %}
+              {% if linklists[link.handle] == empty %}
+                <li {% if link.active %}class="Selected"{% endif %}><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+              {% else %}
+              <li {% if link.active %}class="Selected"{% endif %}><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a> 
+                <ul class="sub-menu">
+                  {% for link in linklists[link.handle].links %}                        
+                    <li {% if link.active %}class="Selected"{% endif %}><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+      {% endif %}
+    {% endfor %}
+    
+
+  </ul>
+</div> 
+<div id="cart" class="cbp-spmenu cbp-spmenu-right">
+  <ul>
+    <li class="continue-item"><a class="continue" href="#cart">Continue Shopping</a></li>
+
+    {% if cart.item_count == 0 %}
+      <li class="Label">Your Cart is Empty</li>
+    {% else %}
+      {% for item in cart.items %}
+        <li class="cart_item">
+          <a href="{{ item.product.url }}">
+            {% assign found = false %}
+            {% for img in item.product.images %}
+              {% if found == false and item.variant.title contains img.alt %}
+                <div class="cart_image">
+                  <img src="{{ img | product_img_url: 'medium' }}" alt="{{ item.product.title | escape }}" />
+                </div>
+                {% assign found = true %}
+               {% endif %}
+            {% endfor %}
+            {% if found == false %}
+              <div class="cart_image">
+                <img src="{{ item.product.featured_image | product_img_url: 'medium' }}" alt="{{ item.product.title | escape }}" />
+              </div>
+            {% endif %} 
+
+            <div><strong>{{ item.quantity }} x</strong> {{ item.title }}</div>
+            <strong class="price">{{ item.price | money }}</strong>
+          </a>
+        </li>
+      {% endfor %}
+      <li class="subtotal-item">
+        <a href="/cart">
+          <span class="subtotal">Subtotal</span> <span class="counter">{{ cart.total_price | money_with_currency }}</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/checkout" class="action_button right">Checkout</a>
+        <a href="/cart" class="action_button edit_cart left">Edit Cart</a>
+      </li>
+    {% endif %}
+  </ul>
+</div>
+<div class="page-container">
+<header>
+  <div class="logo">
+    <a href="{{ shop.url }}" title="{{ shop.name }}">
+      {% if settings.use_logo %}
+      <img style=width: 192px; height: 20px src="https://cdn.shopify.com/s/files/1/0260/1447/files/logo_blue.png?14487650779884415205"/>
+      {% else %}
+      {{ shop.name }}
+      {% endif %}
+    </a>
+  </div>
+  <a href="#nav" class="icon-menu menu-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </a>
+  <ul class="menu">
+    {% for link in linklists['landing'].links %}
+    {% if linklists[link.handle] == empty %}
+    <li><a href="{{ link.url }}" title="{{ link.title }}" class="top-link {% if link.active %}active{% endif %} {% if link.title contains 'OFF' or link.title contains 'sale' %}sale{% endif %}">{{ link.title }}</a></li>
+    {% else %}
+
+    {% comment %}
+    Find out how many sub-links there are total in order to determine if the drop down should be split.
+    {% endcomment %}
+    {% assign count = 0 %}
+    {% for link in linklists[link.handle].links %}
+    {% capture count %}{{ count }}*{% endcapture %}
+    {% if linklists[link.handle] != empty %}
+    {% for link in linklists[link.handle].links %}
+    {% capture count %}{{ count }}*{% endcapture %}
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+    {% assign half_count = count | divided_by: 2 %}
+    {% assign column_threshold = 10 %}
+
+    <li class="{% if count.size > 0 %} site--hasDropdown {% endif %}"><a href="{{ link.url }}" title="{{ link.title }}" class="sub-menu {% if link.active %}active{% endif %} {% for link in linklists[link.handle].links %}{% for l in linklists[link.handle].links %} {% if l.active %}active{% endif %}{% endfor %}{% if link.active %}active{% endif %}{% endfor %}">{{ link.title }}                     
+      <span class="arrow">▾</span></a> 
+      <div class="dropdown {% if count.size > column_threshold %}dropdown-wide{% endif %}">
+        <ul>
+          {% assign count = 0 %}
+          {% assign split = false %}
+          {% for link in linklists[link.handle].links %}
+          {% capture count %}{{ count }}*{% endcapture %}
+          <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+          {% if linklists[link.handle] != empty %}
+          {% for link in linklists[link.handle].links %}
+          {% capture count %}{{ count }}*{% endcapture %}
+          <li>
+            <a class="sub-link" href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+          </li>
+          {% endfor %}
+          {% endif %}
+
+          {% if count.size > column_threshold and count.size >= half_count and split == false %}
+          {% assign split = true %}
+        </ul>
+        <ul>
+          {% endif %}
+          {% endfor %}
+
+        </ul>
+      </div>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+  <div class="cart_header">
+    {% if settings.banner_enabled and settings.banner_text != blank %}
+    <div class="tagLine">
+      <a href="{{ settings.banner_top_link }}">{{ settings.banner_text }}</a>
+    </div>
+    {% endif %}
+
+    <div class="cartIcon">
+      <a href="/cart" class="cart-button"><img src="https://cdn.shopify.com/s/files/1/0260/1447/files/cartIcon_blue.png?14487650779884415205"></a>
+    </div>
+  </div>
+
+</header>
+
+{% comment %}
+<div id="nav" class="cbp-spmenu cbp-spmenu-left">
+  {% if settings.search_enabled %}
+  <div class="mobile-search">
+    <form action="/search">
+      {% if settings.search_option != 'everything' %}
+        <input type="hidden" name="type" value="product" />
+      {% endif %}
+      <input type="text" name="q" placeholder="SEARCH" value="{% if search and search.results.first.price %}{{ search.terms }}{% endif %}" autocomplete="off" />
+    </form>
+  </div>
+  {% endif %}
+  <ul>
+    {% for link in linklists['main-menu-l'].links %}
+      {% if linklists[link.handle] == empty %}
+        <li class="{% if link.active %}Selected {% endif %}{% if link.title contains 'OFF' or link.title contains 'sale' %}sale{% endif %}"><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+      {% else %}
+        <li class="{% if link.active %}Selected {% endif %}{% if link.title contains 'OFF' or link.title contains 'sale' %}sale{% endif %}"><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+          <ul class="sub-menu">
+            {% for link in linklists[link.handle].links %}
+              {% if linklists[link.handle] == empty %}
+                <li {% if link.active %}class="Selected"{% endif %}><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+              {% else %}
+              <li {% if link.active %}class="Selected"{% endif %}><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a> 
+                <ul class="sub-menu">
+                  {% for link in linklists[link.handle].links %}                        
+                    <li {% if link.active %}class="Selected"{% endif %}><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+      {% endif %}
+    {% endfor %}
+    {% for link in linklists['main-menu-r'].links %}
+      {% if linklists[link.handle] == empty %}
+        <li class="{% if link.active %}Selected {% endif %}{% if link.title contains 'OFF' or link.title contains 'sale' %}sale{% endif %}"><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+      {% else %}
+        <li class="{% if link.active %}Selected {% endif %}{% if link.title contains 'OFF' or link.title contains 'sale' %}sale{% endif %}"><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+          <ul class="sub-menu">
+            {% for link in linklists[link.handle].links %}
+              {% if linklists[link.handle] == empty %}
+                <li {% if link.active %}class="Selected"{% endif %}><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+              {% else %}
+              <li {% if link.active %}class="Selected"{% endif %}><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a> 
+                <ul class="sub-menu">
+                  {% for link in linklists[link.handle].links %}                        
+                    <li {% if link.active %}class="Selected"{% endif %}><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+      {% endif %}
+    {% endfor %}
+
+      {% if shop.customer_accounts_enabled %}
+        <li>
+          <a href="/account" title="My Account {% if customer %}({{ customer.email }}){% endif %}">My Account</a>
+        </li>
+        {% if customer %}
+          <li>
+            {{ "Logout" | customer_logout_link }}
+          </li>
+        {% endif %}
+      {% endif %}
+  </ul>
+</div> 
+
+<div id="cart" class="cbp-spmenu cbp-spmenu-right">
+  <ul>
+    <li class="continue-item"><a class="continue" href="#cart">Continue Shopping</a></li>
+
+    {% if cart.item_count == 0 %}
+      <li class="Label">Your Cart is Empty</li>
+    {% else %}
+      {% for item in cart.items %}
+        <li class="cart_item">
+          <a href="{{ item.product.url }}">
+            {% assign found = false %}
+            {% for img in item.product.images %}
+              {% if found == false and item.variant.title contains img.alt %}
+                <div class="cart_image">
+                  <img src="{{ img | product_img_url: 'medium' }}" alt="{{ item.product.title | escape }}" />
+                </div>
+                {% assign found = true %}
+               {% endif %}
+            {% endfor %}
+            {% if found == false %}
+              <div class="cart_image">
+                <img src="{{ item.product.featured_image | product_img_url: 'medium' }}" alt="{{ item.product.title | escape }}" />
+              </div>
+            {% endif %} 
+
+            <div><strong>{{ item.quantity }} x</strong> {{ item.title }}</div>
+            <strong class="price">{{ item.price | money }}</strong>
+          </a>
+        </li>
+      {% endfor %}
+      <li class="subtotal-item">
+        <a href="/cart">
+          <span class="subtotal">Subtotal</span> <span class="counter">{{ cart.total_price | money_with_currency }}</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/checkout" class="action_button right">Checkout</a>
+        <a href="/cart" class="action_button edit_cart left">Edit Cart</a>
+      </li>
+    {% endif %}
+  </ul>
+</div>
+
+<div class="page-container">
+<div class="header cbp-spmenu-push">
+
+  <div class="top-header nav">
+    <div class="container">
+      <ul class="menu menu-left">
+        {% if settings.search_enabled %}
+          <li>
+            <a href="/search" title="Search" class="icon-search" id="search-toggle"></a>
+          </li>
+        {% endif %}
+      </ul>
+      
+      {% if settings.banner_enabled and settings.banner_text != blank %}
+      <ul class="banner">
+        <li><a href="{{ settings.banner_top_link }}">{{ settings.banner_text }}</a></li>
+      </ul>
+      {% endif %}
+
+      <ul class="menu menu-right mobile_hidden">
+      {% comment %}
+      {% if shop.customer_accounts_enabled %}
+        <li>
+          <a href="/account" title="My Account {% if customer %}({{ customer.email }}){% endif %}" class="icon-user"></a>
+        </li>
+      {% endif %}
+      {% endcomment %}
+
+      {% if settings.show_multiple_currencies %}
+        <li>
+          {% include 'currencies-switcher' %}
+        </li>
+      {% endif %}
+
+        <li>
+          <a href="/cart" class="cart-button">Cart<div class="cart_count{% if cart.item_count == 0 %} cart-empty{% endif %}">{{ cart.item_count }}</div></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+    
+  <div class="container">
+    <div id="main-nav" class="nav mobile_hidden">
+      <ul class="menu menu-left">
+        {% for link in linklists['main-menu-l'].links %}
+          {% if linklists[link.handle] == empty %}
+            <li><a href="{{ link.url }}" title="{{ link.title }}" class="top-link {% if link.active %}active{% endif %} {% if link.title contains 'OFF' or link.title contains 'sale' %}sale{% endif %}">{{ link.title }}</a></li>
+          {% else %}
+
+            {% comment %}
+              Find out how many sub-links there are total in order to determine if the drop down should be split.
+            {% endcomment %}
+            {% assign count = 0 %}
+            {% for link in linklists[link.handle].links %}
+              {% capture count %}{{ count }}*{% endcapture %}
+              {% if linklists[link.handle] != empty %}
+                {% for link in linklists[link.handle].links %}
+                  {% capture count %}{{ count }}*{% endcapture %}
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+            {% assign half_count = count | divided_by: 2 %}
+            {% assign column_threshold = 10 %}
+
+            <li><a href="{{ link.url }}" title="{{ link.title }}" class="sub-menu {% if link.active %}active{% endif %} {% for link in linklists[link.handle].links %}{% for l in linklists[link.handle].links %} {% if l.active %}active{% endif %}{% endfor %}{% if link.active %}active{% endif %}{% endfor %}">{{ link.title }}                     
+              <span class="arrow">▾</span></a> 
+              <div class="dropdown {% if count.size > column_threshold %}dropdown-wide{% endif %}">
+                <ul>
+                  {% assign count = 0 %}
+                  {% assign split = false %}
+                  {% for link in linklists[link.handle].links %}
+                    {% capture count %}{{ count }}*{% endcapture %}
+                    <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+                    {% if linklists[link.handle] != empty %}
+                      {% for link in linklists[link.handle].links %}
+                        {% capture count %}{{ count }}*{% endcapture %}
+                        <li>
+                          <a class="sub-link" href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+                        </li>
+                      {% endfor %}
+                    {% endif %}
+
+                    {% if count.size > column_threshold and count.size >= half_count and split == false %}
+                      {% assign split = true %}
+                      </ul>
+                      <ul>
+                    {% endif %}
+                  {% endfor %}
+                
+                </ul>
+              </div>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+                
+      <div class="logo">
+        <a href="{{ shop.url }}" title="{{ shop.name }}">
+          {% if settings.use_logo %}
+            <img style=width: 192px; height: 20px src="https://cdn.shopify.com/s/files/1/0260/1447/files/logo_blue.png?14487650779884415205" />
+          {% else %}
+            {{ shop.name }}
+          {% endif %}
+        </a>
+      </div>
+      
+      <ul class="menu menu-right">
+        {% for link in linklists['main-menu-r'].links %}
+        {% if linklists[link.handle] == empty %}
+          <li><a href="{{ link.url }}" title="{{ link.title }}" class="top-link {% if link.active %}active{% endif %}">{{ link.title }}</a></li>
+        {% else %}
+
+          {% comment %}
+            Find out how many sub-links there are total in order to determine if the drop down should be split.
+          {% endcomment %}
+          {% assign count = 0 %}
+          {% for link in linklists[link.handle].links %}
+            {% capture count %}{{ count }}*{% endcapture %}
+            {% if linklists[link.handle] != empty %}
+              {% for link in linklists[link.handle].links %}
+                {% capture count %}{{ count }}*{% endcapture %}
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+          {% assign half_count = count | divided_by: 2 %}
+          {% assign column_threshold = 10 %}
+
+          <li><a href="{{ link.url }}" title="{{ link.title }}" class="sub-menu {% if link.active %}active{% endif %} {% for link in linklists[link.handle].links %}{% for l in linklists[link.handle].links %} {% if l.active %}active{% endif %}{% endfor %}{% if link.active %}active{% endif %}{% endfor %}">{{ link.title }}                     
+            <span class="arrow">▾</span></a> 
+            <div class="dropdown {% if count.size > column_threshold %}dropdown-wide{% endif %}">
+              <ul>
+                {% assign count = 0 %}
+                {% assign split = false %}
+                {% for link in linklists[link.handle].links %}
+                  {% capture count %}{{ count }}*{% endcapture %}
+                  <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+                  {% if linklists[link.handle] != empty %}
+                    {% for link in linklists[link.handle].links %}
+                      {% capture count %}{{ count }}*{% endcapture %}
+                      <li>
+                        <a class="sub-link" href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+                      </li>
+                    {% endfor %}
+                  {% endif %}
+
+                  {% if count.size > column_threshold and count.size >= half_count and split == false %}
+                    {% assign split = true %}
+                    </ul>
+                    <ul>
+                  {% endif %}
+                {% endfor %}
+
+              </ul>
+            </div>
+          </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+      
+    </div>
+  </div>
+  {% if settings.search_enabled %}
+  {% include 'search-form-modal' %}
+  {% endif %}
+</div>
+<div id="header">
+    <div class="logo">
+      <a href="{{ shop.url }}" title="{{ shop.name }}">
+        <img style=width: 192px; height: 20px src="https://cdn.shopify.com/s/files/1/0260/1447/files/logo_blue.png?14487650779884415205" />
+      </a>
+    </div>
+    <a href="#nav" class="icon-menu menu-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+    <a href="/cart" class="cart-summury right">
+      <img src="{{ 'cart-icon.svg' | asset_url }}" >
+      <div class="cart_count">{{ cart.item_count }}</div>
+    </a>
+  </div>
+
+{% endcomment %}

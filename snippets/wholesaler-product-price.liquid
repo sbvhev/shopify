@@ -1,0 +1,16 @@
+{% if wholesaler-product-price %}
+  {% assign this_product = wholesaler-product-price %}
+{% elsif product %}
+  {% assign this_product = product %}
+{% else %}
+  {% assign this_product = item %}
+{% endif %}
+
+{% assign customer_level = customer.metafields.Wholesaler.level | default: "0" %}
+{% assign min_price = 9999999999999999999999999 %}
+{% for variant in this_product.variants %}
+  {% assign varLevel =  variant.metafields.Wholesaler.level | default: "0" | slice: 0,1 %}
+  {% if varLevel <= customer_level and variant.price < min_price  %}
+    {% assign min_price = variant.price %}
+  {% endif %}
+{% endfor %}

@@ -1,0 +1,125 @@
+
+
+
+{% if template != 'collection.all-collections' and template != 'collection.sale' %}
+
+  {% assign product_found = false %}
+  {% assign skip = false %}
+
+  {% capture new_row %}
+      <br class="clear product_clear" />
+  {% endcapture %}
+  {% for product in products limit: limit %}
+
+    {% if product.id == skip_product.id or skip == true %}
+      {% assign product_found = true %}
+    {% else %}
+      {% if forloop.rindex0 == 0 and product_found == false and forloop.length != products.count and template != 'search' %}
+        {% assign skip = true %}
+      {% else %}
+
+        {% include 'product-thumbnail' with product-loop %}
+
+        {% cycle {{collection_title}}:'', '', '', '', new_row %}
+
+      {% endif %}    
+    {% endif %}
+
+  {% endfor %}
+
+{% else %}
+	
+	{% assign product_found = false %}
+    {% assign skip = false %}
+
+	{% for tag in current_tags limit:1 %}
+		{% assign current_tag = tag %}
+	{% endfor %}
+	
+	{% if current_tag != blank %}
+
+        {% capture new_row %}
+            <br class="clear product_clear" />
+        {% endcapture %}
+        {% assign product_count = false %}
+        {% for product in products limit: limit %}
+        {% assign tag_found = false %}
+            {% for tag in product.tags %}
+                {% if tag == current_tag %}
+                {% assign tag_found = true %}
+                {% endif %}
+            {% endfor %}	
+        {% if tag_found %}
+                    {% assign product_count = true %}
+                    {% if product.id == skip_product.id or skip == true %}
+                      {% assign product_found = true %}
+                    {% else %}
+                      {% if forloop.rindex0 == 0 and product_found == false and forloop.length != products.count and template != 'search' %}
+                        {% assign skip = true %}
+                      {% else %}
+
+                        {% include 'product-thumbnail' with product-loop %}
+
+                        {% cycle {{collection_title}}:'', '', '', '', new_row %}
+
+                      {% endif %}    
+                    {% endif %}
+        {% endif %}
+        {% endfor %}
+        {% if product_count == false %}
+            <p>No products available.</p>
+        {% endif %}
+	{% else %}
+
+		{% capture new_row %}
+              <br class="clear product_clear" />
+          {% endcapture %}
+			 {% assign countProd = 0 %}
+          {% for product in products limit: limit %}
+			{% assign countP = 0 %}
+            {% if product.id == skip_product.id or skip == true %}
+              {% assign product_found = true %}
+            {% else %}
+              {% if forloop.rindex0 == 0 and product_found == false and forloop.length != products.count and template != 'search' %}
+                {% assign skip = true %}
+              {% else %}
+
+                {% include 'product-thumbnail' with product-loop %}
+
+                {% comment %}{% cycle {{collection_title}}:'', '', '', '', new_row %}{% endcomment %}
+
+
+				
+				{% if products.count == 5 or products.count >= 9 %}                    
+                   {% assign countProd = countProd | plus:1 %}                    
+                    {% if products.count >= 11 and products.count < 14 %}          
+                      {% if countProd == 5 %} 
+                        <br class="clear product_clear" />   
+                      {% elsif countProd == 9 %}
+                        <br class="clear product_clear" />
+                      {% endif %}
+                    {% else %}
+                      
+                        {% cycle {{collection_title}}:'', '', '', '', new_row %}
+                      
+                      
+                    {% endif %}
+                
+
+                {% elsif products.count >= 6 and products.count <= 8  %}        
+                    {% cycle {{collection_title}}:'', '', '', new_row %}
+                
+                {% else %}    
+                    {% cycle {{collection_title}}:'', '', '', '', new_row %}
+                {% endif %}  
+
+					
+
+              {% endif %}    
+            {% endif %}
+
+          {% endfor %}
+
+
+	{% endif %}
+{% endif %}
