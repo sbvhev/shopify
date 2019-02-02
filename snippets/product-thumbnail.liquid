@@ -17,14 +17,26 @@
     <a href="{{ product.url | within: collection }}">
     {% endif %}
     <div class="relative">
-      <section class="product_images_slider">
-      {% for image in product.images %}
-       	<div>
-          <img {% if settings.align_height %}style="max-height:{{ settings.collection_height }}px"{% endif %} src="{{ image | img_url: 'medium' }}" srcset="{{ image | img_url: 'large' }} 2x" alt="{{ image.alt | escape }}" />
+      <section class="product_image_slider carousel slide">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          {% for image in product.images %}
+            <div class="item">
+               <img {% if settings.align_height %}style="max-height:{{ settings.collection_height }}px"{% endif %} src="{{ image | img_url: '248x248' }}" srcset="{{ image | img_url: '350x350' }} 2x" alt="{{ image.alt | escape }}" />
+            </div>
+          {% endfor %}
         </div>
-   	  {% endfor %}
+        <!-- Left and right controls -->
+        <a class="left carousel-control" role="button">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" role="button">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </section>
-      
+    
       <div class="product-desc">
         <p>{{ product.title }}</p>
         {% for option in product.options %}

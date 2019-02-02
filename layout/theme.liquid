@@ -49,9 +49,10 @@
 
   <!-- Styles -->
   {% comment %}{{ '//opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css' | stylesheet_tag }}{% endcomment %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     {{ 'font-awesome.min.css' | asset_url | stylesheet_tag }}
     {{ 'jquery.fullPage.css' | asset_url | stylesheet_tag }}
-    
     {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
     {{ 'slick.css' | asset_url | stylesheet_tag }}
     {{ 'slick-theme.css' | asset_url | stylesheet_tag }}
@@ -66,6 +67,7 @@
     {% endcomment %}
 
     {{ 'jquery.min.js' | asset_url | script_tag }}
+    {{ 'bootstrap.min.js' | asset_url | script_tag }}
     {{ '3401110080.js' | asset_url | script_tag }}  
     {{ 'jquery.blockUI.js' | asset_url | script_tag }}
     {{ 'tytabs.jquery.min.js' | asset_url | script_tag }}
@@ -218,7 +220,9 @@ window.__lc.chat_between_groups = false;
         $('#fullpage').fullpage({
           navigation: true
         });
-        
+        $(".carousel").each(function(index) {
+          $(this).find(".carousel-inner").find("div").first().addClass("active");
+        });
       });
       jQuery('html').bind('mousewheel DOMMouseScroll', function (e,delta) {
         var delta = (e.originalEvent.wheelDelta || -e.originalEvent.detail);
@@ -237,7 +241,21 @@ window.__lc.chat_between_groups = false;
     </script>
     
     <script>
-    $(".product_images_slider").slick({
+      $(".product_image_slider").carousel();
+      $(".left").each(function(index) {
+        $(this).click(function(){
+          $(this).closest(".carousel").carousel("prev");
+        });
+      });
+
+      $(".right").each(function(index) {
+        $(this).click(function(){
+          $(this).closest(".carousel").carousel("next");
+        });
+      });
+
+
+        /*$(".product_images_slider").slick({
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows:true
@@ -245,7 +263,7 @@ window.__lc.chat_between_groups = false;
       $('.product_images_slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
         var currentElem = $(this).parents('.collection-loop-item').siblings('.collection-loop-item').find('.product_images_slider');
         currentElem.slick('slickGoTo', 0);
-      });
+      });*/
 //     $('#collections-menu #sizeFilter #tag_filter li').on('click',function(){
 //       var currentTags = [];
 //       var tagName =  $(this).text();
